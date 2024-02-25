@@ -1,0 +1,20 @@
+.title {
+    position: absolute;
+    z-index: 2;
+    top: 10rem;
+    left: 15vw;
+    width: calc(100vw - 15vw);
+    mix-blend-mode: color-burn;
+}
+
+.titleBlend {
+    position: absolute;
+    z-index: 0;
+}
+
+@media screen and (max-width: 1199px) {
+    .title {
+        left: 5vw;
+        width: calc(100vw - 5vw);
+    }
+}

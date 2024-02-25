@@ -1,0 +1,47 @@
+.contents {
+    padding: 0 0 0 15vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.description {
+    padding: 0 0 10rem 0;
+}
+
+.p {
+    padding: 0 0 3.12rem 0;
+    width: 30rem;
+}
+
+@media screen and (max-width: 1199px) {
+    .contents {
+        padding: 0 0 0 5vw;
+    }
+
+    .description {
+        padding: 0 0 13rem 0;
+    }
+
+    .p {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .contents {
+        grid-template-columns: 100% 0%;
+        padding: 0 5vw;
+    }
+
+    .description {
+        padding: 20rem 0 0 0;
+    }
+
+    .heroImage {
+        display: none;
+    }
+}
