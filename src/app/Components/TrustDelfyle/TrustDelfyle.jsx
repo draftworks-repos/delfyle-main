@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./TrustDelfyle.module.css"; // Import the CSS module
+import Button from "../Button/Button"; // Import the Button component
 
 // Use the local paths for the images
 const containerImageUrls = [
@@ -111,165 +112,152 @@ const TrustDelfyle = () => {
   }, [activeIdx, displayedIdx]);
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.leftColumn}>
-        <div
-          ref={container1ExitRef}
-          style={{ height: "1px", marginBottom: "200px" }}
-        />
-        <div ref={container1Ref} className={styles.innerContainerParent}>
-          <div className={styles.innerContainer}>
-            <section className={styles.contentSection}>
-              <div className={styles.headerSection}>
-                <img
-                  alt="Abstract colorful Solutions icon"
-                  className={styles.icon}
-                  src="/icon/trustDelfyle1.png"
-                />
-                <span className={styles.headerText}>Solutions</span>
-              </div>
-              <h1 className={styles.title}>End-to-End Services</h1>
-              <p className={styles.description}>
-                From company setup to compliance.
-              </p>
-              <button className={styles.ctaButton}>
-                <span>Something</span>
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </section>
+    <section className={styles.sectionWrapper}>
+      <div className={styles.mainContainer}>
+        <div className={styles.leftColumn}>
+          <div
+            ref={container1ExitRef}
+            style={{ height: "1px", marginBottom: "200px" }}
+          />
+          <div ref={container1Ref} className={styles.innerContainerParent}>
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Solutions icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle1.png"
+                  />
+                  <span className={styles.headerText}>Solutions</span>
+                </div>
+                <h1 className={styles.title}>End-to-End Services</h1>
+                <p className={styles.description}>
+                  From company setup to compliance.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={container2Ref}
-          className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderYellow}`}
-        >
-          <div className={styles.innerContainer}>
-            <section className={styles.contentSection}>
-              <div className={styles.headerSection}>
-                <img
-                  alt="Abstract colorful Expertise icon"
-                  className={styles.icon}
-                  src="/icon/trustDelfyle2.png"
-                />
-                <span className={styles.headerText}>Expertise</span>
-              </div>
-              <h1 className={styles.title}>Expert Team</h1>
-              <p className={styles.description}>
-                Chartered Accountants, CS, Lawyers and Legal Experts.
-              </p>
-              <button className={styles.ctaButton}>
-                <span>Something</span>
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </section>
+          <div
+            ref={container2Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderYellow}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Expertise icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle2.png"
+                  />
+                  <span className={styles.headerText}>Expertise</span>
+                </div>
+                <h1 className={styles.title}>Expert Team</h1>
+                <p className={styles.description}>
+                  Chartered Accountants, CS, Lawyers and Legal Experts.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={container3Ref}
-          className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderLime}`}
-        >
-          <div className={styles.innerContainer}>
-            <section className={styles.contentSection}>
-              <div className={styles.headerSection}>
-                <img
-                  alt="Abstract colorful Coverage icon"
-                  className={styles.icon}
-                  src="/icon/trustDelfyle3.png"
-                />
-                <span className={styles.headerText}>Coverage</span>
-              </div>
-              <h1 className={styles.title}>Pan-India Presence</h1>
-              <p className={styles.description}>
-                Remote and city-based operations.
-              </p>
-              <button className={styles.ctaButton}>
-                <span>Something</span>
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </section>
+          <div
+            ref={container3Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderLime}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Coverage icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle3.png"
+                  />
+                  <span className={styles.headerText}>Coverage</span>
+                </div>
+                <h1 className={styles.title}>Pan-India Presence</h1>
+                <p className={styles.description}>
+                  Remote and city-based operations.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={container4Ref}
-          className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderCyan}`}
-        >
-          <div className={styles.innerContainer}>
-            <section className={styles.contentSection}>
-              <div className={styles.headerSection}>
-                <img
-                  alt="Abstract colorful Protection icon"
-                  className={styles.icon}
-                  src="/icon/trustDelfyle4.png"
-                />
-                <span className={styles.headerText}>Protection</span>
-              </div>
-              <h1 className={styles.title}>Secure & Confidential</h1>
-              <p className={styles.description}>
-                Fully compliant with data protection norms.
-              </p>
-              <button className={styles.ctaButton}>
-                <span>Something</span>
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </section>
+          <div
+            ref={container4Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderCyan}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Protection icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle4.png"
+                  />
+                  <span className={styles.headerText}>Protection</span>
+                </div>
+                <h1 className={styles.title}>Secure & Confidential</h1>
+                <p className={styles.description}>
+                  Fully compliant with data protection norms.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={container5Ref}
-          className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
-        >
-          <div className={styles.innerContainer}>
-            <section className={styles.contentSection}>
-              <div className={styles.headerSection}>
-                <img
-                  alt="Abstract colorful Innovation icon"
-                  className={styles.icon}
-                  src="/icon/trustDelfyle5.png"
-                />
-                <span className={styles.headerText}>Innovation</span>
-              </div>
-              <h1 className={styles.title}>Tech-Enabled Process</h1>
-              <p className={styles.description}>
-                Seamless, paperless workflows.
-              </p>
-              <button className={styles.ctaButton}>
-                <span>Something</span>
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </section>
+          <div
+            ref={container5Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Innovation icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle5.png"
+                  />
+                  <span className={styles.headerText}>Innovation</span>
+                </div>
+                <h1 className={styles.title}>Tech-Enabled Process</h1>
+                <p className={styles.description}>
+                  Seamless, paperless workflows.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={container5ExitRef}
-          style={{ height: "1px", marginTop: "200px" }}
-        />
-      </div>
-
-      <div className={styles.rightColumn}>
-        <div
-          className={`${styles.lottieContainer} ${
-            isVisible ? styles.visible : ""
-          }`}
-        >
-          <img
-            src={containerImageUrls[displayedIdx]}
-            alt={`Trust Delfyle Image ${displayedIdx + 1}`}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: fade ? 1 : 0,
-              transition: "opacity 0.5s ease-in-out",
-            }}
+          <div
+            ref={container5ExitRef}
+            style={{ height: "1px", marginTop: "200px" }}
           />
         </div>
+
+        <div className={styles.rightColumn}>
+          <div
+            className={`${styles.lottieContainer} ${
+              isVisible ? styles.visible : ""
+            }`}
+          >
+            <img
+              src={containerImageUrls[displayedIdx]}
+              alt={`Trust Delfyle Image ${displayedIdx + 1}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: fade ? 1 : 0,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

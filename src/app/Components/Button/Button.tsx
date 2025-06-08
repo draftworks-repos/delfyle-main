@@ -13,11 +13,10 @@ interface ButtonProps {
     | "whatWeDoButton"
     | "smallBlackButtonWithBackground"
     | "smallWhatWeDoButton";
-  id?: string;
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, type, id = "btn", onClick }) => {
+const Button: React.FC<ButtonProps> = ({ text, type, onClick }) => {
   let buttonStyle = "";
 
   switch (type) {
@@ -45,7 +44,7 @@ const Button: React.FC<ButtonProps> = ({ text, type, id = "btn", onClick }) => {
   }
 
   return (
-    <button className={buttonStyle} id={id} onClick={onClick}>
+    <button className={buttonStyle} onClick={onClick}>
       {text}
       <Image alt="arrow" className={styles.arrow} src={Arrow} />
     </button>
