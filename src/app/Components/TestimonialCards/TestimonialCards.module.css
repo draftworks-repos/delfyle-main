@@ -1,0 +1,307 @@
+.testimonialSection {
+  padding: 6rem 0;
+  overflow: hidden;
+  position: relative;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.headingWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(107, 0, 62, 1);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-family: "Inter", sans-serif;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transform: translateX(0);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  border-radius: 1.5px;
+  width: 0px;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.navButton {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(107, 0, 62, 0.2);
+}
+
+.navButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(107, 0, 62, 0.3);
+}
+
+.navButton svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.carouselWrapper {
+  overflow: visible;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: nowrap;
+  padding: 1rem 0;
+}
+
+.card {
+  flex-shrink: 0;
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: visible;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-origin: center center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+}
+
+.quoteIcon {
+  font-size: 6rem;
+  color: #eff6ff;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  font-weight: 900;
+  z-index: 0;
+}
+
+.quote {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #475569;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+}
+
+.rating {
+  display: flex;
+  gap: 0.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.starFilled {
+  color: #ffc107;
+  font-size: 1.25rem;
+}
+
+.starEmpty {
+  color: #e0e0e0;
+  font-size: 1.25rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.imageContainer {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profileImage {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.paginationDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.activeDot {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.7) 0%,
+    rgba(180, 0, 104, 0.7) 100%
+  );
+  transform: scale(1.2);
+}
+
+/* Add a wrapper div for the content to handle overflow */
+.cardContent {
+  overflow: hidden;
+  height: 100%;
+  border-radius: 0.5rem; /* Slightly smaller than parent to account for border */
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .cardsContainer {
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonialSection {
+    padding: 3rem 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .navigation {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .carouselWrapper {
+    overflow: hidden;
+  }
+
+  .cardsContainer {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .quoteIcon {
+    font-size: 5rem;
+  }
+
+  .name {
+    font-size: 0.9rem;
+  }
+
+  .role {
+    font-size: 0.75rem;
+  }
+}

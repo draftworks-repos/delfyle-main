@@ -6,6 +6,7 @@ import StickyScroll from "./Components/StickyScroll/StickyScroll";
 import Footer from "./Components/Footer/Footer";
 import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 import TrustDelfyle from "./Components/TrustDelfyle/TrustDelfyle";
+import TestimonialCards from "./Components/TestimonialCards/TestimonialCards";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <WhatWeDo />
         <ContactUs />
         <TrustDelfyle />
+        <TestimonialCards />
         <Testimonial />
         <CompanyLogos />
         {/* <StickyScroll /> */}
