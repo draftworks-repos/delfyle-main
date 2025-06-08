@@ -9,11 +9,15 @@ interface ButtonProps {
     | "whiteButtonWithBackground"
     | "whiteButtonNoBackground"
     | "blackButtonWithBackground"
-    | "blackButtonNoBackground";
+    | "blackButtonNoBackground"
+    | "whatWeDoButton"
+    | "smallBlackButtonWithBackground"
+    | "smallWhatWeDoButton";
   id?: string;
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, type, id = "btn" }) => {
+const Button: React.FC<ButtonProps> = ({ text, type, id = "btn", onClick }) => {
   let buttonStyle = "";
 
   switch (type) {
@@ -29,10 +33,19 @@ const Button: React.FC<ButtonProps> = ({ text, type, id = "btn" }) => {
     case "blackButtonNoBackground":
       buttonStyle = styles.blackButtonNoBackground;
       break;
+    case "whatWeDoButton":
+      buttonStyle = styles.whatWeDoButton;
+      break;
+    case "smallBlackButtonWithBackground":
+      buttonStyle = styles.smallBlackButtonWithBackground;
+      break;
+    case "smallWhatWeDoButton":
+      buttonStyle = styles.smallWhatWeDoButton;
+      break;
   }
 
   return (
-    <button className={buttonStyle} id={id}>
+    <button className={buttonStyle} id={id} onClick={onClick}>
       {text}
       <Image alt="arrow" className={styles.arrow} src={Arrow} />
     </button>

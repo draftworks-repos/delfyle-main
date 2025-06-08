@@ -1,0 +1,293 @@
+.footer {
+  position: relative;
+  color: #4a5568;
+  padding: 4rem 2rem 1rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.footerImageContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 20vw;
+  width: 120vw;
+  height: 120vh;
+  z-index: 1;
+  pointer-events: none;
+  /* transform: rotate(-20deg); */
+}
+
+.footerImage {
+  object-fit: contain;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 2;
+}
+
+.emailSignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.siteLogo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.socialIcon {
+  color: #4a5568;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: #635bff;
+}
+
+.emailInputContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 0.8rem 2.8rem 0.8rem 1rem;
+  background-color: #e2e8f0;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  color: #1a202c;
+  font-size: 0.9rem;
+}
+
+.emailInput::placeholder {
+  color: #718096;
+}
+
+.sendIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4a5568;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sendIcon:hover {
+  color: #635bff;
+}
+
+.footerLinks span {
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #4a5568;
+}
+
+.footerLinks span:hover {
+  color: #635bff;
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.section {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.sectionContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sectionContent li {
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #4a5568;
+}
+
+.sectionContent li:hover {
+  color: #635bff;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  margin-top: 2rem;
+  color: #4a5568;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logoContainer {
+  /* Your logo styling */
+}
+
+.certifiedTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #4a5568;
+}
+
+/* New wrapper for sections and image */
+.mainFooterContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    gap: 2rem;
+  }
+
+  .mainFooterContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sectionsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .sectionRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .section {
+    width: 48%;
+  }
+
+  .footerImageContainer {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .emailSignup {
+    padding: 1.5rem;
+  }
+
+  .siteLogo {
+    font-size: 2rem;
+  }
+
+  .socialIcons {
+    margin-bottom: 1.5rem;
+  }
+
+  .sectionsContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sectionRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .copyright {
+    margin-top: 0.5rem;
+  }
+
+  .footerImageContainer {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .siteLogo {
+    font-size: 1.8rem;
+  }
+}

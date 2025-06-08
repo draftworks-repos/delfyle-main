@@ -1,0 +1,112 @@
+.companyLogosSection {
+  padding: 4rem 0;
+  background-color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(107, 0, 62, 1);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.headingWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 6rem;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  border-radius: 1.5px;
+  width: 0;
+  opacity: 0.8;
+  transition: width 0.3s ease;
+}
+
+.logosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 5rem;
+  padding: 2rem 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.logoItem {
+  flex-shrink: 0;
+  width: 180px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  padding: 0.75rem;
+}
+
+.logoItem:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
+.logoItem img {
+  object-fit: contain;
+  filter: none;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+@media (max-width: 768px) {
+  .logosGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .logoItem {
+    width: 140px;
+    height: 70px;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logosGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .logoItem {
+    width: 120px;
+    height: 60px;
+  }
+}

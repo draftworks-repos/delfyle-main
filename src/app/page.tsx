@@ -2,6 +2,9 @@ import Hero from "./Components/Hero";
 import WhatWeDo from "./Components/WhatWeDo/WhatWeDo";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Testimonial from "./Components/Testimonial/Testimonial";
+import StickyScroll from "./Components/StickyScroll/StickyScroll";
+import Footer from "./Components/Footer/Footer";
+import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 
 export default function Home() {
   return (
@@ -11,6 +14,9 @@ export default function Home() {
         <WhatWeDo />
         <ContactUs />
         <Testimonial />
+        <CompanyLogos />
+        {/* <StickyScroll /> */}
+        <Footer />
       </div>
     </main>
   );

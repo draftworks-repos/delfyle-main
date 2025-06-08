@@ -6,8 +6,11 @@ import {
   useScroll,
   useTransform,
   AnimatePresence,
+  useInView,
 } from "framer-motion";
 import styles from "./WhatWeDo.module.css";
+import "@iconscout/unicons/css/line.css";
+import Button from "../Button/Button";
 
 interface Category {
   title: string;
@@ -35,6 +38,13 @@ const WhatWeDo: React.FC = () => {
     false,
   ]);
   const [showWhatsappModal, setShowWhatsappModal] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState(false);
+
+  // Check if component is in view
+  const isComponentInView = useInView(containerRef, {
+    once: false,
+    amount: 0.3,
+  });
 
   // Main heading progress bar scroll settings
   const { scrollYProgress: headingProgress } = useScroll({
@@ -55,6 +65,12 @@ const WhatWeDo: React.FC = () => {
       offset: ["start end", "center center"],
     })
   );
+
+  useEffect(() => {
+    if (isComponentInView) {
+      setIsInView(true);
+    }
+  }, [isComponentInView]);
 
   useEffect(() => {
     // Update progress CSS variable based on scroll
@@ -78,8 +94,8 @@ const WhatWeDo: React.FC = () => {
     verticalProgress.onChange((value) => {
       setActiveDots((prev) => [
         prev[0], // First dot is controlled by category scroll
-        value >= 0.5, // Second dot appears at 50% vertical progress
-        value >= 0.98, // Third dot appears near 100% vertical progress
+        value >= 0.3, // Second dot appears at 30% vertical progress
+        value >= 0.99, // Third dot appears at 99% vertical progress (adjusted again)
       ]);
     });
 
@@ -104,7 +120,7 @@ const WhatWeDo: React.FC = () => {
     return () => {
       window.removeEventListener("resize", updatePositions);
     };
-  }, []);
+  }, [isInView]);
 
   const lineWidth = useTransform(headingProgress, [0, 1], ["0", "50%"]);
   const verticalHeight = useTransform(verticalProgress, [0, 1], ["0%", "100%"]);
@@ -136,6 +152,7 @@ const WhatWeDo: React.FC = () => {
 
   const handleWhatsappClick = () => {
     setShowWhatsappModal(true);
+    console.log("showWhatsappModal set to true");
   };
 
   const closeWhatsappModal = () => {
@@ -226,17 +243,17 @@ const WhatWeDo: React.FC = () => {
               {/* Progress Dots */}
               <div
                 className={`${styles.progressDot} ${
-                  activeDots[1] ? styles.active : ""
+                  activeDots[1] || isInView ? styles.active : ""
                 }`}
               />
               <div
                 className={`${styles.progressDot} ${
-                  activeDots[2] ? styles.active : ""
+                  activeDots[2] || isInView ? styles.active : ""
                 }`}
               />
               <div
                 className={`${styles.progressDot} ${
-                  activeDots[0] ? styles.active : ""
+                  activeDots[0] || isInView ? styles.active : ""
                 }`}
               />
             </div>
@@ -247,7 +264,7 @@ const WhatWeDo: React.FC = () => {
             className={styles.categoryCardsContainer}
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            animate={isInView ? "visible" : "hidden"}
           >
             {categories.map((category, index) => {
               const { scrollYProgress: cardProgress } = categoryScrolls[index];
@@ -257,8 +274,8 @@ const WhatWeDo: React.FC = () => {
                 ["#ffffff", "#171717"]
               );
 
-              const textOpacity = useTransform(cardProgress, [0.9, 1], [0, 1]); // Fade in from 90% progress
-              const textY = useTransform(cardProgress, [0.9, 1], [20, 0]); // Move up from 20px below
+              const textOpacity = useTransform(cardProgress, [0.9, 1], [0, 1]);
+              const textY = useTransform(cardProgress, [0.9, 1], [20, 0]);
 
               return (
                 <motion.div
@@ -266,9 +283,15 @@ const WhatWeDo: React.FC = () => {
                   ref={categoryRefs[index]}
                   className={styles.categoryCard}
                   variants={cardVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
                 >
-                  <div className={styles.progressBorder} />
-                  <div className={styles.progressBackground} />
+                  <motion.div
+                    className={styles.progressBackground}
+                    style={{
+                      width: cardProgress.get() * 100 + "%",
+                    }}
+                  />
                   <div className={styles.cardContent}>
                     <div className={styles.categoryIcon}>{category.icon}</div>
                     <div className={styles.categoryContent}>
@@ -303,27 +326,12 @@ const WhatWeDo: React.FC = () => {
 
         {/* WhatsApp Button */}
         <div className={styles.buttonContainer}>
-          <button
-            className={styles.whatWeDoButton}
+          <Button text="Login with OTP" type="whatWeDoButton" />
+          <Button
+            text="Whatsapp us"
+            type="whatWeDoButton"
             onClick={handleWhatsappClick}
-          >
-            Contact Us
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 11L12 6L17 11M12 18V7"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+          />
         </div>
 
         {/* WhatsApp Modal */}
@@ -344,16 +352,18 @@ const WhatWeDo: React.FC = () => {
               >
                 <h3>Contact Us</h3>
                 <div className={styles.modalNumbers}>
-                  {whatsappNumbers.map((number) => (
-                    <a
-                      key={number}
+                  {whatsappNumbers.map((number, index) => (
+                    <motion.a
+                      key={index}
                       href={`https://wa.me/${number.replace(/\D/g, "")}`}
                       className={styles.modalNumber}
                       target="_blank"
                       rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       {number}
-                    </a>
+                    </motion.a>
                   ))}
                 </div>
                 <button

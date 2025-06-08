@@ -14,7 +14,7 @@ const Contents = () => {
           ultimately grow revenue.
         </p>
         <div className={styles.buttons}>
-          <Button text="Start now" type="blackButtonWithBackground"></Button>
+          <Button text="Start now" type="smallWhatWeDoButton"></Button>
         </div>
       </div>
       <Image alt="hero image" className={styles.heroImage} src={HeroImage} />

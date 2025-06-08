@@ -1,5 +1,5 @@
 .whatWeDo {
-  padding: 6rem 0;
+  padding: 10rem 0 6rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -365,7 +365,6 @@
     rgba(180, 0, 104, 0.8) 100%
   );
   border-radius: 2.5px;
-  transition: height 0.3s ease;
 }
 
 .progressDot {
@@ -482,23 +481,11 @@
 .progressBackground {
   position: absolute;
   inset: 0;
-  width: var(--progress, 0%);
-  height: 100%;
   background: var(--bg-gradient);
-  opacity: 0.3;
-  transition: width 0.3s ease;
+  opacity: 0.4;
+  transition: width 0.5s
+    cubic-bezier(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1);
   border-radius: 16px;
-}
-
-.progressBorder {
-  position: absolute;
-  inset: 0;
-  background: var(--border-gradient);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 .cardContent {
@@ -556,17 +543,14 @@
 
 /* Set gradient variables for each card */
 .categoryCard:nth-child(1) {
-  --border-gradient: linear-gradient(90deg, #ff5a5e 0%, #4b6fe7 100%);
   --bg-gradient: linear-gradient(90deg, #ff5a5e 0%, #4b6fe7 100%);
 }
 
 .categoryCard:nth-child(2) {
-  --border-gradient: linear-gradient(90deg, #41db78 0%, #0fa74f 100%);
   --bg-gradient: linear-gradient(90deg, #41db78 0%, #0fa74f 100%);
 }
 
 .categoryCard:nth-child(3) {
-  --border-gradient: linear-gradient(90deg, #ffb22f 0%, #ff5b24 100%);
   --bg-gradient: linear-gradient(90deg, #ffb22f 0%, #ff5b24 100%);
 }
 
@@ -660,7 +644,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(182, 182, 182, 0.3);
+  background: rgba(182, 182, 182, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -737,15 +721,15 @@
 .closeButton::before {
   content: "";
   position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 0;
+  top: -25px;
+  left: -120%;
+  width: 100%;
   height: calc(100% + 40px);
   background: white;
   transition: all 0.4s ease;
   z-index: -1;
-  transform: translateX(-50%) rotate(8deg);
-  transform-origin: center;
+  transform: rotate(5deg);
+  transform-origin: left center;
 }
 
 .closeButton:hover {
@@ -754,8 +738,7 @@
 }
 
 .closeButton:hover::before {
-  width: 120%;
-  transform: translateX(-50%) rotate(8deg);
+  left: 0;
 }
 
 /* Remove old dropdown styles */
