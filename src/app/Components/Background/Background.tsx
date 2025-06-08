@@ -4,12 +4,11 @@ import styles from "./background.module.css";
 import Spline from "@splinetool/react-spline";
 
 const Background = () => {
-    return (
-        <Spline
-            scene="https://prod.spline.design/TUFzW6NrUlVBSDUk/scene.splinecode"
-            className={styles.canvas}
-        />
-    );
+  return (
+    <div className={styles.canvas}>
+      <Spline scene="https://prod.spline.design/TUFzW6NrUlVBSDUk/scene.splinecode" />
+    </div>
+  );
 };
 
 export default Background;

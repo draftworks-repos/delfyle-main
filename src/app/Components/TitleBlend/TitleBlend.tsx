@@ -2,15 +2,23 @@ import React from "react";
 import styles from "./titleblend.module.css";
 
 const TitleBlend = () => {
-    return (
-        <div className={styles.title}>
-            <div className={styles.titleBlend}>
-                <h1>Financial</h1>
-                <h1>infrastructure</h1>
-                <h1>for the internet</h1>
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.title}>
+      <div className={styles.titleBlend}>
+        <h1 className={styles.welcomeTo}>Welcome to</h1>
+        <h1 className={styles.titleDelfyle}>Delfyle</h1>
+        <h1 className={styles.subTitle}>
+          Your One-Stop
+          <br />
+          Solution to Launch,
+          <br />
+          Manage & Grow Your
+          <br />
+          Dream Business!
+        </h1>
+      </div>
+    </div>
+  );
 };
 
 export default TitleBlend;

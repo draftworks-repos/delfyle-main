@@ -1,0 +1,253 @@
+.contactUsSection {
+  padding: 4rem 0;
+  background-color: #fff; /* Dark green background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  max-width: 1000px; /* Adjust max-width as needed */
+  width: 90%; /* Use a percentage width for better responsiveness */
+  border-radius: 20px; /* Slightly larger border radius to match image */
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  background-color: #fff; /* Fallback background for the container */
+}
+
+.leftSection {
+  flex: 1; /* Takes up half the width */
+  background: linear-gradient(
+    180deg,
+    rgba(107, 0, 62, 0.95) 0%,
+    rgba(107, 0, 62, 0.85) 100%
+  ); /* Updated gradient to match brand colors */
+  padding: 3.5rem; /* Slightly more padding */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content */
+}
+
+.logo img {
+  max-height: 40px; /* Adjust logo size */
+  margin-bottom: 3rem; /* Increased margin */
+}
+
+.title {
+  font-size: 3.2rem; /* Adjusted font size */
+  font-weight: 700;
+  margin-bottom: 0.8rem; /* Adjusted margin */
+  line-height: 1.3;
+  opacity: 0.9;
+}
+
+.subtitle {
+  font-size: 0.95rem; /* Adjusted font size */
+  line-height: 1.7;
+  color: #fff; /* Slightly more opaque */
+  margin-bottom: 3.5rem; /* Increased margin */
+}
+
+.testimonial {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 1.8rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: auto;
+  position: relative;
+  min-height: 150px;
+  overflow: hidden;
+}
+
+.testimonialContent {
+  position: relative;
+  width: 100%;
+}
+
+.testimonialQuote {
+  margin-bottom: 0.6rem;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.testimonialQuote.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonialAuthor {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+.testimonialAuthor.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rightSection {
+  flex: 1; /* Takes up half the width */
+  background-color: #fff;
+  padding: 3.5rem; /* Matched left section padding */
+  position: relative; /* For close button positioning */
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.8rem; /* Slightly larger close button */
+  color: #999; /* Lighter color */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #666;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 1rem 1.2rem; /* Adjusted padding */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.05rem; /* Slightly larger font size */
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500; /* Adjusted font weight */
+}
+
+.tabButton:hover {
+  color: #333;
+}
+
+.tabButton.active {
+  color: rgba(107, 0, 62, 1); /* Updated active tab color */
+  border-bottom-color: rgba(107, 0, 62, 1); /* Updated active tab indicator */
+  font-weight: 600; /* Bold for active tab */
+}
+
+.formGroup {
+  margin-bottom: 1.8rem; /* Slightly more margin */
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem; /* Slightly larger font size */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.6rem; /* Adjusted margin */
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.2rem; /* Adjusted padding */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f0f2f4; /* Lighter grey background */
+  border: 1px solid #e0e0e0; /* Lighter grey border */
+  border-radius: 6px; /* Slightly larger border radius */
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: rgba(107, 0, 62, 1); /* Updated focus border color */
+  box-shadow: 0 0 0 2px rgba(107, 0, 62, 0.2); /* Updated focus shadow */
+  background-color: #fff;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #bbb; /* Lighter placeholder color */
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 1.1rem; /* Adjusted padding */
+  background-color: rgba(107, 0, 62, 1); /* Updated button color */
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px; /* Matched input border radius */
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 2rem; /* Adjusted margin */
+}
+
+.submitButton:hover {
+  background-color: rgba(107, 0, 62, 0.9); /* Updated hover color */
+}
+
+.privacyText {
+  font-size: 0.8rem;
+  color: #888; /* Lighter color */
+  text-align: center;
+  margin-top: 1.5rem; /* Adjusted margin */
+}
+
+.privacyLink {
+  color: rgba(107, 0, 62, 1); /* Updated link color */
+  text-decoration: underline; /* Underline by default as in image */
+}
+
+.privacyLink:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 95%; /* Adjust width for smaller screens */
+  }
+
+  .leftSection,
+  .rightSection {
+    flex: none;
+    width: 100%;
+    padding: 2.5rem; /* Adjusted padding */
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}

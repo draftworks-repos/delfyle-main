@@ -1,20 +1,38 @@
 .title {
-    position: absolute;
-    z-index: 2;
-    top: 10rem;
-    left: 15vw;
-    width: calc(100vw - 15vw);
-    mix-blend-mode: color-burn;
+  position: absolute;
+  z-index: 2;
+  top: 10rem;
+  left: 15vw;
+  width: calc(100vw - 15vw);
+  mix-blend-mode: color-burn;
 }
 
 .titleBlend {
-    position: absolute;
-    z-index: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.welcomeTo {
+  font-size: 3.8rem;
+  margin-left: 1rem;
+}
+
+.titleDelfyle {
+  font-size: 13.7rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.subTitle {
+  margin-top: 1rem;
+  line-height: 1.1;
+  font-size: 3.8rem;
+  margin-left: 0.8rem;
 }
 
 @media screen and (max-width: 1199px) {
-    .title {
-        left: 5vw;
-        width: calc(100vw - 5vw);
-    }
+  .title {
+    left: 5vw;
+    width: calc(100vw - 5vw);
+  }
 }

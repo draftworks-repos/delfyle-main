@@ -1,0 +1,194 @@
+.footer {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Email Signup Section */
+.emailSignup {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.siteLogo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.emailInputContainer {
+  position: relative;
+  margin: 0 auto 1rem;
+  max-width: 400px;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.sendIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  cursor: pointer;
+}
+
+.footerLinks {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.privacyPolicy {
+  color: #82b541;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.sectionRow {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 100%;
+}
+
+.section {
+  min-width: 200px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #444;
+  text-align: left;
+  position: relative;
+}
+
+.sectionContent {
+  display: block;
+}
+
+.sectionContent ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.sectionContent li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+}
+
+.section li:hover {
+  text-decoration: underline;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.logoContainer {
+  margin-right: 2rem;
+}
+
+.certifiedTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.languageDropdown {
+  width: 120px;
+}
+
+@media (max-width: 1200px) {
+  .sectionRow {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionsContainer {
+    align-items: flex-start;
+  }
+
+  .sectionRow {
+    justify-content: flex-start;
+  }
+
+  .section {
+    min-width: unset;
+    width: 48%;
+  }
+
+  .section:nth-child(even) {
+    margin-left: 4%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    width: 100%;
+    margin-left: 0;
+  }
+}
