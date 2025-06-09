@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
   margin-top: 2rem;
   position: relative;
   z-index: 1;
@@ -90,8 +89,9 @@
 }
 
 .carouselWrapper {
-  overflow: visible;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 1rem 0;
 }
 
@@ -112,12 +112,14 @@
   box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: visible;
-  min-height: 350px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform-origin: center center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+  flex-basis: 450px;
 }
 
 .card:hover {
@@ -126,7 +128,7 @@
 }
 
 .quoteIcon {
-  font-size: 6rem;
+  font-size: 1rem;
   color: #eff6ff;
   position: absolute;
   top: 1rem;
@@ -138,10 +140,10 @@
 }
 
 .quote {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   line-height: 1.75;
   color: #475569;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative;
   z-index: 1;
   font-family: "Inter", sans-serif;
@@ -149,18 +151,18 @@
 
 .rating {
   display: flex;
-  gap: 0.1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.2rem;
+  margin-bottom: 2rem;
 }
 
 .starFilled {
   color: #ffc107;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .starEmpty {
   color: #e0e0e0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .author {
@@ -171,8 +173,8 @@
 }
 
 .imageContainer {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -189,7 +191,7 @@
 }
 
 .name {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1e293b;
   margin: 0;
@@ -197,7 +199,7 @@
 }
 
 .role {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #64748b;
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -229,24 +231,36 @@
   transform: scale(1.2);
 }
 
-/* Add a wrapper div for the content to handle overflow */
 .cardContent {
   overflow: hidden;
   height: 100%;
-  border-radius: 0.5rem; /* Slightly smaller than parent to account for border */
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* Adjust card height for video testimonials */
-.card[data-type="video"] .cardContent {
-  padding: 1.5rem;
+.card[data-type="video"] .author {
+  margin-top: 2rem;
 }
 
-/* Ensure proper spacing between video and author info */
-.card[data-type="video"] .author {
-  margin-top: auto;
+.videoContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 9:16 Aspect Ratio for vertical video */
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.videoFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
 }
 
 @media (max-width: 1024px) {
@@ -260,6 +274,14 @@
 
   .card {
     min-height: 320px;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+
+  .carouselWrapper {
+    max-width: 700px;
   }
 }
 
@@ -285,7 +307,7 @@
   }
 
   .carouselWrapper {
-    overflow: hidden;
+    max-width: 500px;
   }
 
   .cardsContainer {
@@ -293,7 +315,31 @@
     flex-wrap: nowrap;
   }
 
+  .container {
+    max-width: 600px;
+  }
+
   .card {
+    min-height: 600px;
+    padding: 1.25rem;
+    flex-basis: 300px;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .starFilled,
+  .starEmpty {
+    font-size: 1.4rem;
   }
 }
 
@@ -302,38 +348,38 @@
     font-size: 1.75rem;
   }
 
+  .container {
+    max-width: 100%;
+  }
+
+  .carouselWrapper {
+    max-width: 100%;
+  }
+
   .card {
-    padding: 1.25rem;
+    min-height: 550px;
+    padding: 1.5rem;
+    flex-basis: 280px;
   }
 
   .quoteIcon {
-    font-size: 5rem;
+    font-size: 6rem;
+  }
+
+  .quote {
+    font-size: 1.25rem;
   }
 
   .name {
-    font-size: 0.9rem;
+    font-size: 1.15rem;
   }
 
   .role {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
-}
 
-.videoContainer {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.videoFrame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: #000;
+  .starFilled,
+  .starEmpty {
+    font-size: 1.3rem;
+  }
 }

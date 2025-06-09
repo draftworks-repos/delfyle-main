@@ -7,6 +7,7 @@ import Footer from "./Components/Footer/Footer";
 import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 import TrustDelfyle from "./Components/TrustDelfyle/TrustDelfyle";
 import TestimonialCards from "./Components/TestimonialCards/TestimonialCards";
+import ClientReviews from "./Components/ClientReviews/ClientReviews";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <WhatWeDo />
         <ContactUs />
         <TrustDelfyle />
+        <ClientReviews />
         <TestimonialCards />
         <Testimonial />
         <CompanyLogos />

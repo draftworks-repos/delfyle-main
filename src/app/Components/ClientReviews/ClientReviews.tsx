@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import styles from "./TestimonialCards.module.css";
+import styles from "./ClientReviews.module.css";
 
 interface Testimonial {
   id: number;
@@ -20,13 +20,13 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Samar Dolui",
+    name: "Sandipan Guha",
     role: "Client",
     company: "Individual",
     image: "/images/male.jpg",
     rating: 5,
     quote:
-      "This year, based on a friend's recommendation, I outsourced my tax filing for the first time, and I had a very pleasant experience with Delfyle Solutions. I was particularly impressed by Sonam's professionalism in handling my income tax filing. I will definitely engage them again in the future.",
+      "If you want fastest processing of your company incorporation and related progressions, look no where Delfyle Solutions does it fastest as I have seen, moreover they provide with proper information and good behavioural communication through out the time period and also post work done.\n\nThanks to all the members of Delfyle for fulfilling the commitment and helping us in our endeavours.",
     type: "text",
   },
   {
@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
     name: "Angana Roy",
     role: "Client",
     company: "Individual",
-    image: "/images/female.jpg",
+    image: "/images/Angana Roy.png",
     rating: 5,
     quote:
       "I had gotten in touch with them through a friend. Adwitiya was extremely helpful and prompt with all of my queries. They provided legal advice in a way which was easy to understand for a layman like me. All love and wishes to them. Would definitely recommend further.",
@@ -53,13 +53,13 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 4,
-    name: "A.S. Tours & Travels",
+    name: "Mechtrobo Private Limited",
     role: "Business Client",
-    company: "Travel Agency",
+    company: "Technology",
     image: "/images/male.jpg",
     rating: 5,
     quote:
-      "I'd like to thank Avinash Ji from the team for his unwavering support throughout, which is very appreciated. They are exceedingly competent in their work, and I suggest them.",
+      "Thank you Team Delfyle for on time delivering you commitment.\nRecommended by one of my friend when I'm struggling with my ITR & license related work, you people's really help us in a great manner.",
     type: "text",
   },
   {
@@ -67,12 +67,12 @@ const testimonials: Testimonial[] = [
     name: "StoryBizz",
     role: "Client",
     company: "Business",
-    image: "/images/male.jpg",
+    image: "/images/Anupal.png",
     rating: 5,
     quote: "Watch our video testimonial",
     type: "video",
     videoUrl:
-      "https://player.vimeo.com/video/824804225?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1",
+      "https://player.vimeo.com/video/824804225?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&portrait=1&quality=720p",
   },
   {
     id: 6,
@@ -93,19 +93,21 @@ const testimonials: Testimonial[] = [
     image: "/images/Shashank Shekhar Singh.jpg",
     rating: 5,
     quote:
-      "We've had an outstanding experience working with Delfyle. Their team has been absolutely helpful at every step—whether it was company registration, trademark filings, GST, ITR, tax audits, or accounting and other matters. They were always available, responsive, and proactive in finding the right solutions for our compliance needs.",
+      "We've had an outstanding experience working with Delfyle. Their team has been absolutely helpful at every step—whether it was company registration, trademark filings, GST, ITR, tax audits, or accounting and other matters. They were always available, responsive, and proactive in finding the right solutions for our compliance needs.\n\nWhat sets Delfyle apart is their deep understanding of regulatory requirements and their commitment to making the process seamless and stress-free. Their support has been instrumental in helping our organization stay compliant and grow with confidence.",
     type: "text",
   },
 ];
 
-const TestimonialCards: React.FC = () => {
+const ClientReviews: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselWrapperRef = useRef<HTMLDivElement>(null);
   const [carouselWrapperWidth, setCarouselWrapperWidth] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [dynamicCardWidth, setDynamicCardWidth] = useState(0);
 
-  const cardsPerPage = 2;
-  const totalPages = Math.ceil(testimonials.length / cardsPerPage);
+  const cardsPerPage = 1;
+  const totalPages = testimonials.length;
 
   const { scrollYProgress: headingProgress } = useScroll({
     target: headerRef,
@@ -118,10 +120,13 @@ const TestimonialCards: React.FC = () => {
       if (carouselWrapperRef.current) {
         setCarouselWrapperWidth(carouselWrapperRef.current.offsetWidth);
       }
+      if (cardRef.current) {
+        setDynamicCardWidth(cardRef.current.offsetWidth);
+      }
     };
 
-    handleResize(); // Set initial width
-    window.addEventListener("resize", handleResize); // Update on resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -144,19 +149,18 @@ const TestimonialCards: React.FC = () => {
     setCurrentIndex(index);
   };
 
-  const cardGap = 32; // Assuming 2rem gap (1rem = 16px)
-
-  let calculatedCardWidth = 0;
+  const cardGap = 32;
   let calculatedContainerWidth = 0;
-  if (carouselWrapperWidth > 0) {
-    calculatedCardWidth =
-      (carouselWrapperWidth - (cardsPerPage - 1) * cardGap) / cardsPerPage;
-    calculatedContainerWidth =
-      testimonials.length * calculatedCardWidth +
-      (testimonials.length - 1) * cardGap;
-  }
+  let carouselX = 0;
 
-  const carouselX = -currentIndex * carouselWrapperWidth;
+  if (carouselWrapperWidth > 0 && dynamicCardWidth > 0) {
+    calculatedContainerWidth =
+      testimonials.length * (dynamicCardWidth + cardGap);
+
+    const centerOffset = (carouselWrapperWidth - dynamicCardWidth) / 2;
+
+    carouselX = centerOffset - currentIndex * (dynamicCardWidth + cardGap);
+  }
 
   return (
     <section className={styles.testimonialSection}>
@@ -243,11 +247,13 @@ const TestimonialCards: React.FC = () => {
             className={styles.cardsContainer}
             style={{ width: `${calculatedContainerWidth}px` }}
           >
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
                 className={styles.card}
-                style={{ width: `${calculatedCardWidth}px` }}
+                data-type={testimonial.type}
+                ref={index === 0 ? cardRef : null}
+                style={{ width: `${dynamicCardWidth}px` }}
               >
                 <div className={styles.cardContent}>
                   {testimonial.type === "video" ? (
@@ -317,4 +323,4 @@ const TestimonialCards: React.FC = () => {
   );
 };
 
-export default TestimonialCards;
+export default ClientReviews;
