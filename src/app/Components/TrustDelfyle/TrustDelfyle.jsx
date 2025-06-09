@@ -12,6 +12,7 @@ const containerImageUrls = [
   "/images/svg-3.jpg",
   "/images/svg-4.jpg",
   "/images/svg-5.jpg",
+  "/images/male.jpg",
 ];
 
 const TrustDelfyle = () => {
@@ -51,6 +52,10 @@ const TrustDelfyle = () => {
   const { ref: container4Ref, inView: container4InView } = useInView({
     threshold: 0.5,
   });
+  const { ref: container6Ref, inView: container6InView } = useInView({
+    threshold: 0.2,
+    rootMargin: "-10% 0px",
+  });
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [fade, setFade] = useState(true);
@@ -65,7 +70,8 @@ const TrustDelfyle = () => {
       container2InView ||
       container3InView ||
       container4InView ||
-      container5InView
+      container5InView ||
+      container6InView
     ) {
       setIsVisible(true);
     }
@@ -75,22 +81,26 @@ const TrustDelfyle = () => {
     container3InView,
     container4InView,
     container5InView,
+    container6InView,
     container5ExitInView,
     container1ExitInView,
   ]);
 
   // Handle animation changes
   useEffect(() => {
-    if (container1InView) {
-      setActiveIdx(0);
-    } else if (container2InView) {
-      setActiveIdx(1);
-    } else if (container3InView) {
-      setActiveIdx(2);
-    } else if (container4InView) {
-      setActiveIdx(3);
+    // Prioritize later containers as they scroll into view
+    if (container6InView) {
+      setActiveIdx(5);
     } else if (container5InView) {
       setActiveIdx(4);
+    } else if (container4InView) {
+      setActiveIdx(3);
+    } else if (container3InView) {
+      setActiveIdx(2);
+    } else if (container2InView) {
+      setActiveIdx(1);
+    } else if (container1InView) {
+      setActiveIdx(0);
     }
   }, [
     container1InView,
@@ -98,6 +108,7 @@ const TrustDelfyle = () => {
     container3InView,
     container4InView,
     container5InView,
+    container6InView,
   ]);
 
   // Handle fade transitions
@@ -210,7 +221,7 @@ const TrustDelfyle = () => {
 
           <div
             ref={container5Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderPurple}`}
           >
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
@@ -222,9 +233,32 @@ const TrustDelfyle = () => {
                   />
                   <span className={styles.headerText}>Innovation</span>
                 </div>
-                <h1 className={styles.title}>Tech-Enabled Process</h1>
+                <h1 className={styles.title}>Digital-First Approach</h1>
                 <p className={styles.description}>
-                  Seamless, paperless workflows.
+                  Leveraging technology for efficient service delivery.
+                </p>
+                <Button text="Something" type="smallWhatWeDoButton" />
+              </section>
+            </div>
+          </div>
+
+          <div
+            ref={container6Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
+                <div className={styles.headerSection}>
+                  <img
+                    alt="Abstract colorful Support icon"
+                    className={styles.icon}
+                    src="/icon/trustDelfyle6.png"
+                  />
+                  <span className={styles.headerText}>Support</span>
+                </div>
+                <h1 className={styles.title}>24/7 Assistance</h1>
+                <p className={styles.description}>
+                  Round-the-clock support for all your business needs.
                 </p>
                 <Button text="Something" type="smallWhatWeDoButton" />
               </section>
