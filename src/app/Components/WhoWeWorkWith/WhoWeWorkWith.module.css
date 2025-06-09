@@ -247,11 +247,6 @@
   .categoryIcon {
     margin: 0 auto;
   }
-
-  .bottomText {
-    font-size: 1.1rem;
-    padding: 1.5rem 0;
-  }
 }
 
 @media (max-width: 480px) {
@@ -270,6 +265,7 @@
   }
 
   .titleWrapper {
+    flex-direction: column;
     gap: 0.5rem;
   }
 
@@ -278,10 +274,10 @@
   }
 
   .subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .categoryDescription {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
