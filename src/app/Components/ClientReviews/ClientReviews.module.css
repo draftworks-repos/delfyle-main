@@ -112,7 +112,7 @@
   box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: visible;
-  min-height: 600px;
+  max-height: 670px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -140,7 +140,7 @@
 }
 
 .quote {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.75;
   color: #475569;
   margin-bottom: 2rem;
@@ -191,7 +191,7 @@
 }
 
 .name {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1e293b;
   margin: 0;
@@ -247,8 +247,8 @@
 .videoContainer {
   position: relative;
   width: 100%;
-  padding-top: 177.78%; /* 9:16 Aspect Ratio for vertical video */
-  margin-bottom: 1rem;
+  height: 100%;
+  margin: 0 auto 1rem auto;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -320,7 +320,7 @@
   }
 
   .card {
-    min-height: 600px;
+    max-height: 450px;
     padding: 1.25rem;
     flex-basis: 300px;
   }
@@ -330,7 +330,7 @@
   }
 
   .name {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .role {
@@ -357,7 +357,8 @@
   }
 
   .card {
-    min-height: 550px;
+    min-height: 500px;
+    max-height: 450px;
     padding: 1.5rem;
     flex-basis: 280px;
   }
@@ -371,7 +372,7 @@
   }
 
   .name {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .role {
