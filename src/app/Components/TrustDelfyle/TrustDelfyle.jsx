@@ -133,6 +133,19 @@ const TrustDelfyle = () => {
           <div ref={container1Ref} className={styles.innerContainerParent}>
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
+                <h1 className={styles.title}>
+                  Why Thousands of Indian Businesses Trust Delfyle?
+                </h1>
+              </section>
+            </div>
+          </div>
+
+          <div
+            ref={container2Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderYellow}`}
+          >
+            <div className={styles.innerContainer}>
+              <section className={styles.contentSection}>
                 <div className={styles.headerSection}>
                   <img
                     alt="Abstract colorful Solutions icon"
@@ -151,8 +164,8 @@ const TrustDelfyle = () => {
           </div>
 
           <div
-            ref={container2Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderYellow}`}
+            ref={container3Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderLime}`}
           >
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
@@ -174,8 +187,8 @@ const TrustDelfyle = () => {
           </div>
 
           <div
-            ref={container3Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderLime}`}
+            ref={container4Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderCyan}`}
           >
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
@@ -197,8 +210,8 @@ const TrustDelfyle = () => {
           </div>
 
           <div
-            ref={container4Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderCyan}`}
+            ref={container5Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderPurple}`}
           >
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
@@ -220,8 +233,8 @@ const TrustDelfyle = () => {
           </div>
 
           <div
-            ref={container5Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderPurple}`}
+            ref={container6Ref}
+            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
           >
             <div className={styles.innerContainer}>
               <section className={styles.contentSection}>
@@ -236,29 +249,6 @@ const TrustDelfyle = () => {
                 <h1 className={styles.title}>Digital-First Approach</h1>
                 <p className={styles.description}>
                   Leveraging technology for efficient service delivery.
-                </p>
-                <Button text="Something" type="smallWhatWeDoButton" />
-              </section>
-            </div>
-          </div>
-
-          <div
-            ref={container6Ref}
-            className={`${styles.innerContainerParent} ${styles.innerContainerParentBorderOrange}`}
-          >
-            <div className={styles.innerContainer}>
-              <section className={styles.contentSection}>
-                <div className={styles.headerSection}>
-                  <img
-                    alt="Abstract colorful Support icon"
-                    className={styles.icon}
-                    src="/icon/trustDelfyle6.png"
-                  />
-                  <span className={styles.headerText}>Support</span>
-                </div>
-                <h1 className={styles.title}>24/7 Assistance</h1>
-                <p className={styles.description}>
-                  Round-the-clock support for all your business needs.
                 </p>
                 <Button text="Something" type="smallWhatWeDoButton" />
               </section>
