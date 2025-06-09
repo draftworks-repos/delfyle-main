@@ -1,0 +1,181 @@
+.featuredServices {
+  padding: 10rem 0 6rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff; /* Explicitly white background */
+  color: #1e293b; /* Dark text for contrast */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.headingWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(107, 0, 62, 1); /* Your desired main heading color */
+  position: relative;
+  display: inline-block;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  border-radius: 1.5px;
+  width: 0px;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+/* Bento Grid Layout */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Standard gap between grid items */
+  padding: 1rem;
+}
+
+.serviceCard {
+  background: #fcfbff; /* Very light, almost white background for cards */
+  border-radius: 1rem; /* Adopted from TestimonialCards */
+  padding: 1rem; /* Adjusted padding for better fit with image */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Align text to the left */
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2); /* Adopted from TestimonialCards */
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Adopted from TestimonialCards */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  /* Min height handled by grid rows or content */
+}
+
+.serviceCard .imagePlaceholder {
+  width: 100%;
+  height: 120px; /* Height for the image placeholder */
+  background-color: #e0e0e0; /* Light grey background for placeholder */
+  border-radius: 8px; /* Rounded corners for the image area */
+  margin-bottom: 1rem; /* Space below the image */
+  display: flex; /* To center image if needed */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.serviceCard .cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the image area */
+}
+
+.serviceCard .cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align icon, title, description to the left */
+  width: 100%;
+}
+
+.serviceIcon {
+  color: rgba(107, 0, 62, 1); /* Dark pink/purple icon color */
+  font-size: 2rem; /* Size of the icon */
+  margin-bottom: 0.5rem; /* Space below the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceTitle {
+  font-size: 1.15rem; /* Font size for titles */
+  font-weight: 600;
+  color: #1e293b; /* Dark text for titles */
+  margin: 0 0 0.25rem 0; /* Adjusted spacing */
+  line-height: 1.4;
+}
+
+.serviceDescription {
+  font-size: 0.9rem;
+  color: #64748b; /* Medium grey for description */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Specific Grid Spanning Class */
+.serviceCard.span2Col {
+  grid-column: span 2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mainHeading {
+    font-size: 3.5rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+
+  .serviceCard.span2Col {
+    grid-column: span 2; /* Spanning still applies on tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredServices {
+    padding: 6rem 0 4rem;
+  }
+
+  .mainHeading {
+    font-size: 2.75rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+  }
+
+  /* Disable spanning on mobile */
+  .serviceCard.span2Col {
+    grid-column: span 1;
+  }
+
+  .serviceTitle {
+    font-size: 1.1rem;
+  }
+
+  .serviceIcon {
+    font-size: 1.8rem;
+  }
+}
+
+/* Hover Effects */
+.serviceCard:hover {
+  transform: translateY(-8px) scale(1.02); /* Adopted from TestimonialCards */
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2); /* Adopted from TestimonialCards */
+}

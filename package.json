@@ -15,6 +15,7 @@
     "@lottiefiles/dotlottie-react": "^0.14.0",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.0.54",
+    "@tabler/icons-react": "^3.34.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.16.0",
     "motion": "^12.16.0",
