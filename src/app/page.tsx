@@ -8,7 +8,7 @@ import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 import TrustDelfyle from "./Components/TrustDelfyle/TrustDelfyle";
 import TestimonialCards from "./Components/TestimonialCards/TestimonialCards";
 import ClientReviews from "./Components/ClientReviews/ClientReviews";
-import WhoWeWorkWith from "./Components/WhoWeWorkWith";
+import WhoWeWorkWith from "./Components/WhoWeWorkWith/WhoWeWorkWith";
 
 export default function Home() {
   return (
@@ -21,8 +21,8 @@ export default function Home() {
         <WhoWeWorkWith />
         <CompanyLogos />
         <ClientReviews />
-        <TestimonialCards />
-        <Testimonial />
+        {/* <TestimonialCards /> */}
+        {/* <Testimonial /> */}
         {/* <StickyScroll /> */}
         <Footer />
       </div>
