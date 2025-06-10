@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 200vh;
   background-color: #f8faff;
   padding: 4rem 2rem;
   overflow: hidden;
@@ -27,33 +27,43 @@
 .contentContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
   max-width: 1400px;
   width: 100%;
   gap: 4rem;
+  position: relative;
 }
 
 .textColumn {
   flex: 1;
-  text-align: left;
-  padding-right: 2rem;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* First text column */
 .textColumn:first-child {
   text-align: left;
+  padding-right: 2rem;
+  align-items: flex-start;
+  min-height: 100vh;
+  position: relative;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
 }
 
 /* Second text column */
-.textColumn:last-child {
+.rightColumn .textColumn {
   text-align: right;
-  padding-right: 0;
   padding-left: 2rem;
+  align-items: flex-end;
 }
 
-.textColumn:last-child .buttonsContainer {
+.rightColumn .textColumn .buttonsContainer {
   justify-content: flex-end;
 }
 
@@ -65,12 +75,27 @@
 
 /* First text container */
 .textColumn:first-child .textContentContainer {
-  padding-top: 30vh;
+  padding-top: 20vh;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
 }
 
 /* Second text container */
-.textColumn:last-child .textContentContainer {
-  padding-top: 20vh;
+.rightColumn .textColumn .textContentContainer {
+  padding-top: 2rem;
+  text-align: right;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure proper spacing for cards in left column */
+.textColumn:first-child::after {
+  content: '';
+  display: block;
+  min-height: 700px; /* Same as cards container height */
+  width: 100%;
 }
 
 .mainHeading {
@@ -87,6 +112,16 @@
   line-height: 1.6;
   margin-bottom: 2.5rem;
   max-width: 500px;
+}
+
+/* First text column subheading */
+.textColumn:first-child .subHeading {
+  margin-right: auto;
+}
+
+/* Second text column subheading */
+.rightColumn .textColumn .subHeading {
+  margin-left: auto;
 }
 
 .buttonsContainer {
@@ -133,6 +168,8 @@
   min-height: 700px;
   display: flex;
   flex-direction: column;
+  will-change: transform;
+  z-index: 3;
 }
 
 .cardsContainer {
@@ -140,6 +177,7 @@
   width: 100%;
   height: 700px;
   min-height: 700px;
+  will-change: transform;
 }
 
 .cardsContainer:nth-child(2) .card1 {
