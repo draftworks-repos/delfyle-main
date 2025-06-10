@@ -1,0 +1,94 @@
+.visionMissionSection {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem;
+}
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.leftColumn {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.rightColumn {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.blankCard {
+  position: absolute;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  height: 300px;
+  width: 300px;
+  top: 0;
+}
+
+.blankCard:hover {
+  transform: translateY(-5px);
+}
+
+.textContentContainer {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.textContentContainer:hover {
+  transform: translateY(-5px);
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.subHeading {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 1;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .subHeading {
+    font-size: 1rem;
+  }
+} 
