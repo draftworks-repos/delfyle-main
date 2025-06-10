@@ -80,7 +80,7 @@ const Testimonial: React.FC = () => {
         <div className={styles.headerSection} ref={headerRef}>
           <div className={styles.headingWrapper}>
             <h2 className={styles.mainHeading}>What Our Clients Say</h2>
-            <motion.div
+        <motion.div
               className={styles.progressLine}
               style={{ width: lineWidth }}
             />
@@ -182,8 +182,8 @@ const Testimonial: React.FC = () => {
                         </svg>
                       ))}
                     </span>
-                    {testimonials[active].designation}
-                  </p>
+                  {testimonials[active].designation}
+                </p>
                 </a>
                 <motion.p className={styles.quote}>
                   {testimonials[active].quote.split(" ").map((word, index) => (
