@@ -20,11 +20,23 @@
 .heading {
   font-size: 4rem;
   font-weight: 700;
-  color: rgba(107, 0, 62, 1);
-  margin-bottom: 1rem;
-  font-family: "Inter", sans-serif;
   position: relative;
   display: inline-block;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading::first-letter {
+  font-size: 5.5rem;
+  line-height: 1;
 }
 
 .progressLine {

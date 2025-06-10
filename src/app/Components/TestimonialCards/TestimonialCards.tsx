@@ -163,7 +163,7 @@ const TestimonialCards: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.header} ref={headerRef}>
           <div className={styles.headingWrapper}>
-            <h2 className={styles.title}>What Our Clients Say</h2>
+            <h2 className={styles.mainHeading}>What Our Clients Say</h2>
             <motion.div
               className={styles.progressLine}
               style={{ width: lineWidth }}

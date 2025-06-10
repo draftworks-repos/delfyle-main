@@ -40,6 +40,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .imageSection {
@@ -77,7 +79,7 @@
 }
 
 .name {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #1e293b;
@@ -97,7 +99,7 @@
 
 .word {
   display: inline-block;
-  margin-right: 0.25rem;
+  margin-right: 0;
 }
 
 .navigation {
@@ -154,6 +156,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(107, 0, 62, 0.03) 0%,
+    rgba(180, 0, 104, 0.03) 25%,
+    rgba(255, 0, 128, 0.03) 50%,
+    rgba(180, 0, 104, 0.03) 75%,
+    rgba(107, 0, 62, 0.03) 100%
+  );
+  animation: gradientMove 15s ease infinite;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 1024px) {
@@ -209,5 +237,64 @@
   .card {
     padding: 1rem 0.5rem;
     border-radius: 1.2rem;
+  }
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mainHeading::first-letter {
+  font-size: 5.5rem;
+  line-height: 1;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.headingWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  border-radius: 1.5px;
+  width: 0px;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+@keyframes gradientMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import styles from "./FeaturedServices.module.css";
 import "@iconscout/unicons/css/line.css";
 
@@ -14,10 +14,17 @@ interface Service {
 
 const FeaturedServices: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, {
     once: false,
     amount: 0.3,
   });
+
+  const { scrollYProgress: headingProgress } = useScroll({
+    target: headerRef,
+    offset: ["start end", "center center"],
+  });
+  const lineWidth = useTransform(headingProgress, [0, 1], ["0%", "35%"]);
 
   const services: Service[] = [
     {
@@ -93,22 +100,15 @@ const FeaturedServices: React.FC = () => {
     <section className={styles.featuredServices}>
       <div className={styles.container} ref={containerRef}>
         {/* Main Heading Section */}
-        <motion.div
-          className={styles.headerSection}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className={styles.headerSection} ref={headerRef}>
           <div className={styles.headingWrapper}>
             <h2 className={styles.mainHeading}>Featured Services of Delfyle</h2>
             <motion.div
               className={styles.progressLine}
-              initial={{ width: 0 }}
-              animate={{ width: "50%" }}
-              transition={{ duration: 1, delay: 0.5 }}
+              style={{ width: lineWidth }}
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Bento Grid Layout */}
         <motion.div
