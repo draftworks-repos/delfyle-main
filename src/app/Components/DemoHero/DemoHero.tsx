@@ -22,32 +22,38 @@ const DemoHero: React.FC = () => {
     if (cards && firstText && leftColumn && secondText) {
       // Calculate the final position
       const firstTextBottom = firstText.getBoundingClientRect().bottom;
-      const secondTextTop = secondText.getBoundingClientRect().top;
       const leftColumnLeft = leftColumn.getBoundingClientRect().left;
       const cardsLeft = cards.getBoundingClientRect().left;
       const xOffset = leftColumnLeft - cardsLeft;
       const yOffset = firstTextBottom - cards.getBoundingClientRect().top;
 
-      gsap.to(cards, {
+      // Set initial rotation
+      gsap.set(cards, { rotation: 16 });
+
+      // Create a timeline for smooth animation
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cards,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-          pin: true,
-          pinSpacing: true,
-          toggleActions: "play reverse play reverse",
+          start: "center center",
+          end: "+=700",
+          scrub: 0.5,
+          pin: false,
+          markers: false,
+          onUpdate: (self) => {
+            // Update position based on scroll progress
+            gsap.set(cards, {
+              x: xOffset * self.progress,
+              y: yOffset * self.progress,
+              rotation: 0 - (-16 * self.progress), // Start at 8, end at -8
+            });
+          },
         },
-        x: xOffset,
-        y: yOffset,
-        duration: 1,
-        ease: "none",
       });
-    }
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }
   }, []);
 
   return (
@@ -56,20 +62,19 @@ const DemoHero: React.FC = () => {
         <div ref={leftColumnRef} className={styles.textColumn}>
           <div ref={firstTextRef} className={styles.textContentContainer}>
             <h1 className={styles.mainHeading}>
-              Unlock insights with <br /> financial analytics.
+              Delfyle – Your Business,<br />Hassle-Free
             </h1>
             <p className={styles.subHeading}>
-              Maximize your investments with detailed financial reports. Develop
-              data-driven strategies for sustainable growth.
+              Delfyle is the dedicated filing, compliance, and legal services arm of a reputed startup incubator, while also operating as an independent legal and compliance consultancy. We serve as the CA, CS, and legal backbone for early-stage and growth-stage startups, offering complete regulatory support under one roof.
             </p>
-            <div className={styles.buttonsContainer}>
+            {/* <div className={styles.buttonsContainer}>
               <button className={styles.primaryButton}>
                 Get a free consultation.
               </button>
               <button className={styles.secondaryButton}>
                 <span className={styles.playIcon}>▶</span> See our case studies
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.rightColumn}>
@@ -111,20 +116,19 @@ const DemoHero: React.FC = () => {
           <div className={styles.textColumn}>
             <div ref={secondTextRef} className={styles.textContentContainer}>
               <h1 className={styles.mainHeading}>
-                Unlock insights with <br /> financial analytics.
+                But we don't stop there!
               </h1>
               <p className={styles.subHeading}>
-                Maximize your investments with detailed financial reports. Develop
-                data-driven strategies for sustainable growth.
+                Delfyle also caters to established corporates, enterprises, and government bodies looking to outsource their legal and compliance operations for greater efficiency and reduced overhead.
               </p>
-              <div className={styles.buttonsContainer}>
+              {/* <div className={styles.buttonsContainer}>
                 <button className={styles.primaryButton}>
                   Start your journey.
                 </button>
                 <button className={styles.secondaryButton}>
                   <span className={styles.playIcon}>▶</span> Watch demo
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

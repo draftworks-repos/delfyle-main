@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200vh;
+  min-height: 100vh;
   background-color: #f8faff;
   padding: 4rem 2rem;
   overflow: hidden;
@@ -52,7 +52,7 @@
 .rightColumn {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 10rem;
   position: relative;
 }
 
@@ -70,7 +70,6 @@
 .textContentContainer {
   max-width: 800px;
   padding: 2rem;
-  border-radius: 1rem;
 }
 
 /* First text container */
