@@ -1,11 +1,11 @@
 import React from "react";
-import AboutHero from "../Components/About/AboutHero/AboutHero";
 import DemoHero from "../Components/DemoHero/DemoHero";
+import Navbar from "../Components/Navbar/Navbar";
 
 export default function AboutPage() {
   return (
     <main>
-      {/* <AboutHero /> */}
+      <Navbar/>
       <DemoHero />
     </main>
   );

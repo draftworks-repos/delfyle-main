@@ -4,22 +4,31 @@ import React, { useEffect, useRef } from "react";
 import styles from "./DemoHero.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const DemoHero: React.FC = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
   const firstTextRef = useRef<HTMLDivElement>(null);
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const secondTextRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const cards = cardsRef.current;
     const firstText = firstTextRef.current;
     const leftColumn = leftColumnRef.current;
     const secondText = secondTextRef.current;
+    const section = sectionRef.current;
 
-    if (cards && firstText && leftColumn && secondText) {
+    if (cards && firstText && leftColumn && secondText && section) {
+      // Initialize ScrollSmoother
+      const smoother = ScrollSmoother.create({
+        smooth: 1.5, // Adjust this value to control smoothness (higher = smoother)
+        effects: true,
+      });
+
       // Calculate the final position
       const firstTextBottom = firstText.getBoundingClientRect().bottom;
       const leftColumnLeft = leftColumn.getBoundingClientRect().left;
@@ -28,14 +37,14 @@ const DemoHero: React.FC = () => {
       const yOffset = firstTextBottom - cards.getBoundingClientRect().top;
 
       // Set initial rotation
-      gsap.set(cards, { rotation: 16 });
+      gsap.set(cards, { rotation: -8 });
 
       // Create a timeline for smooth animation
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: cards,
-          start: "center center",
-          end: "+=700",
+          trigger: section,
+          start: "top top",
+          end: "bottom bottom",
           scrub: 0.5,
           pin: false,
           markers: false,
@@ -52,12 +61,13 @@ const DemoHero: React.FC = () => {
 
       return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        smoother.kill();
       };
     }
   }, []);
 
   return (
-    <section className={styles.heroSection}>
+    <section ref={sectionRef} className={styles.heroSection}>
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.textColumn}>
           <div ref={firstTextRef} className={styles.textContentContainer}>
