@@ -3,25 +3,56 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f8faff;
+  background-color: #f8f9fa;
   padding: 4rem 2rem;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
-.heroSection::before {
-  content: "";
+/* Add radial spots */
+.radialSpot1 {
   position: absolute;
-  bottom: -150px;
-  right: -100px;
-  width: 500px;
-  height: 300px;
-  background-image: url("https://via.placeholder.com/500x300/ff6b6b/ffffff?text=Wavy+Line");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  transform: rotate(15deg);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 107, 107, 0) 70%);
+  top: 0;
+  right: 30%;
   z-index: 0;
+  pointer-events: none;
+}
+
+.radialSpot2 {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 107, 107, 0) 70%);
+  top: 12%;
+  right: 5%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.radialSpot3 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(107, 255, 107, .2) 0%, rgba(107, 255, 107, 0) 70%);
+  bottom: 10%;
+  left: 10%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.radialSpot4 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(107, 255, 107, .2) 0%, rgba(107, 255, 107, 0) 70%);
+  bottom: 15%;
+  left: 30%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .contentContainer {
@@ -31,6 +62,7 @@
   width: 100%;
   gap: 4rem;
   position: relative;
+  z-index: 1;
 }
 
 .textColumn {
@@ -209,8 +241,8 @@
 .card4 {
   position: absolute;
   background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
   text-align: left;
   transform-origin: center center;

@@ -118,6 +118,10 @@ const DemoHero: React.FC = () => {
 
   return (
     <section ref={sectionRef} className={styles.heroSection}>
+      <div className={styles.radialSpot1} />
+      <div className={styles.radialSpot2} />
+      <div className={styles.radialSpot3} />
+      <div className={styles.radialSpot4} />
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.textColumn}>
           <div ref={firstTextRef} className={styles.textContentContainer}>
