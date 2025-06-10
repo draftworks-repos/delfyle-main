@@ -14,6 +14,10 @@ const DemoHero: React.FC = () => {
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const secondTextRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  const card3Ref = useRef<HTMLDivElement>(null);
+  const card4Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const cards = cardsRef.current;
@@ -21,11 +25,15 @@ const DemoHero: React.FC = () => {
     const leftColumn = leftColumnRef.current;
     const secondText = secondTextRef.current;
     const section = sectionRef.current;
+    const card1 = card1Ref.current;
+    const card2 = card2Ref.current;
+    const card3 = card3Ref.current;
+    const card4 = card4Ref.current;
 
-    if (cards && firstText && leftColumn && secondText && section) {
+    if (cards && firstText && leftColumn && secondText && section && card1 && card2 && card3 && card4) {
       // Initialize ScrollSmoother
       const smoother = ScrollSmoother.create({
-        smooth: 1.5, // Adjust this value to control smoothness (higher = smoother)
+        smooth: 1.5,
         effects: true,
       });
 
@@ -35,6 +43,30 @@ const DemoHero: React.FC = () => {
       const cardsLeft = cards.getBoundingClientRect().left;
       const xOffset = leftColumnLeft - cardsLeft;
       const yOffset = firstTextBottom - cards.getBoundingClientRect().top;
+
+      // Get initial positions of cards
+      const card1Pos = card1.getBoundingClientRect();
+      const card2Pos = card2.getBoundingClientRect();
+      const card3Pos = card3.getBoundingClientRect();
+      const card4Pos = card4.getBoundingClientRect();
+
+      // Calculate swap positions with adjustments
+      const card1ToCard4 = {
+        x: (card4Pos.left - card1Pos.left) + 10,
+        y: (card4Pos.top - card1Pos.top) + 10
+      };
+      const card2ToCard3 = {
+        x: (card3Pos.left - card2Pos.left) + 70, // Move card2 30px closer to card3
+        y: (card3Pos.top - card2Pos.top)  + 10   // Move card2 10px up
+      };
+      const card3ToCard2 = {
+        x: (card2Pos.left - card3Pos.left) + 20, // Move card3 10px left
+        y: (card2Pos.top - card3Pos.top) - 50    // Move card3 10px up
+      };
+      const card4ToCard1 = {
+        x: (card1Pos.left - card4Pos.left) - 10, // Move card4 10px left
+        y: (card1Pos.top - card4Pos.top) -  15
+      };
 
       // Set initial rotation
       gsap.set(cards, { rotation: -8 });
@@ -53,7 +85,25 @@ const DemoHero: React.FC = () => {
             gsap.set(cards, {
               x: xOffset * self.progress,
               y: yOffset * self.progress,
-              rotation: 0 - (-16 * self.progress), // Start at 8, end at -8
+              rotation: 0 - (-16 * self.progress),
+            });
+
+            // Animate card swaps with adjustments
+            gsap.set(card1, {
+              x: card1ToCard4.x * self.progress,
+              y: card1ToCard4.y * self.progress,
+            });
+            gsap.set(card4, {
+              x: card4ToCard1.x * self.progress,
+              y: card4ToCard1.y * self.progress,
+            });
+            gsap.set(card2, {
+              x: card2ToCard3.x * self.progress,
+              y: card2ToCard3.y * self.progress,
+            });
+            gsap.set(card3, {
+              x: card3ToCard2.x * self.progress,
+              y: card3ToCard2.y * self.progress,
             });
           },
         },
@@ -90,7 +140,7 @@ const DemoHero: React.FC = () => {
         <div className={styles.rightColumn}>
           <div ref={cardsRef} className={styles.imageColumn}>
             <div className={styles.cardsContainer}>
-              <div className={styles.card1}>
+              <div ref={card1Ref} className={styles.card1}>
                 <div className={styles.cardHeader}>
                   <span className={styles.cardIcon}>💰</span>
                   <span className={styles.cardTitle}>Quarterly Profit</span>
@@ -98,7 +148,7 @@ const DemoHero: React.FC = () => {
                 <p className={styles.cardValue}>$1.2M</p>
                 <p className={styles.cardChange}>+ 5.2% last quarter</p>
               </div>
-              <div className={styles.card2}>
+              <div ref={card2Ref} className={styles.card2}>
                 <div className={styles.cardHeader}>
                   <span className={styles.cardIcon}>💸</span>
                   <span className={styles.cardTitle}>Expense Report</span>
@@ -106,13 +156,13 @@ const DemoHero: React.FC = () => {
                 <p className={styles.cardValue}>$350K</p>
                 <p className={styles.cardChange}>- 2.1% last month</p>
               </div>
-              <div className={styles.card3}>
+              <div ref={card3Ref} className={styles.card3}>
                 <div className={styles.cardGraph}>
                   <p>Revenue Growth</p>
                   <div className={styles.graphPlaceholder}></div>
                 </div>
               </div>
-              <div className={styles.card4}>
+              <div ref={card4Ref} className={styles.card4}>
                 <p>Financial Advisors</p>
                 <div className={styles.profileAvatars}>
                   <div className={styles.avatar}></div>
