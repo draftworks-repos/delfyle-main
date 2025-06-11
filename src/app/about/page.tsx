@@ -1,17 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import DemoHero from "../Components/DemoHero/DemoHero";
 import VisionMission from "../Components/VisionMission/VisionMission";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import CoreMinds from "../Components/CoreMinds/CoreMinds";
 
 const AboutPage = () => {
+  useEffect(() => {
+    // Check if this is a client-side navigation
+    if (window.performance && window.performance.navigation.type === 1) {
+      // This is a page refresh, don't reload
+      return;
+    }
+    
+    // Force reload the page
+    window.location.reload();
+  }, []);
+
   return (
     <main>
       <Navbar/>
       <DemoHero />
       <VisionMission />
+      <CoreMinds />
       <Footer />
     </main>
   );

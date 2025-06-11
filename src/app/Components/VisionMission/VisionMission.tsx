@@ -5,6 +5,7 @@ import styles from "./VisionMission.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// Register plugins
 gsap.registerPlugin(ScrollTrigger);
 
 const VisionMission: React.FC = () => {
@@ -26,16 +27,27 @@ const VisionMission: React.FC = () => {
         trigger: blankCard,
         start: "center center",
         end: () => {
-          // Get the position of the third container
           const thirdContainerRect = thirdContainer.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          // Stop pinning when the third container is about to end
-          // Adding a buffer of 100px to ensure it stops before footer
           return `+=${thirdContainerRect.bottom - viewportHeight/2 - 100}`;
         },
         pin: blankCard,
-        pinSpacing: false
+        pinSpacing: false,
+        anticipatePin: 1,
+        fastScrollEnd: true,
+        preventOverlaps: true
       });
+
+      // Refresh ScrollTrigger after a small delay
+      const timeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      // Cleanup function
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        clearTimeout(timeout);
+      };
     }
   }, []);
 

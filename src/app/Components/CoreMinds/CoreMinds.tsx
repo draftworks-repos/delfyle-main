@@ -124,6 +124,17 @@ const CoreMinds: React.FC = () => {
           "<"
         );
       });
+
+      // Refresh ScrollTrigger after a small delay
+      const timeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      // Cleanup function
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        clearTimeout(timeout);
+      };
     }
   }, []);
 

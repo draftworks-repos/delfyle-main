@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 
+// Register plugins
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const DemoHero: React.FC = () => {
@@ -56,16 +57,16 @@ const DemoHero: React.FC = () => {
         y: (card4Pos.top - card1Pos.top) + 10
       };
       const card2ToCard3 = {
-        x: (card3Pos.left - card2Pos.left) + 70, // Move card2 30px closer to card3
-        y: (card3Pos.top - card2Pos.top)  + 10   // Move card2 10px up
+        x: (card3Pos.left - card2Pos.left) + 70,
+        y: (card3Pos.top - card2Pos.top) + 10
       };
       const card3ToCard2 = {
-        x: (card2Pos.left - card3Pos.left) + 20, // Move card3 10px left
-        y: (card2Pos.top - card3Pos.top) - 50    // Move card3 10px up
+        x: (card2Pos.left - card3Pos.left) + 20,
+        y: (card2Pos.top - card3Pos.top) - 50
       };
       const card4ToCard1 = {
-        x: (card1Pos.left - card4Pos.left) - 10, // Move card4 10px left
-        y: (card1Pos.top - card4Pos.top) -  15
+        x: (card1Pos.left - card4Pos.left) - 10,
+        y: (card1Pos.top - card4Pos.top) - 15
       };
 
       // Set initial rotation
@@ -109,9 +110,16 @@ const DemoHero: React.FC = () => {
         },
       });
 
+      // Refresh ScrollTrigger after a small delay
+      const timeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      // Cleanup function
       return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         smoother.kill();
+        clearTimeout(timeout);
       };
     }
   }, []);
