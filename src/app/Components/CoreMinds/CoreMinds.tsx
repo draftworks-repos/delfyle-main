@@ -94,7 +94,16 @@ const CoreMinds: React.FC = () => {
       // Initial states
       items.forEach((item, index) => {
         if (index !== 0) {
-          gsap.set(item, { yPercent: 100 });
+          gsap.set(item, { 
+            yPercent: 100,
+            scale: 1,  // Start at full scale
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"  // Initial shadow
+          });
+        } else {
+          gsap.set(item, {
+            scale: 1,
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"  // Initial shadow for first item
+          });
         }
       });
 
@@ -114,12 +123,15 @@ const CoreMinds: React.FC = () => {
         timeline.to(item, {
           scale: 0.9,
           borderRadius: "10px",
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",  // Smaller shadow when scaled down
+          duration: 1
         });
 
         timeline.to(
           items[index + 1],
           {
             yPercent: 0,
+            duration: 1
           },
           "<"
         );
@@ -140,42 +152,48 @@ const CoreMinds: React.FC = () => {
 
   return (
     <section ref={sectionRef} className={styles.section}>
+      <div className={styles.background_container} />
       <div className={styles.header}>
-        <h2 className={styles.title}>The Core Minds</h2>
-        <p className={styles.subtitle}>Meet the visionaries behind Delfyle</p>
+        <h2 className={styles.title}>Meet the Core Minds Behind Delfyle</h2>
+        <h3 className={styles.subtitle}>Our Leadership & Legal Experts</h3>
+        <p className={styles.description}>
+          At Delfyle, we take pride in being more than just a legal and compliance consultancy—we're your extended team. Backed by professionals with deep expertise in law, finance, and corporate governance, our core team leads with precision, vision, and a shared passion for enabling entrepreneurial growth across India.
+        </p>
       </div>
       <div className={styles.wrapper}>
         <div ref={wrapperRef} className={styles.list}>
           {teamMembers.map((member, index) => (
-            <div key={index} className={styles.item}>
-              <div className={styles.item_content}>
-                <div className={styles.member_info}>
-                  <h3 className={styles.member_name}>{member.name}</h3>
-                  <h4 className={styles.member_position}>{member.position}</h4>
+            <div key={index} className={styles.item_wrapper}>
+              <div className={styles.item}>
+                <div className={styles.item_content}>
+                  <div className={styles.member_info}>
+                    <h3 className={styles.member_name}>{member.name}</h3>
+                    <h4 className={styles.member_position}>{member.position}</h4>
+                  </div>
+                  <p className={styles.member_quote}>{member.quote}</p>
+                  {member.bulletPoints && (
+                    <ul className={styles.bullet_points}>
+                      {member.bulletPoints.map((point, idx) => (
+                        <li key={idx}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                <p className={styles.member_quote}>{member.quote}</p>
-                {member.bulletPoints && (
-                  <ul className={styles.bullet_points}>
-                    {member.bulletPoints.map((point, idx) => (
-                      <li key={idx}>{point}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div className={styles.item_media}>
-                <div className={styles.image_wrapper}>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className={styles.member_image}
+                <div className={styles.item_media}>
+                  <div className={styles.image_wrapper}>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className={styles.member_image}
+                    />
+                  </div>
+                  <div 
+                    className={styles.color_overlay}
+                    style={{ backgroundColor: member.color }}
                   />
                 </div>
-                <div 
-                  className={styles.color_overlay}
-                  style={{ backgroundColor: member.color }}
-                />
               </div>
             </div>
           ))}
