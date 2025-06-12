@@ -1,31 +1,38 @@
 /* Social Links Component Styles */
 .section {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 6rem 0;
   background-color: #ffffff;
   position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .mainContainer {
-  width: 100%;
   max-width: 1200px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  height: 100vh;
-  justify-content: center;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .headerSection {
   text-align: center;
   margin-bottom: 4rem;
   position: relative;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headingContainer {
+  width: fit-content;
+  padding: 1.4rem 4rem 0;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.section:hover .headingContainer {
+  background-color: #ffffff;
 }
 
 .mainHeading {
@@ -57,84 +64,127 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  transition: color 0.3s ease;
+  margin-top: 0.5rem;
 }
 
+.section:hover .subtitle {
+  color: #ffffff;
+}
+
+/* Cards Main Container */
 .cardsMainContainer {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem 0;
 }
 
+/* Cards Container */
 .cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
+/* Individual Card Container */
 .cardContainer {
+  width: 100%;
+  aspect-ratio: 1;
   position: relative;
-  width: 200px;
-  height: 200px;
 }
 
 .socialCard {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #1a1a1a;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid rgba(107, 0, 62, 0.1);
+}
+
+.socialCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .socialCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
+.socialCard:hover::before {
+  opacity: 1;
+}
+
+/* Icon Card Container */
 .iconCardContainer {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .iconWrapper {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background-color: #f5f5f5;
-  transition: background-color 0.3s ease;
+  justify-content: center;
+  background: rgba(107, 0, 62, 0.1);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .socialCard:hover .iconWrapper {
-  background-color: var(--hover-color);
+  background: rgba(107, 0, 62, 0.2);
+  transform: scale(1.1);
 }
 
 .icon {
-  font-size: 2rem;
-  color: #333;
-  transition: color 0.3s ease;
+  font-size: 2.5rem;
+  color: rgba(107, 0, 62, 1);
+  transition: all 0.3s ease;
 }
 
 .socialCard:hover .icon {
-  color: #ffffff;
+  color: var(--hover-color);
 }
 
 .linkName {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: #1a1a1a;
   transition: color 0.3s ease;
 }
 

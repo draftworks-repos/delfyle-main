@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SocialLinks.module.css";
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -32,12 +32,33 @@ const socialLinks = [
 ];
 
 const SocialLinks = () => {
+  const [hoverColor, setHoverColor] = useState<string>("#ffffff");
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const handleMouseEnter = (color: string) => {
+    setHoverColor(color);
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverColor("#ffffff");
+    setIsHovered(false);
+  };
+
   return (
-    <section className={styles.section}>
+    <section 
+      className={styles.section}
+      style={{ backgroundColor: hoverColor }}
+    >
       <div className={styles.mainContainer}>
         <div className={styles.headerSection}>
-          <h1 className={styles.mainHeading}>Connect With Us</h1>
-          <p className={styles.subtitle}>
+          <div className={styles.headingContainer}>
+            <h1 className={styles.mainHeading}>Connect With Us</h1>
+          </div>
+          <p 
+            className={styles.subtitle}
+            style={{ color: isHovered ? "#ffffff" : "#666" }}
+          >
             Follow us on social media to stay updated with our latest news, updates, and insights.
           </p>
         </div>
@@ -52,6 +73,8 @@ const SocialLinks = () => {
                   rel="noopener noreferrer"
                   className={styles.socialCard}
                   style={{ "--hover-color": link.color } as React.CSSProperties}
+                  onMouseEnter={() => handleMouseEnter(link.color)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className={styles.iconCardContainer}>
                     <div className={styles.iconWrapper}>
