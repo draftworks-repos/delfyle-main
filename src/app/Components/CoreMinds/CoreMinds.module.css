@@ -14,7 +14,7 @@
 
 .header {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 2rem;
   position: relative;
   z-index: 10;
   max-width: 1200px;
@@ -164,14 +164,14 @@
   position: relative;
   padding: 4rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1560px;
   overflow: visible;
   background-color: transparent;
 }
 
 .item {
-  width: 1200px;
-  height: 700px;
+  width: 1560px;
+  height: 500px;
   display: flex;
   position: absolute;
   inset: 0%;
@@ -219,7 +219,7 @@
   padding: 4rem;
   display: flex;
   position: relative;
-  width: 60%;
+  width: 70%;
 }
 
 .member_info {
@@ -251,16 +251,20 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   width: 100%;
 }
 
 .bullet_points li {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
   position: relative;
   padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
+  display: flex;
+  align-items: flex-start;
 }
 
 .bullet_points li:before {
@@ -272,7 +276,7 @@
 }
 
 .item_media {
-  width: 40%;
+  width: 30%;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -308,7 +312,9 @@
 
 @media (max-width: 1240px) {
   .item {
-    width: 90%;
+    width: 100%;
+    height: auto;
+    min-height: 400px;
   }
 }
 
@@ -348,8 +354,8 @@
     font-size: 1rem;
   }
 
-  .bullet_points li {
-    font-size: 0.9rem;
+  .bullet_points {
+    grid-template-columns: 1fr;
   }
 
   .item_media {

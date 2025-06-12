@@ -95,14 +95,14 @@ const CoreMinds: React.FC = () => {
       items.forEach((item, index) => {
         if (index !== 0) {
           gsap.set(item, { 
-            yPercent: 100,
-            scale: 1,  // Start at full scale
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"  // Initial shadow
+            yPercent: 150,
+            scale: 1,
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
           });
         } else {
           gsap.set(item, {
             scale: 1,
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"  // Initial shadow for first item
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
           });
         }
       });
@@ -123,7 +123,7 @@ const CoreMinds: React.FC = () => {
         timeline.to(item, {
           scale: 0.9,
           borderRadius: "10px",
-          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",  // Smaller shadow when scaled down
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
           duration: 1
         });
 
