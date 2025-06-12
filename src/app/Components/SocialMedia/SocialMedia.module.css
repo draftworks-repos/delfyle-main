@@ -1,0 +1,225 @@
+/* Social Media Component Styles */
+.section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  transition: background-color 0.5s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  position: relative;
+  height: 100vh;
+  justify-content: center;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.mainHeading::first-letter {
+  font-size: 5.5rem;
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Cards Main Container */
+.cardsMainContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cards Container */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Individual Card Container */
+.cardContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.socialCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  top: 100vh; /* Start position for animation */
+}
+
+.socialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.socialCard:hover ~ .section {
+  background-color: var(--hover-color);
+}
+
+/* Icon Card Container */
+.iconCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+.socialCard:hover .iconWrapper {
+  background-color: var(--hover-color);
+}
+
+.icon {
+  font-size: 2rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.socialCard:hover .icon {
+  color: #ffffff;
+}
+
+.linkName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.socialCard:hover .linkName {
+  color: var(--hover-color);
+}
+
+/* Add hover effect for background color change */
+.socialCard:hover ~ .section,
+.socialCard:hover ~ .section * {
+  background-color: var(--hover-color);
+  transition: background-color 0.3s ease;
+}
+
+/* Ensure the section reverts back to white when not hovering */
+.section {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* Add hover state for the section */
+.section:hover {
+  background-color: var(--hover-color);
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .mainHeading {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .socialCard {
+    padding: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .linkName {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .cardsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .socialCard {
+    padding: 1.25rem;
+  }
+}
