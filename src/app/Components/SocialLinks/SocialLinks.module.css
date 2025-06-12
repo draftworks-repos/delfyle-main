@@ -1,16 +1,19 @@
 /* Social Links Component Styles */
 .section {
   padding: 6rem 0;
-  background-color: #ffffff;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease;
+}
+
+.section.hovered {
+  background-color: var(--hover-color);
 }
 
 .mainContainer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
 }
 
 .headerSection {
@@ -21,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .headingContainer {
@@ -29,6 +33,8 @@
   border-radius: 20px;
   transition: background-color 0.3s ease;
   margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .section:hover .headingContainer {
@@ -51,6 +57,7 @@
   background-clip: text;
   color: transparent;
   margin-bottom: 1rem;
+  z-index: 2;
 }
 
 .mainHeading::first-letter {
@@ -66,16 +73,16 @@
   line-height: 1.6;
   transition: color 0.3s ease;
   margin-top: 0.5rem;
-}
-
-.section:hover .subtitle {
-  color: #ffffff;
+  position: relative;
+  z-index: 2;
 }
 
 /* Cards Main Container */
 .cardsMainContainer {
   width: 100%;
   padding: 2rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Cards Container */
@@ -84,6 +91,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   position: relative;
+  z-index: 2;
 }
 
 /* Individual Card Container */
@@ -91,6 +99,7 @@
   width: 100%;
   aspect-ratio: 1;
   position: relative;
+  z-index: 2;
 }
 
 .socialCard {
@@ -114,6 +123,7 @@
   transition: all 0.3s ease;
   overflow: hidden;
   border: 1px solid rgba(107, 0, 62, 0.1);
+  z-index: 2;
 }
 
 .socialCard::before {

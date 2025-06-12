@@ -5,46 +5,21 @@ import Arrow from "../../../../public/images/arrow.svg";
 
 interface ButtonProps {
   text: string;
-  type?:
-    | "whiteButtonWithBackground"
-    | "whiteButtonNoBackground"
-    | "blackButtonWithBackground"
-    | "blackButtonNoBackground"
-    | "whatWeDoButton"
-    | "smallBlackButtonWithBackground"
-    | "smallWhatWeDoButton";
+  type: "whiteButtonNoBackground" | "whiteButtonWithBackground";
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, type, onClick }) => {
-  let buttonStyle = "";
-
-  switch (type) {
-    case "whiteButtonWithBackground":
-      buttonStyle = styles.whiteButtonWithBackground;
-      break;
-    case "whiteButtonNoBackground":
-      buttonStyle = styles.whiteButtonNoBackground;
-      break;
-    case "blackButtonWithBackground":
-      buttonStyle = styles.blackButtonWithBackground;
-      break;
-    case "blackButtonNoBackground":
-      buttonStyle = styles.blackButtonNoBackground;
-      break;
-    case "whatWeDoButton":
-      buttonStyle = styles.whatWeDoButton;
-      break;
-    case "smallBlackButtonWithBackground":
-      buttonStyle = styles.smallBlackButtonWithBackground;
-      break;
-    case "smallWhatWeDoButton":
-      buttonStyle = styles.smallWhatWeDoButton;
-      break;
-  }
+const Button = ({ text, type, onClick }: ButtonProps) => {
+  const buttonStyle = type === "whiteButtonNoBackground" 
+    ? styles.whiteButtonNoBackground 
+    : styles.whiteButtonWithBackground;
 
   return (
-    <button className={buttonStyle} onClick={onClick}>
+    <button 
+      className={buttonStyle} 
+      onClick={onClick}
+      suppressHydrationWarning
+    >
       {text}
       <Image alt="arrow" className={styles.arrow} src={Arrow} />
     </button>

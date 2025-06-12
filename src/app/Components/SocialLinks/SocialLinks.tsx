@@ -48,7 +48,10 @@ const SocialLinks = () => {
   return (
     <section 
       className={styles.section}
-      style={{ backgroundColor: hoverColor }}
+      style={{ 
+        backgroundColor: hoverColor,
+        transition: 'background-color 0.5s ease'
+      }}
     >
       <div className={styles.mainContainer}>
         <div className={styles.headerSection}>
