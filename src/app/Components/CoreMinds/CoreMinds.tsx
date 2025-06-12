@@ -165,34 +165,34 @@ const CoreMinds: React.FC = () => {
           {teamMembers.map((member, index) => (
             <div key={index} className={styles.item_wrapper}>
               <div className={styles.item}>
-                <div className={styles.item_content}>
-                  <div className={styles.member_info}>
-                    <h3 className={styles.member_name}>{member.name}</h3>
-                    <h4 className={styles.member_position}>{member.position}</h4>
-                  </div>
-                  <p className={styles.member_quote}>{member.quote}</p>
-                  {member.bulletPoints && (
-                    <ul className={styles.bullet_points}>
-                      {member.bulletPoints.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                  )}
+              <div className={styles.item_content}>
+                <div className={styles.member_info}>
+                  <h3 className={styles.member_name}>{member.name}</h3>
+                  <h4 className={styles.member_position}>{member.position}</h4>
                 </div>
-                <div className={styles.item_media}>
-                  <div className={styles.image_wrapper}>
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      className={styles.member_image}
-                    />
-                  </div>
-                  <div 
-                    className={styles.color_overlay}
-                    style={{ backgroundColor: member.color }}
+                <p className={styles.member_quote}>{member.quote}</p>
+                {member.bulletPoints && (
+                  <ul className={styles.bullet_points}>
+                    {member.bulletPoints.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div className={styles.item_media}>
+                <div className={styles.image_wrapper}>
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className={styles.member_image}
                   />
+                </div>
+                <div 
+                  className={styles.color_overlay}
+                  style={{ backgroundColor: member.color }}
+                />
                 </div>
               </div>
             </div>

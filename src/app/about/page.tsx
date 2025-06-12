@@ -6,6 +6,8 @@ import VisionMission from "../Components/VisionMission/VisionMission";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import CoreMinds from "../Components/CoreMinds/CoreMinds";
+import SocialMedia from "../Components/SocialMedia/SocialMedia";
+import SocialLinks from "../Components/SocialLinks/SocialLinks";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -25,6 +27,8 @@ const AboutPage = () => {
       <DemoHero />
       <VisionMission />
       <CoreMinds />
+      <SocialMedia />
+      <SocialLinks />
       <Footer />
     </main>
   );
