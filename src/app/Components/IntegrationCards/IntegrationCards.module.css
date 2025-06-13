@@ -88,6 +88,18 @@
   inset: 0;
   border-radius: 20px;
   padding: 2px;
+  background: linear-gradient(135deg, rgba(107, 0, 62, 0.8) 0%, rgba(180, 0, 104, 0.8) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: all 0.3s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card:hover::before {
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -97,17 +109,6 @@
     transparent 100%
   );
   background-size: 200% 100%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 1;
-  transition: opacity 0.3s;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.card:hover::before {
   animation: borderFlow 3s linear infinite;
 }
 
