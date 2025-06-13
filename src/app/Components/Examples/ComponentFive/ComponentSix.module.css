@@ -63,7 +63,7 @@
   flex: 1;
   min-width: 450px; /* Adjust min-width to match design */
   height: 350px; /* Adjust height to match design */
-  background-color: #e2e8f0; /* Placeholder color */
+  background-color: #ffffff; /* Changed to white */
   border-radius: 0.75rem;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06); /* Inner shadow for depth */
 }
