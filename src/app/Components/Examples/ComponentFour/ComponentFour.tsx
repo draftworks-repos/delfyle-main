@@ -10,24 +10,28 @@ const ComponentFour = () => {
 
   const cards = [
     {
-      title: "Professional services",
-      description: "Integrate Stripe faster and with fewer people, with the help of our in-house payments and financial services experts. Our team supports compliance of regulatory requirements and data security standards.",
+      title: "Card Four - Item 1",
+      description: "This is the first card for the new ComponentFour. It will be part of a three-card carousel.",
     },
     {
-      title: "Services partners",
-      description: "Engage a certified Stripe partner to help with strategy, implementation, deployment, global expansion, or managed services for your Stripe solution.",
+      title: "Card Four - Item 2",
+      description: "This is the second card for the new ComponentFour. Designed to be square and styled like ComponentThree cards.",
     },
     {
-      title: "Another Service 1",
-      description: "This is a placeholder for the third service, demonstrating the three-card layout. You can replace this text with relevant content.",
+      title: "Card Four - Item 3",
+      description: "This is the third card for the new ComponentFour. It will also be part of the carousel.",
     },
     {
-      title: "Another Service 2",
-      description: "This is a placeholder for the fourth service, demonstrating the three-card layout. You can replace this text with relevant content.",
+      title: "Card Four - Item 4",
+      description: "Additional card to demonstrate carousel functionality. The carousel will show 3 cards at a time.",
     },
     {
-      title: "Another Service 3",
-      description: "This is a placeholder for the fifth service, demonstrating the three-card layout. You can replace this text with relevant content.",
+      title: "Card Four - Item 5",
+      description: "Another card for the carousel. The navigation will allow sliding by two cards.",
+    },
+    {
+      title: "Card Four - Item 6",
+      description: "Final card for the ComponentFour carousel. When reaching the end, it will loop to show the last 3 cards or loop back to the beginning.",
     },
   ];
 

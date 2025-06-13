@@ -5,6 +5,7 @@ import LogoMarquee from "../Components/LogoMarquee/LogoMarquee";
 import ComponentOne from "../Components/Examples/ComponentOne/ComponentOne";
 import ComponentTwo from "../Components/Examples/ComponentTwo/ComponentTwo";
 import ComponentThird from "../Components/Examples/ComponentThird/ComponentThird";
+import ComponentFour from "../Components/Examples/ComponentFour/ComponentFour";
 import ComponentFive from "../Components/Examples/ComponentFour/ComponentFive";
 import ComponentSix from "../Components/Examples/ComponentFive/ComponentSix";
 
@@ -30,6 +31,7 @@ const StartupPage = () => {
       <ComponentOne />
       <ComponentTwo />
       <ComponentThird />
+      <ComponentFour />
       <ComponentFive />
       <ComponentSix />
     </main>
