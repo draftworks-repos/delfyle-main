@@ -5,12 +5,12 @@ const ComponentNine = () => {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
+        <p className={styles.tagline}>Get started quickly</p>
         <h2 className={styles.mainHeading}>ComponentNine</h2>
         <p className={styles.mainDescription}>
           Our team of experts will help you implement and integrate our solutions into your existing systems, ensuring a smooth transition and maximum efficiency.
         </p>
       </div>
-      <p className={styles.tagline}>Get started quickly</p>
       <div className={styles.grid}>
         <div className={styles.featureCard}>
           <div className={styles.icon}>
