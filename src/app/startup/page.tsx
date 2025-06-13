@@ -2,12 +2,11 @@ import React from "react";
 import StartupHero from "../Components/Services/Startup/StartupHero";
 import Marquee from "../Components/Marquee/Marquee";
 import LogoMarquee from "../Components/LogoMarquee/LogoMarquee";
-import ComponentX from "../Components/AuthorizationOptimization/ComponentX";
+import ComponentOne from "../Components/Examples/ComponentOne/ComponentOne";
 import ComponentTwo from "../Components/Examples/ComponentTwo/ComponentTwo";
 import ComponentThird from "../Components/Examples/ComponentThird/ComponentThird";
-import ComponentFour from "../Components/Examples/ComponentFour/ComponentFour";
-import ComponentFive from "../Components/Examples/ComponentFive/ComponentFive";
-import ComponentSix from "../Components/Examples/ComponentSix/ComponentSix";
+import ComponentFive from "../Components/Examples/ComponentFour/ComponentFive";
+import ComponentSix from "../Components/Examples/ComponentFive/ComponentSix";
 
 const StartupPage = () => {
   const companyLogos = [
@@ -28,10 +27,9 @@ const StartupPage = () => {
       <StartupHero />
       <Marquee text="YOUR BUSINESS, HASSLE-FREE. PARTNERS FOR STARTUPS. FINANCIAL FREEDOM. COMPLIANCE MADE EASY. INVEST IN YOUR FUTURE. " speed={30} direction="left" />
       <LogoMarquee logos={companyLogos} speed="14s" direction="left" />
-      <ComponentX />
+      <ComponentOne />
       <ComponentTwo />
       <ComponentThird />
-      <ComponentFour />
       <ComponentFive />
       <ComponentSix />
     </main>
