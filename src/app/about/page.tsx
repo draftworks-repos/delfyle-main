@@ -6,6 +6,7 @@ import VisionMission from "../Components/VisionMission/VisionMission";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import CoreMinds from "../Components/CoreMinds/CoreMinds";
+import TeamMembers from "../Components/TeamMembers/TeamMembers";
 import SocialMedia from "../Components/SocialMedia/SocialMedia";
 import SocialLinks from "../Components/SocialLinks/SocialLinks";
 
@@ -26,9 +27,10 @@ const AboutPage = () => {
       <Navbar/>
       <DemoHero />
       <VisionMission />
+      <TeamMembers />
       <CoreMinds />
-      <SocialMedia />
       <SocialLinks />
+      <SocialMedia />
       <Footer />
     </main>
   );
