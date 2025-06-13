@@ -94,7 +94,6 @@
   padding: calc(var(--size) / 10);
   border-radius: 0.5rem;
   background: #fff; /* White background for logos as seen in image */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .marquee--vertical .logoItem {
