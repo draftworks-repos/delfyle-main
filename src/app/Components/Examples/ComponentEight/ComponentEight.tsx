@@ -5,7 +5,7 @@ const ComponentEight = () => {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.mainHeading}>Recommended resources</h2>
+        <h2 className={styles.mainHeading}>ComponentEight</h2>
         <p className={styles.mainDescription}>
           Market insights, trends, and reports to keep you on the cutting edge of financial
           technology.
