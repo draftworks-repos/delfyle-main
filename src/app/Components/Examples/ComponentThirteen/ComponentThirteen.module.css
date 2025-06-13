@@ -18,7 +18,7 @@
 }
 
 .leftColumn {
-  flex: 1;
+  flex: 0.46; /* Adjusted width to 46% */
   padding-right: 2rem; /* Space before separator */
 }
 
@@ -68,7 +68,7 @@
 }
 
 .middleColumn, .rightColumn {
-  flex: 1;
+  flex: 0.27; /* Adjusted width to 27% */
   padding: 0 1rem; /* Padding for content within columns */
   display: flex;
   flex-direction: column;
@@ -77,6 +77,14 @@
 
 .iconContainer {
   margin-bottom: 1rem;
+  width: 60px; /* Consistent size with ComponentEleven */
+  height: 60px; /* Consistent size with ComponentEleven */
+  border-radius: 50%; /* Circular background */
+  background-color: #e6e6fa; /* Light purple background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c7c7ec; /* Light purple border */
 }
 
 .subHeading {
@@ -103,6 +111,7 @@
   color: #4a4a4a;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  padding-left: 1rem; /* Added padding-left */
 }
 
 .link {
@@ -114,6 +123,7 @@
   align-items: center;
   gap: 0.3rem;
   transition: text-decoration 0.3s ease;
+  padding-left: 1rem; /* Added padding-left */
 }
 
 .link:hover {

@@ -18,8 +18,7 @@ const ComponentThirteen = () => {
 
         <div className={styles.middleColumn}>
           <div className={styles.iconContainer}>
-            {/* Placeholder for icon */}
-            <Image src="/icons/explore.svg" alt="Explore Icon" width={50} height={50} />
+            {/* <Image src="/icons/explore.svg" alt="Explore Icon" width={50} height={50} /> */}
           </div>
           <h3 className={styles.subHeading}>Explore customer stories</h3>
           <p className={styles.subDescription}>Learn how our professional services team has helped global businesses.</p>
@@ -32,8 +31,7 @@ const ComponentThirteen = () => {
 
         <div className={styles.rightColumn}>
           <div className={styles.iconContainer}>
-            {/* Placeholder for icon */}
-            <Image src="/icons/maximise.svg" alt="Maximise Icon" width={50} height={50} />
+            {/* <Image src="/icons/maximise.svg" alt="Maximise Icon" width={50} height={50} /> */}
           </div>
           <h3 className={styles.subHeading}>Maximise your value</h3>
           <p className={styles.subDescription}>Support plans help resolve issues quickly and provide insights to guide you forward.</p>
