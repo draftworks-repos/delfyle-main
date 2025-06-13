@@ -34,7 +34,7 @@
   flex: 0.6;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   padding-right: 2rem; /* Add padding to separate from right column visually */
 }
 
@@ -53,7 +53,7 @@
 .leftBottomContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .subContentHeading {
@@ -87,7 +87,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem; /* Reduced gap */
-  margin-top: 1rem; /* Adjusted margin */
+  margin-top: .3rem; /* Adjusted margin */
 }
 
 .productsList {
@@ -121,7 +121,7 @@
 .rightTopContainer {
   background-color: #f8f9fa;
   border-radius: 0.75rem;
-  padding: 2rem;
+  padding: 0 1rem 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   text-align: left;
 }
