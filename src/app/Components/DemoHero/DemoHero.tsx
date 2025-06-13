@@ -5,6 +5,7 @@ import styles from "./DemoHero.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import AboutNavbar from "../AboutNavbar/AboutNavbar";
 
 // Register plugins
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -126,6 +127,9 @@ const DemoHero: React.FC = () => {
 
   return (
     <section ref={sectionRef} className={styles.heroSection}>
+      <div className={styles.navContainer}>
+        <AboutNavbar />
+      </div>
       <div className={styles.waveOverlay} />
       <div className={styles.radialSpot1} />
       <div className={styles.radialSpot2} />

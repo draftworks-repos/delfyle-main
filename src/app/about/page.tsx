@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import DemoHero from "../Components/DemoHero/DemoHero";
 import VisionMission from "../Components/VisionMission/VisionMission";
-import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import CoreMinds from "../Components/CoreMinds/CoreMinds";
 import TeamMembers from "../Components/TeamMembers/TeamMembers";
@@ -25,7 +24,6 @@ const AboutPage = () => {
 
   return (
     <main>
-      <Navbar/>
       <DemoHero />
       <VisionMission />
       <IntegrationCards />
