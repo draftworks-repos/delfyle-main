@@ -2,6 +2,7 @@ import React from "react";
 import StartupHero from "../Components/Services/Startup/StartupHero";
 import Marquee from "../Components/Marquee/Marquee";
 import LogoMarquee from "../Components/LogoMarquee/LogoMarquee";
+import BigLogoMarquee from "../Components/BigLogoMarquee/BigLogoMarquee";
 import ComponentOne from "../Components/Examples/ComponentOne/ComponentOne";
 import ComponentTwo from "../Components/Examples/ComponentTwo/ComponentTwo";
 import ComponentThird from "../Components/Examples/ComponentThird/ComponentThird";
@@ -50,7 +51,8 @@ const StartupPage = () => {
     <main>
       <StartupHero />
       <Marquee text="YOUR BUSINESS, HASSLE-FREE. PARTNERS FOR STARTUPS. FINANCIAL FREEDOM. COMPLIANCE MADE EASY. INVEST IN YOUR FUTURE. " speed={30} direction="left" />
-      <LogoMarquee logos={companyLogos} speed="14s" direction="left" />
+      <LogoMarquee logos={companyLogos} speed="70s" direction="left" />
+      <BigLogoMarquee logos={companyLogos} speed="70s" direction="left" />
       <ComponentOne />
       <ComponentTwo />
       <ComponentThird />
