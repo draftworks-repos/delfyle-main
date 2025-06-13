@@ -4,7 +4,7 @@ import styles from './ComponentThird.module.css';
 const ComponentThird = () => {
   return (
     <section className={styles.container}>
-      <h2 className={styles.mainHeading}>Integrate faster</h2>
+      <h2 className={styles.mainHeading}>ComponentThird</h2>
       <div className={styles.cardsWrapper}>
         <div className={styles.card}>
           <div className={styles.cardHeader}></div>

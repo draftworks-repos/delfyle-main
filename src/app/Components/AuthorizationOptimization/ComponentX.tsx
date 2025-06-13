@@ -5,8 +5,7 @@ const ComponentX = () => {
   return (
     <section className={styles.container}>
       <h2 className={styles.mainHeading}>
-        Boost revenue with advanced
-        <br /> authorization optimisation
+        ComponentX
       </h2>
       <p className={styles.mainDescription}>
         Access leading authorisation rates powered by direct integrations with global card

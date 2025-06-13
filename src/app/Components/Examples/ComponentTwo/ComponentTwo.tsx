@@ -4,7 +4,7 @@ import styles from './ComponentTwo.module.css';
 const ComponentTwo = () => {
   return (
     <section className={styles.container}>
-      <h2 className={styles.mainHeading}>Working with Stripe</h2>
+      <h2 className={styles.mainHeading}>ComponentTwo</h2>
 
       <div className={styles.contentWrapper}>
         <div className={styles.leftCard}>
