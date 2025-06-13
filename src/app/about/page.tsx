@@ -9,6 +9,7 @@ import CoreMinds from "../Components/CoreMinds/CoreMinds";
 import TeamMembers from "../Components/TeamMembers/TeamMembers";
 import SocialMedia from "../Components/SocialMedia/SocialMedia";
 import SocialLinks from "../Components/SocialLinks/SocialLinks";
+import IntegrationCards from "../Components/IntegrationCards/IntegrationCards";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const AboutPage = () => {
       <Navbar/>
       <DemoHero />
       <VisionMission />
+      <IntegrationCards />
       <TeamMembers />
       <CoreMinds />
       <SocialLinks />

@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: transparent;
+}
+
+.topRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.tab {
+  width: 320px;
+  height: 60px;
+  background: #ff5a58;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px rgba(255,90,88,0.10);
+}
+
+.middleRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: #ff5a58;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(255,90,88,0.10);
+}
+
+.barTop {
+  top: 0;
+  left: 50%;
+  width: 220px;
+  height: 50px;
+  transform: translate(-50%, 0);
+}
+
+.barBottom {
+  bottom: 0;
+  left: 50%;
+  width: 220px;
+  height: 50px;
+  transform: translate(-50%, 0);
+}
+
+.barLeft {
+  left: 0;
+  top: 50%;
+  width: 220px;
+  height: 50px;
+  transform: translate(0, -50%) rotate(90deg);
+}
+
+.barRight {
+  right: 0;
+  top: 50%;
+  width: 220px;
+  height: 50px;
+  transform: translate(0, -50%) rotate(90deg);
+}
+
+.line {
+  width: 340px;
+  height: 70px;
+  background: #ff5a58;
+  border-radius: 35px;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  margin-top: 16px;
+} 
