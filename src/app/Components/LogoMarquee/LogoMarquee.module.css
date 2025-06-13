@@ -41,11 +41,15 @@
   gap: var(--gap);
   min-width: 100%;
   animation: scroll-x var(--duration) linear infinite;
+  will-change: transform;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee__group {
-    animation-play-state: paused;
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
@@ -65,15 +69,6 @@
 .marquee--reverse .marquee__group {
   animation-direction: reverse;
   animation-delay: -3s;
-}
-
-@keyframes scroll-x {
-  from {
-    transform: translateX(var(--scroll-start));
-  }
-  to {
-    transform: translateX(var(--scroll-end));
-  }
 }
 
 @keyframes scroll-y {

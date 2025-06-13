@@ -14,6 +14,7 @@ const VisionMission: React.FC = () => {
   const rightColumnRef = useRef<HTMLDivElement>(null);
   const blankCardRef = useRef<HTMLDivElement>(null);
   const thirdContainerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -55,7 +56,18 @@ const VisionMission: React.FC = () => {
     <section ref={sectionRef} className={styles.visionMissionSection}>
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.leftColumn}>
-          <div ref={blankCardRef} className={styles.blankCard} />
+          <div ref={blankCardRef} className={styles.blankCard}>
+            <video 
+              ref={videoRef}
+              className={styles.videoAnimation}
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/animation/endtoendservices_2_ALPHA_2.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
         <div ref={rightColumnRef} className={styles.rightColumn}>
           <div className={styles.textContentContainer}>

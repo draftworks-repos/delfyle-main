@@ -4,16 +4,17 @@ import styles from './ComponentNine.module.css';
 const ComponentNine = () => {
   return (
     <section className={styles.container}>
+      <div className={styles.header}>
+        <h2 className={styles.mainHeading}>ComponentNine</h2>
+        <p className={styles.mainDescription}>
+          Our team of experts will help you implement and integrate our solutions into your existing systems, ensuring a smooth transition and maximum efficiency.
+        </p>
+      </div>
       <p className={styles.tagline}>Get started quickly</p>
-      <h2 className={styles.mainHeading}>Implementation services</h2>
-      <p className={styles.mainDescription}>
-        Integration consultants and engineers guide you through every stage of your
-        implementation, from strategy and design to technical development and launch.
-      </p>
       <div className={styles.grid}>
         <div className={styles.featureCard}>
           <div className={styles.icon}>
-            <img src="/icons/launch_faster.svg" alt="Launch faster" />
+            {/* <img src="/icons/launch_faster.svg" alt="Launch faster" /> */}
           </div>
           <h3 className={styles.featureHeading}>Launch faster</h3>
           <p className={styles.featureDescription}>
@@ -24,7 +25,7 @@ const ComponentNine = () => {
 
         <div className={styles.featureCard}>
           <div className={styles.icon}>
-            <img src="/icons/design_for_scale.svg" alt="Design for scale" />
+            {/* <img src="/icons/design_for_scale.svg" alt="Design for scale" /> */}
           </div>
           <h3 className={styles.featureHeading}>Design for scale</h3>
           <p className={styles.featureDescription}>
@@ -35,7 +36,7 @@ const ComponentNine = () => {
 
         <div className={styles.featureCard}>
           <div className={styles.icon}>
-            <img src="/icons/minimize_risk.svg" alt="Minimise risk" />
+            {/* <img src="/icons/minimize_risk.svg" alt="Minimise risk" /> */}
           </div>
           <h3 className={styles.featureHeading}>Minimise risk</h3>
           <p className={styles.featureDescription}>
@@ -46,7 +47,7 @@ const ComponentNine = () => {
 
         <div className={styles.featureCard}>
           <div className={styles.icon}>
-            <img src="/icons/unlock_more_value.svg" alt="Unlock more value" />
+            {/* <img src="/icons/unlock_more_value.svg" alt="Unlock more value" /> */}
           </div>
           <h3 className={styles.featureHeading}>Unlock more value</h3>
           <p className={styles.featureDescription}>

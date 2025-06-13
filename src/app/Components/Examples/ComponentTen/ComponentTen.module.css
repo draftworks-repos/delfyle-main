@@ -1,0 +1,187 @@
+.container {
+  width: 100%;
+  min-height: 120vh;
+  background-color: #f0f4f7; /* Light background color from the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+  z-index: 2; /* Ensure content is above shapes */
+}
+
+.leftColumn {
+  flex: 0.5; /* Approximately half width for content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.rightColumn {
+  flex: 0.5;
+  position: relative;
+  max-height: 600px;
+  min-height: 500px; /* Ensure right column has height for shapes */
+}
+
+.subHeading {
+  font-size: 0.9rem;
+  color: #6a6c71; /* Darker gray for sub-heading */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.mainHeading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.solutionSection {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  align-items: center; /* Align vertically in the center */
+  margin-bottom: 1.5rem;
+  justify-content: flex-start; /* Align content to the left */
+}
+
+.solutionIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0f2f7; /* Light blue background for icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem; /* Space between icon and text */
+  margin-bottom: 0; /* Remove vertical space */
+  /* Placeholder for actual icon */
+  border: 1px solid #a7d9e7;
+}
+
+.solutionText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap; /* Ensure text stays on one line */
+  text-align: left; /* Align the text to the left */
+}
+
+.solutionDescription {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureList li {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkIcon {
+  color: #007bff; /* Blue for checkmark */
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.shapeOne {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8b80ed; /* Purple */
+  transform: skewY(-8deg) translateY(-10%);
+  transform-origin: top left;
+  z-index: 1;
+}
+
+.shapeTwo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #80ced6; /* Light blue */
+  transform: skewY(-8deg) translateY(60%);
+  transform-origin: bottom left;
+  z-index: 1;
+}
+
+.shapeThree {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: #6156a6; /* Darker purple */
+  transform: skewY(-8deg) translateY(70%);
+  transform-origin: bottom left;
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 1;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    padding: 4rem 1rem;
+  }
+
+  .rightColumn {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .leftColumn {
+    padding: 2rem;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+} 
