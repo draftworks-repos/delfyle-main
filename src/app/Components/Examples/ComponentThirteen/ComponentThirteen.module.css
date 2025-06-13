@@ -1,0 +1,149 @@
+/* src/app/Components/Examples/ComponentThirteen/ComponentThirteen.module.css */
+
+.componentThirteenContainer {
+  background-color: #f7f9fc; /* Light background color from image */
+  padding: 5rem 2rem; /* Consistent padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContentWrapper {
+  display: flex;
+  max-width: 1400px; /* Max width as per previous components */
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.leftColumn {
+  flex: 1;
+  padding-right: 2rem; /* Space before separator */
+}
+
+.mainHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contactButton {
+  background-color: #614efc; /* Purple button */
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #523ece; /* Darker purple on hover */
+}
+
+.arrowIcon {
+  font-size: 0.8rem;
+}
+
+.separator {
+  width: 1px;
+  background-color: #e0e0e0; /* Light gray separator line */
+  height: auto; /* Will stretch with content */
+  align-self: stretch; /* Make it fill the height of the flex container */
+}
+
+.middleColumn, .rightColumn {
+  flex: 1;
+  padding: 0 1rem; /* Padding for content within columns */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.iconContainer {
+  margin-bottom: 1rem;
+}
+
+.subHeading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.subDescription {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.link {
+  color: #614efc; /* Purple link color */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: text-decoration 0.3s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .mainContentWrapper {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftColumn, .middleColumn, .rightColumn {
+    width: 100%;
+    padding: 0;
+    align-items: center;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+@media (max-width: 576px) {
+  .componentThirteenContainer {
+    padding: 3rem 1rem;
+  }
+
+  .mainHeading {
+    font-size: 1.8rem;
+  }
+
+  .contactButton {
+    width: 100%;
+    justify-content: center;
+  }
+} 
