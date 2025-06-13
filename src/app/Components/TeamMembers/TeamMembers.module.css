@@ -104,7 +104,7 @@
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: row;
@@ -115,7 +115,7 @@
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .card_content {
@@ -125,11 +125,11 @@
   flex-direction: column;
   overflow-y: auto;
   max-height: 100%;
+  animation: slideInLeft 0.5s ease-out;
 }
 
 .member_info {
   margin-bottom: 1.5rem;
-  animation: slideInLeft 0.5s ease-out;
 }
 
 .member_name {
@@ -137,14 +137,12 @@
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
-  animation: slideInLeft 0.5s ease-out;
 }
 
 .member_position {
   font-size: 1.3rem;
   color: #666;
   font-weight: 500;
-  animation: slideInLeft 0.5s ease-out 0.1s backwards;
 }
 
 .member_quote {
@@ -152,7 +150,6 @@
   line-height: 1.6;
   color: #444;
   margin-bottom: 1.5rem;
-  animation: slideInLeft 0.5s ease-out 0.2s backwards;
 }
 
 .bullet_points {
@@ -163,7 +160,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   width: 100%;
-  animation: slideInLeft 0.5s ease-out 0.3s backwards;
 }
 
 .bullet_points li {
@@ -172,7 +168,6 @@
   line-height: 1.4;
   position: relative;
   padding-left: 1.25rem;
-  animation: slideInLeft 0.5s ease-out 0.4s backwards;
 }
 
 .bullet_points li:before {
