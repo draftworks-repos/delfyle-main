@@ -1,0 +1,141 @@
+.container {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #1a202c;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000000;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.leftCard {
+  flex: 1;
+  max-width: 780px;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  line-height: 1.5;
+  padding: 4rem 3rem 3rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  z-index: 2;
+}
+
+.cardContent {
+  z-index: 1; /* Ensure content is above globe */
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  line-height: 2;
+  color: #13171d;
+  margin-bottom: 1.5rem;
+}
+
+.learnMore {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3182ce; /* Blue color for links */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.learnMore:hover {
+  color: #2c5282;
+}
+
+.globeBackground {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background-color: #e0f2fe; /* Placeholder for globe graphic */
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.rightCard {
+  flex: 1;
+  max-width: 390px;
+  background-color: #6366f1; /* Purple/blue background */
+  color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  z-index: 1;
+}
+
+.testimonialLogo {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2); /* Placeholder for logo */
+  margin-bottom: 1.5rem;
+}
+
+.testimonialQuote {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-style: italic; /* Match italic style */
+  margin-bottom: 1.5rem;
+}
+
+.testimonialAuthor {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .leftCard, .rightCard {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+  .leftCard, .rightCard {
+    padding: 2rem;
+  }
+} 
