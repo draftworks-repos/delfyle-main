@@ -2,7 +2,7 @@
   padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #f7f9fc;
+  background-color: #f6f8fa; /* Light grey background as in image */
   color: #1a202c;
   font-family: 'Inter', sans-serif;
 }
@@ -12,18 +12,23 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  background-color: #ffffff; /* White background for the main content area */
+  border-radius: 0.75rem;
+  padding: 3rem; /* Padding inside the white container */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Subtle shadow for the container */
 }
 
 .leftContent {
   flex: 1;
   text-align: left;
+  padding-right: 2rem; /* Spacing between text and image placeholder */
 }
 
 .mainHeading {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #000000;
+  color: #1a202c; /* Dark text color */
   margin-bottom: 1.5rem;
 }
 
@@ -45,18 +50,30 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  display: inline-flex; /* To align the arrow */
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .ctaButton:hover {
   background-color: #4f46e5;
 }
 
-.rightImagePlaceholder {
+.rightContentPlaceholder {
   flex: 1;
-  min-width: 400px;
-  height: 300px;
-  background-color: #e2e8f0; /* Placeholder color for image */
+  min-width: 450px; /* Adjust min-width to match design */
+  height: 350px; /* Adjust height to match design */
+  background-color: #e2e8f0; /* Placeholder color */
   border-radius: 0.75rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06); /* Inner shadow for depth */
+}
+
+.blankDiffContainer {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive adjustments */
@@ -64,16 +81,21 @@
   .contentWrapper {
     flex-direction: column;
     text-align: center;
+    padding: 2rem;
   }
   .leftContent,
-  .rightImagePlaceholder {
+  .rightContentPlaceholder {
     flex: unset;
     width: 100%;
     min-width: unset;
+    padding-right: 0;
   }
   .mainDescription {
     margin-left: auto;
     margin-right: auto;
+  }
+  .ctaButton {
+    margin: 0 auto;
   }
 }
 
@@ -81,7 +103,7 @@
   .mainHeading {
     font-size: 2.5rem;
   }
-  .rightImagePlaceholder {
-    height: 250px;
+  .rightContentPlaceholder {
+    height: 300px;
   }
 } 

@@ -6,14 +6,18 @@ const ComponentSix = () => {
     <section className={styles.container}>
       <div className={styles.contentWrapper}>
         <div className={styles.leftContent}>
-          <h2 className={styles.mainHeading}>ComponentSix</h2>
+          <h2 className={styles.mainHeading}>Streamlined account<br/>management for your enterprise</h2>
           <p className={styles.mainDescription}>
-            Stripe helps you launch, run, and scale your business without the need for additional payment providers.
+            Simplify operations and centralise reporting across
+            <br/>business lines and geographies with Stripe
+            <br/>Organisations.
           </p>
-          <button className={styles.ctaButton}>Get started today</button>
+          <button className={styles.ctaButton}>Get started &gt;</button>
         </div>
-        <div className={styles.rightImagePlaceholder}>
-          {/* Placeholder for the image/illustration */}
+        <div className={styles.rightContentPlaceholder}>
+          <div className={styles.blankDiffContainer}>
+            {/* Blank diff color container */}
+          </div>
         </div>
       </div>
     </section>
