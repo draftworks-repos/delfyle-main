@@ -7,7 +7,7 @@ const ComponentTen: React.FC = () => {
       <div className={styles.contentWrapper}>
         <div className={styles.leftColumn}>
           <p className={styles.subHeading}>Optimise and grow</p>
-          <h2 className={styles.mainHeading}>Advisory</h2>
+          <h2 className={styles.mainHeading}>ComponentTen</h2>
           <p className={styles.description}>
             From strengthening your current integration to expanding overseas to launching new business models, our professional services team provides the right guidance at the right time to help you build on your existing Stripe solution.
           </p>

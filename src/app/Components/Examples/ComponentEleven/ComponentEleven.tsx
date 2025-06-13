@@ -7,7 +7,7 @@ const ComponentEleven: React.FC = () => {
       <div className={styles.contentWrapper}>
         <div className={styles.leftColumn}>
           <p className={styles.subHeading}>Build for the future</p>
-          <h2 className={styles.mainHeading}>Strategy and transformation</h2>
+          <h2 className={styles.mainHeading}>ComponentEleven</h2>
           <p className={styles.description}>
             Our strategy and transformation team provides thought leadership and business transformation expertise to create a vision and shared roadmap for enterprise-wide adoption of the Stripe platform.
           </p>
