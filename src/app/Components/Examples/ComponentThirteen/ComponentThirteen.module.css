@@ -26,7 +26,7 @@
   font-size: 2.8rem; /* Increased font size */
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
   line-height: 1.2;
 }
 
@@ -83,7 +83,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem; /* Reduced from 0.5rem to 0.25rem */
   position: relative; /* For pseudo-element positioning */
   padding-left: 1rem; /* Space for the vertical line */
 }
