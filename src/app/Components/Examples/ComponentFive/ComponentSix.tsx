@@ -6,7 +6,7 @@ const ComponentSix = () => {
     <section className={styles.container}>
       <div className={styles.contentWrapper}>
         <div className={styles.leftContent}>
-          <h2 className={styles.mainHeading}>Streamlined account<br/>management for your enterprise</h2>
+          <h2 className={styles.mainHeading}>ComponentSix</h2>
           <p className={styles.mainDescription}>
             Simplify operations and centralise reporting across
             <br/>business lines and geographies with Stripe
