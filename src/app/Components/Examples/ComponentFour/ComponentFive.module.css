@@ -30,7 +30,12 @@
 }
 
 .navButton {
-  background-color: #6366f1; /* Purple/blue background */
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  ); /* SocialLinks main gradient */
   color: #ffffff;
   border: none;
   border-radius: 50%;
@@ -45,7 +50,12 @@
 }
 
 .navButton:hover {
-  background-color: #4338ca;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.9) 0%,
+    rgba(180, 0, 104, 0.9) 50%,
+    rgba(255, 0, 128, 0.9) 100%
+  );
 }
 
 .carouselContainer {
@@ -78,7 +88,12 @@
 
 .cardHeader {
   height: 0.25rem;
-  background: linear-gradient(to right, #6d28d9, #8b5cf6);
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  ); /* SocialLinks main gradient */
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   position: absolute;
@@ -98,7 +113,7 @@
 .cardDescription {
   font-size: 1rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: #666; /* SocialLinks subtitle color */
   margin-bottom: 1.5rem;
   flex-grow: 1; /* Allow description to take up available space */
 }
@@ -106,7 +121,7 @@
 .learnMore {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #6366f1; /* Purple/blue color for links */
+  color: rgba(107, 0, 62, 1); /* SocialLinks primary color */
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -114,7 +129,7 @@
 }
 
 .learnMore:hover {
-  color: #4338ca;
+  color: rgba(107, 0, 62, 0.9); /* Darker version on hover */
 }
 
 /* Responsive adjustments */

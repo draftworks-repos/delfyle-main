@@ -1,0 +1,91 @@
+.container {
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+
+.content {
+  max-width: 400px;
+  margin-right: 80px;
+}
+
+.titleContainer {
+  min-width: 700px;
+}
+
+.title {
+  font-size: 36px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.descriptionContainer {
+  /* No specific max-width requested for description, inheriting from .content or flowing naturally */
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.button {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  );
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.features {
+  display: flex;
+  gap: 40px;
+}
+
+.featureColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.featureItem {
+  font-size: 16px;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+}
+
+.featureItem::before {
+  content: '\2713'; /* Checkmark Unicode character */
+  color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.8) 0%,
+    rgba(180, 0, 104, 0.8) 100%
+  );
+  margin-right: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+} 

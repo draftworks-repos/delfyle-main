@@ -8,6 +8,8 @@ import ComponentThird from "../Components/Examples/ComponentThird/ComponentThird
 import ComponentFour from "../Components/Examples/ComponentFour/ComponentFour";
 import ComponentFive from "../Components/Examples/ComponentFour/ComponentFive";
 import ComponentSix from "../Components/Examples/ComponentFive/ComponentSix";
+import ComponentSeven from "../Components/Examples/ComponentSeven/ComponentSeven";
+import ComponentEight from "../Components/Examples/ComponentEight/ComponentEight";
 
 const StartupPage = () => {
   const companyLogos = [
@@ -34,6 +36,8 @@ const StartupPage = () => {
       <ComponentFour />
       <ComponentFive />
       <ComponentSix />
+      <ComponentSeven />
+      <ComponentEight />
     </main>
   );
 };

@@ -5,7 +5,7 @@ const ComponentSix = () => {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.mainHeading}>ComponentSix</h2>
+        <h2 className={styles.mainHeading}>Component Six</h2>
         <p className={styles.mainDescription}>
           Explore Stripe or get in touch with our sales team.
         </p>

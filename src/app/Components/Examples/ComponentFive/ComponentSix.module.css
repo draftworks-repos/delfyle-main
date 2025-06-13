@@ -2,7 +2,7 @@
   padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #f6f8fa; /* Light grey background as in image */
+  background-color: #ffffff; /* Changed to match theme */
   color: #1a202c;
   font-family: 'Inter', sans-serif;
 }
@@ -12,36 +12,44 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background-color: #ffffff; /* White background for the main content area */
+  background-color: #ffffff;
   border-radius: 0.75rem;
-  padding: 3rem; /* Padding inside the white container */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Subtle shadow for the container */
+  padding: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .leftContent {
   flex: 1;
   text-align: left;
-  padding-right: 2rem; /* Spacing between text and image placeholder */
+  padding-right: 2rem;
 }
 
 .mainHeading {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #1a202c; /* Dark text color */
+  color: #1a202c; /* Reverted to solid color */
+  background: none; /* Removed gradient background */
+  -webkit-background-clip: unset; /* Unset background-clip */
+  background-clip: unset; /* Unset background-clip */
   margin-bottom: 1.5rem;
 }
 
 .mainDescription {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: #666; /* Changed to match SocialLinks subtitle color */
   margin-bottom: 2rem;
   max-width: 500px;
 }
 
 .ctaButton {
-  background-color: #6366f1; /* Purple/blue color */
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 50%,
+    rgba(255, 0, 128, 1) 100%
+  ); /* Changed to SocialLinks main gradient */
   color: #ffffff;
   font-weight: 600;
   border: none;
@@ -50,26 +58,31 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  display: inline-flex; /* To align the arrow */
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .ctaButton:hover {
-  background-color: #4f46e5;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 0.9) 0%,
+    rgba(180, 0, 104, 0.9) 50%,
+    rgba(255, 0, 128, 0.9) 100%
+  ); /* Darker gradient on hover */
 }
 
 .rightContentPlaceholder {
   flex: 1;
-  min-width: 450px; /* Adjust min-width to match design */
-  height: 350px; /* Adjust height to match design */
-  background-color: #ffffff; /* Changed to white */
+  min-width: 450px;
+  height: 350px;
+  background-color: #ffffff;
   border-radius: 0.75rem;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06); /* Inner shadow for depth */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .blankDiffContainer {
-  background-color: #ffffff;
+  background-color: rgba(107, 0, 62, 0.1); /* Changed to match SocialLinks icon wrapper background */
   border-radius: 0.5rem;
   height: 100%;
   width: 100%;
