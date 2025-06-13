@@ -126,6 +126,7 @@ const DemoHero: React.FC = () => {
 
   return (
     <section ref={sectionRef} className={styles.heroSection}>
+      <div className={styles.waveOverlay} />
       <div className={styles.radialSpot1} />
       <div className={styles.radialSpot2} />
       <div className={styles.radialSpot3} />
@@ -133,9 +134,13 @@ const DemoHero: React.FC = () => {
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.textColumn}>
           <div ref={firstTextRef} className={styles.textContentContainer}>
-            <h1 className={styles.mainHeading}>
-              Delfyle – Your Business,<br />Hassle-Free
-            </h1>
+            <div className={styles.brandContainer}>
+              <h1 className={styles.brandName}>Delfyle</h1>
+            </div>
+            <div className={styles.taglineContainer}>
+              <h2 className={styles.headingLine}>Your Business,</h2>
+              <h2 className={styles.headingLine}>Hassle-Free</h2>
+            </div>
             <p className={styles.subHeading}>
               Delfyle is the dedicated filing, compliance, and legal services arm of a reputed startup incubator, while also operating as an independent legal and compliance consultancy. We serve as the CA, CS, and legal backbone for early-stage and growth-stage startups, offering complete regulatory support under one roof.
             </p>
@@ -187,9 +192,11 @@ const DemoHero: React.FC = () => {
           </div>
           <div className={styles.textColumn}>
             <div ref={secondTextRef} className={styles.textContentContainer}>
-              <h1 className={styles.mainHeading}>
-                But we don't stop there!
-              </h1>
+              <div className={styles.taglineContainer}>
+                <h2 className={styles.headingLine}>But we don't</h2>
+                <h2 className={`${styles.headingLine} ${styles.gradientText} ${styles.gradientTextLarge}`}>stop</h2>
+                <h2 className={`${styles.headingLine} ${styles.gradientText} ${styles.gradientTextMedium}`}>there!</h2>
+              </div>
               <p className={styles.subHeading}>
                 Delfyle also caters to established corporates, enterprises, and government bodies looking to outsource their legal and compliance operations for greater efficiency and reduced overhead.
               </p>
