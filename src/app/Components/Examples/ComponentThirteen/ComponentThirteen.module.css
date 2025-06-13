@@ -23,7 +23,7 @@
 }
 
 .mainHeading {
-  font-size: 2.5rem;
+  font-size: 2.8rem; /* Increased font size */
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 1rem;
@@ -34,7 +34,7 @@
   font-size: 1rem;
   color: #4a4a4a;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Adjusted margin */
 }
 
 .contactButton {
@@ -84,6 +84,18 @@
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
+  position: relative; /* For pseudo-element positioning */
+  padding-left: 1rem; /* Space for the vertical line */
+}
+
+.subHeading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px; /* Thickness of the line */
+  background-color: #614efc; /* Purple line color */
 }
 
 .subDescription {
