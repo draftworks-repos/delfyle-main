@@ -19,7 +19,7 @@
 }
 
 .leftColumn {
-  flex: 0.5; /* Approximately half width for content */
+  flex: 0.5;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,6 +27,8 @@
   padding: 3rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  align-items: flex-start;
 }
 
 .rightColumn {
@@ -38,9 +40,11 @@
 
 .subHeading {
   font-size: 0.9rem;
-  color: #6a6c71; /* Darker gray for sub-heading */
+  color: #6a6c71;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 .mainHeading {
@@ -49,6 +53,8 @@
   color: #1a1a1a;
   margin-bottom: 2rem;
   line-height: 1.2;
+  text-align: left;
+  width: 100%;
 }
 
 .description {
@@ -56,14 +62,18 @@
   color: #4a4a4a;
   line-height: 1.6;
   margin-bottom: 2.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 .solutionSection {
   display: flex;
-  flex-direction: row; /* Align items horizontally */
-  align-items: center; /* Align vertically in the center */
+  flex-direction: column;
+  align-items: start;
+  gap: .7rem;
   margin-bottom: 1.5rem;
-  justify-content: flex-start; /* Align content to the left */
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .solutionIcon {
@@ -84,8 +94,8 @@
   font-size: 1rem;
   font-weight: 600;
   color: #1a1a1a;
-  white-space: nowrap; /* Ensure text stays on one line */
-  text-align: left; /* Align the text to the left */
+  text-align: left;
+  width: 100%;
 }
 
 .solutionDescription {
@@ -93,12 +103,16 @@
   color: #666;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 .featureList {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .featureList li {
@@ -107,6 +121,8 @@
   margin-bottom: 0.75rem;
   display: flex;
   align-items: flex-start;
+  text-align: left;
+  width: 100%;
 }
 
 .checkIcon {
@@ -183,5 +199,16 @@
 
   .mainHeading {
     font-size: 2rem;
+  }
+}
+
+/* Tablet view (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  .rightColumn {
+    min-height: 500px;
+    max-height: 600px;
   }
 } 
