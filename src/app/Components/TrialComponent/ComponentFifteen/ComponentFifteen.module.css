@@ -60,7 +60,6 @@
   .cardsWrapper {
     display: flex;
     gap: 2rem;
-    transition: transform 0.5s ease-in-out;
   }
   
   .card {
@@ -147,15 +146,13 @@
       font-size: 1.75rem;
     }
     .cardsWrapper {
-      /* flex-direction: column; -- Removed to keep cards horizontal on tablets */
       align-items: center;
     }
     .card {
       width: calc(50% - 1rem); /* Keep two cards horizontal */
-      max-width: none; /* Remove max-width override */
+      max-width: none;
     }
     .headerContainer {
-      /* flex-direction: column; Removed to ensure row layout for tablets */
       align-items: flex-start;
       padding-right: 0;
     }
@@ -172,22 +169,40 @@
     }
   }
 
-  @media (max-width: 767px) { /* New media query for very small mobile */
+  @media (max-width: 768px) {
     .headerContainer {
-      flex-direction: column; /* Stack vertically on very small mobile */
+      flex-direction: column;
       align-items: flex-start;
     }
-  }
 
-  @media (max-width: 576px) {
-    .cardsWrapper {
-      flex-direction: column; /* Stack vertically on small mobile */
+    .mainHeading {
+      font-size: 2rem;
     }
+
+    .cardsWrapper {
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem; /* Explicitly define gap for mobile */
+    }
+
     .card {
+      min-width: 100%; /* Full width for single card */
+      scroll-snap-align: start;
       width: 100%; /* Full width for single card */
-      max-width: 100%;
+      flex-shrink: 0;
+      /* Removed margin-right: 1rem; */
     }
     
+    .cardTitle {
+      font-size: 1.35rem;
+    }
+
+    .cardDescription {
+      font-size: 1rem;
+    }
+
     .container {
       padding: 4rem 1rem;
     }

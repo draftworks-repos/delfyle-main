@@ -60,11 +60,30 @@
 @media (max-width: 768px) {
   .container {
     padding: 3rem 1.5rem;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .content {
+    max-width: 100% !important;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-size: 1rem;
   }
   
   .features {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .featureItem {
+    font-size: 1.35rem;
   }
 }
 

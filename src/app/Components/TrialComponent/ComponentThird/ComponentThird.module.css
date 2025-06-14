@@ -86,7 +86,13 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .mainHeading {
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+  .cardTitle {
+    font-size: 1.35rem;
+  }
+  .cardDescription {
+    font-size: 1rem;
   }
   .cardsWrapper {
     flex-direction: column;

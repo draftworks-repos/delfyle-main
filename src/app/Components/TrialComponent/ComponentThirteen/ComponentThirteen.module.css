@@ -15,11 +15,13 @@
   gap: 2rem;
   justify-content: space-between;
   align-items: flex-start;
+  text-align: left;
 }
 
 .leftColumn {
   flex: 0.46; /* Adjusted width to 46% */
   padding-right: 2rem; /* Space before separator */
+  text-align: left;
 }
 
 .mainHeading {
@@ -28,6 +30,7 @@
   color: #1a1a1a;
   margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
   line-height: 1.2;
+  text-align: left;
 }
 
 .description {
@@ -35,6 +38,7 @@
   color: #4a4a4a;
   line-height: 1.6;
   margin-bottom: 1.5rem; /* Adjusted margin */
+  text-align: left;
 }
 
 .contactButton {
@@ -73,6 +77,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
 }
 
 .iconContainer {
@@ -95,6 +100,7 @@
   margin-bottom: 0.25rem; /* Reduced from 0.5rem to 0.25rem */
   position: relative; /* For pseudo-element positioning */
   padding-left: 1rem; /* Space for the vertical line */
+  text-align: left;
 }
 
 .subHeading::before {
@@ -113,6 +119,7 @@
   line-height: 1.5;
   margin-bottom: 1.5rem;
   padding-left: 1rem; /* Added padding-left */
+  text-align: left;
 }
 
 .link {
@@ -125,6 +132,7 @@
   gap: 0.3rem;
   transition: text-decoration 0.3s ease;
   padding-left: 1rem; /* Added padding-left */
+  text-align: left;
 }
 
 .link:hover {
@@ -136,14 +144,15 @@
   .mainContentWrapper {
     flex-direction: column;
     gap: 3rem;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .leftColumn, .middleColumn, .rightColumn {
     width: 100%;
     padding: 0;
-    align-items: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .mainHeading {
@@ -162,7 +171,15 @@
   }
 
   .mainHeading {
-    font-size: 1.8rem;
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .subHeading {
+    font-size: 1.35rem;
   }
 
   .contactButton {

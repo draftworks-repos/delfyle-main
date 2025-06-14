@@ -33,8 +33,8 @@ const ComponentFive = () => {
 
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex + 2; // Slide next two cards
-      const lastPossibleIndex = cards.length - 3; // Index to show the last 3 cards
+      const newIndex = prevIndex + 1; // Slide one card at a time
+      const lastPossibleIndex = cards.length - 1; // Index to show the last card
 
       if (newIndex > lastPossibleIndex) {
         return 0; // Loop back to start
@@ -45,11 +45,11 @@ const ComponentFive = () => {
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex - 2; // Slide previous two cards
-      const lastPossibleIndex = cards.length - 3; // Index to show the last 3 cards
+      const newIndex = prevIndex - 1; // Slide one card at a time
+      const lastPossibleIndex = cards.length - 1; // Index to show the last card
 
       if (newIndex < 0) {
-        return Math.max(0, lastPossibleIndex); // Loop to show the last 3 cards
+        return lastPossibleIndex; // Loop to show the last card
       }
       return newIndex;
     });

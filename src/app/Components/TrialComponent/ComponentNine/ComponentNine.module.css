@@ -78,10 +78,13 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .mainHeading {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .mainDescription {
-    font-size: 16px;
+    font-size: 1rem;
+  }
+  .featureHeading {
+    font-size: 1.35rem;
   }
   .grid {
     grid-template-columns: 1fr;

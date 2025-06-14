@@ -118,12 +118,28 @@
   }
 
   .card {
-    padding: 0;
+    padding: 30px;
   }
 }
 
 /* Mobile view (below 768px) */
 @media (max-width: 768px) {
+  .mainHeading {
+    font-size: 2rem;
+  }
+  .mainDescription {
+    font-size: 1rem;
+  }
+  .cardHeading {
+    font-size: 1.35rem;
+  }
+.container{
+  padding: 2rem 2rem;
+}
+  
+  .header {
+    padding-left: 0;
+  }
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }

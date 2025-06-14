@@ -9,6 +9,7 @@
   font-family: 'Inter', sans-serif;
   color: #1a1a1a;
   text-align: left;
+  overflow: visible; /* Changed from hidden to visible */
 }
 
 .topAnchorContainer {
@@ -31,8 +32,8 @@
   display: flex;
   gap: 4rem;
   align-items: flex-start;
-  height: 800px; /* Fixed height */
-  overflow-y: auto; /* Add scrolling if content overflows */
+  height: auto; /* Changed from fixed 800px to auto */
+  overflow-y: visible; /* Changed from auto to visible */
   text-align: left;
 }
 
@@ -212,6 +213,18 @@
   text-align: left;
 }
 
+.companyLogosSectionTop {
+  margin-top: 1rem;
+  display: flex; /* Ensure flex display */
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative; /* Ensure z-index works */
+  z-index: 10; /* Give it a moderate z-index */
+}
+
 .companyLogosSection {
   margin-top: 1rem;
   display: flex;
@@ -229,7 +242,7 @@
   align-items: center;
   padding: 0 1rem;
   position: relative;
-  cursor: pointer; /* Add cursor pointer for clickability */
+  cursor: pointer;
 }
 
 .companyLogoWrapper:not(:last-child)::after {
@@ -240,7 +253,7 @@
   transform: translateY(-50%);
   width: 1px;
   height: 60%;
-  background-color: #e0e0e0; /* Light gray separator line */
+  background-color: #e0e0e0;
 }
 
 .companyLogoWrapper img {
@@ -254,76 +267,39 @@
   opacity: 1;
 }
 
-/* Duplicate companyLogosSection for tablet/mobile */
-.companyLogosSectionTop {
-  display: none; /* Hidden by default for desktop */
-  margin-bottom: 2rem;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.companyLogosSectionTop .companyLogoWrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1rem;
-  position: relative;
-  cursor: pointer;
-}
-
-.companyLogosSectionTop .companyLogoWrapper:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 60%;
-  background-color: #e0e0e0;
-}
-
-.companyLogosSectionTop .companyLogoWrapper img {
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-/* Responsive adjustments */
+/* Tablet view (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .mainContentWrapper {
-    height: auto;
-    min-height: 800px;
-    overflow: visible;
+    flex-direction: column;
+    gap: 3rem;
   }
-
   .leftColumn {
-    height: auto;
-    overflow: visible;
-    padding-right: 1rem;
+    padding-right: 0;
   }
-
   .rightColumn {
-    height: auto;
-    overflow: visible;
+    min-height: 400px;
   }
-
   .companyLogosSectionTop {
-    display: flex; /* Show in tablet */
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: space-between; /* Distribute space between items */
-    gap: 0.5rem; /* Reduced gap by half for tablet */
+    flex-wrap: wrap; /* Allow logos to wrap */
+    padding: 1.5rem 0; /* Adjust padding */
   }
-
   .companyLogosSectionTop .companyLogoWrapper {
-    flex: 0 0 calc(25% - 0.375rem); /* Adjusted width for 4 items per row with new gap */
+    flex-basis: 33%; /* 3 logos per row */
+    max-width: 33%;
   }
-
+  .companyLogosSectionTop .companyLogoWrapper:not(:last-child)::after {
+    height: 80%; /* Adjust separator height */
+  }
   .companyLogosSection {
-    display: none; /* Hide original in tablet */
+    flex-wrap: wrap; /* Allow logos to wrap */
+    padding: 1.5rem 0; /* Adjust padding */
+  }
+  .companyLogosSection .companyLogoWrapper {
+    flex-basis: 33%; /* 3 logos per row */
+    max-width: 33%;
+  }
+  .companyLogosSection .companyLogoWrapper:not(:last-child)::after {
+    height: 80%; /* Adjust separator height */
   }
 }
 
@@ -332,68 +308,116 @@
     flex-direction: column;
     gap: 2rem;
   }
-
   .leftColumn, .rightColumn {
     flex: 1;
     padding-right: 0;
   }
-
   .mainHeading {
     font-size: 2.5rem;
   }
-
   .productsGrid {
     grid-template-columns: 1fr;
   }
-
   .companyLogosSectionTop {
-    display: flex; /* Show in mobile */
+    flex-wrap: wrap; /* Ensure wrapping */
+    justify-content: center;
   }
-
   .companyLogosSection {
-    display: none; /* Hide original in mobile */
+    flex-wrap: wrap; /* Ensure wrapping */
+    justify-content: center;
   }
-
   .companyLogoWrapper {
-    flex: 0 0 calc(50% - 1rem);
-    padding: 1rem;
+    flex-basis: 50%; /* 2 logos per row */
+    max-width: 50%;
+    padding: 0.5rem;
   }
-
   .companyLogoWrapper:last-child {
-    flex: 0 0 100%;
+    flex-basis: 100%;
+    max-width: 100%;
   }
-
   .companyLogoWrapper:not(:last-child)::after {
-    display: none;
+    height: 50%;
   }
 }
 
-@media (max-width: 576px) {
+/* Mobile view (below 768px) */
+@media (max-width: 768px) {
   .container {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
   }
-
+  .mainContentWrapper {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    overflow-y: visible;
+  }
+  .leftColumn {
+    padding-right: 0;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
+  .rightColumn {
+    min-height: 300px;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
   .mainHeading {
     font-size: 2rem;
   }
-
   .subContentHeading {
+    font-size: 1.35rem;
+  }
+  .paragraphContent {
     font-size: 1rem;
   }
-
-  .paragraphContent {
-    font-size: 0.9rem;
+  .introParagraph {
+    font-size: 1rem;
   }
-
   .rightTopContainer {
     padding: 1.5rem;
   }
-
   .rightBottomContainer {
-    padding: 2.5rem 1.5rem;
+    height: 300px;
+    padding: 2rem;
   }
-
   .bottomQuote {
     font-size: 1rem;
+  }
+  .companyLogo {
+    width: 58.5px;
+    height: 15.6px;
+  }
+  .companyLogoWrapper img {
+    width: 58.5px;
+    height: 15.6px;
+    object-fit: contain;
+  }
+  .companyLogosSectionTop {
+    flex-wrap: wrap; /* Ensure logos wrap */
+    justify-content: center;
+    padding: 1rem 0; /* Adjust padding for mobile */
+  }
+  .companyLogosSectionTop .companyLogoWrapper {
+    flex-basis: 50%; /* 2 logos per row */
+    max-width: 50%;
+    padding: 0.5rem;
+  }
+  .companyLogosSectionTop .companyLogoWrapper:not(:last-child)::after {
+    height: 50%;
+  }
+  .companyLogosSection {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  .companyLogosSection .companyLogoWrapper {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding: 0.5rem;
+  }
+  .companyLogosSection .companyLogoWrapper:not(:last-child)::after {
+    height: 50%;
   }
 } 

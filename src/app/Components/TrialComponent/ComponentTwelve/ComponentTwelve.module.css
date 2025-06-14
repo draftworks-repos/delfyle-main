@@ -48,6 +48,8 @@
   color: #1a1a1a;
   margin-bottom: 0;
   line-height: 1.2;
+  text-align: left;
+
 }
 
 .leftBottomContainer {
@@ -63,6 +65,7 @@
   margin-bottom: 0.4rem;
   text-transform: uppercase;
   position: relative;
+  text-align: left;
   padding-left: 1.5rem; /* Space for the vertical line */
 }
 
@@ -81,6 +84,7 @@
   color: #4a4a4a;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .productsGrid {
@@ -170,6 +174,12 @@
 }
 
 /* Responsive adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rightTopContainer {
+    padding: 2rem 1rem 2rem;
+  }
+}
+
 @media (max-width: 992px) {
   .mainContentWrapper {
     flex-direction: column;
@@ -200,11 +210,15 @@
   }
 
   .subContentHeading {
-    font-size: 1rem;
+    font-size: 1.35rem;
   }
 
   .paragraphContent {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .rightDescription {
+    font-size: 1rem;
   }
 
   .rightTopContainer {

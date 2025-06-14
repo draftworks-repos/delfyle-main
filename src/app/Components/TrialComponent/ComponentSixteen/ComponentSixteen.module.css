@@ -59,7 +59,6 @@
 .cardsWrapper {
   display: flex;
   gap: 2rem;
-  transition: transform 0.5s ease-in-out;
 }
 
 .card {
@@ -150,7 +149,8 @@
     max-width: none;
   }
   .headerContainer {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
     padding-right: 0;
     margin-bottom: 1.5rem;
@@ -158,23 +158,42 @@
   .navigationButtons {
     margin-top: 1rem;
     justify-content: flex-end;
+    margin-top: 0;
     width: 100%;
   }
 }
 
-@media (max-width: 576px) {
-  .cardsWrapper {
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+  .headerContainer {
     flex-direction: column;
+    align-items: flex-start;
+  }
+  .mainHeading {
+    font-size: 2rem;
+  }
+  .cardDescription {
+    font-size: 1rem;
+  }
+  .cardTitle {
+    font-size: 1.35rem;
+  }
+  .cardsWrapper {
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
   }
   .card {
-    width: 100%;
-    max-width: 100%;
+    min-width: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background-color: lightblue;
   }
-  
-  .container {
-    padding: 2rem 1rem;
-  }
-  
   .navButton {
     width: 35px;
     height: 35px;

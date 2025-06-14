@@ -39,25 +39,19 @@ const ComponentSixteen = () => {
 
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex + 1; // Slide next one card
-      const lastPossibleIndex = cards.length - 1; // Index to show the last card
-
-      if (newIndex > lastPossibleIndex) {
-        return 0; // Loop back to start
-      }
-      return newIndex;
+      const newIndex = prevIndex + 1;
+      const nextIndex = newIndex >= cards.length ? 0 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex - 1; // Slide previous one card
-      const lastPossibleIndex = cards.length - 1; // Index to show the last card
-
-      if (newIndex < 0) {
-        return Math.max(0, lastPossibleIndex); // Loop to show the last card
-      }
-      return newIndex;
+      const newIndex = prevIndex - 1;
+      const nextIndex = newIndex < 0 ? cards.length - 1 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
@@ -73,7 +67,6 @@ const ComponentSixteen = () => {
       <div className={styles.carouselContainer} ref={carouselRef}>
         <div
           className={styles.cardsWrapper}
-          style={{ transform: `translateX(${-currentIndex * ((carouselRef.current?.offsetWidth || 0) + 32)}px)` }}
         >
           {cards.map((card, index) => (
             <div key={index} className={styles.card} ref={el => {

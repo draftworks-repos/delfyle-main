@@ -77,6 +77,20 @@ const ComponentFourteen: React.FC = () => {
 
   return (
     <section className={styles.container}>
+      <div className={styles.companyLogosSectionTop}>
+        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('snowflake')}>
+          <Image src="/CompanyLogos/1.png" alt="Snowflake Logo" width={120} height={40} />
+        </div>
+        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('jpmorgan')}>
+          <Image src="/CompanyLogos/2.png" alt="JPMorgan Logo" width={120} height={40} />
+        </div>
+        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('heygen')}>
+          <Image src="/CompanyLogos/3.png" alt="HeyGen Logo" width={120} height={40} />
+        </div>
+        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('dynMedia')}>
+          <Image src="/CompanyLogos/4.png" alt="Dyn Media Logo" width={120} height={40} />
+        </div>
+      </div>
       <div className={styles.topAnchorContainer}>
         <a href="#" className={styles.topAnchorLink}>{currentCompany.topAnchor}</a>
       </div>
@@ -133,20 +147,6 @@ const ComponentFourteen: React.FC = () => {
               <p className={styles.bottomAuthor}>{currentCompany.author}</p>
             </div>
           </div>
-        </div>
-      </div>
-      <div className={styles.companyLogosSection}>
-        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('snowflake')}>
-          <Image src="/CompanyLogos/1.png" alt="Snowflake Logo" width={120} height={40} />
-        </div>
-        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('jpmorgan')}>
-          <Image src="/CompanyLogos/2.png" alt="JPMorgan Logo" width={120} height={40} />
-        </div>
-        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('heygen')}>
-          <Image src="/CompanyLogos/3.png" alt="HeyGen Logo" width={120} height={40} />
-        </div>
-        <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('dynMedia')}>
-          <Image src="/CompanyLogos/4.png" alt="Dyn Media Logo" width={120} height={40} />
         </div>
       </div>
     </section>

@@ -39,25 +39,19 @@ const ComponentFifteen = () => {
 
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex + 2; // Slide next two cards
-      const lastPossibleIndex = cards.length - 2; // Index to show the last 2 cards
-
-      if (newIndex > lastPossibleIndex) {
-        return 0; // Loop back to start
-      }
-      return newIndex;
+      const newIndex = prevIndex + 1;
+      const nextIndex = newIndex >= cards.length ? 0 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => {
-      const newIndex = prevIndex - 2; // Slide previous two cards
-      const lastPossibleIndex = cards.length - 2; // Index to show the last 2 cards
-
-      if (newIndex < 0) {
-        return Math.max(0, lastPossibleIndex); // Loop to show the last 2 cards
-      }
-      return newIndex;
+      const newIndex = prevIndex - 1;
+      const nextIndex = newIndex < 0 ? cards.length - 1 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
@@ -73,7 +67,6 @@ const ComponentFifteen = () => {
       <div className={styles.carouselContainer} ref={carouselRef}>
         <div
           className={styles.cardsWrapper}
-          style={{ transform: `translateX(${-currentIndex * (cardsRef.current[0]?.offsetWidth + 32 || 0)}px)` }}
         >
           {cards.map((card, index) => (
             <div key={index} className={styles.card} ref={el => {

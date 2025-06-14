@@ -200,15 +200,34 @@
   .mainHeading {
     font-size: 2rem;
   }
+  .description {
+    font-size: 1rem;
+  }
+  .subHeading {
+    font-size: 1.35rem;
+  }
 }
 
 /* Tablet view (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .container {
+    align-items: start;
+    height: 160vh;
     padding: 0 2rem;
+    max-width: full;
   }
+
+  .contentWrapper {
+    gap: 12rem;
+  }
+
+  .leftColumn {
+    margin-top: 7rem;
+  }
+
   .rightColumn {
-    min-height: 500px;
+    z-index: -1;
     max-height: 600px;
+    min-height: 500px;
   }
 } 
