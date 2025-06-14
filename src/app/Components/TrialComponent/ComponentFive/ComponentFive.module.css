@@ -1,5 +1,5 @@
 .container {
-  padding: 5rem 2rem;
+  padding: 5rem 0;
   max-width: 1400px;
   margin: 0 auto;
   background-color: #f6f8fa;
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  padding-left: 2rem;
   padding-right: 2rem; /* Adjust padding to make space for buttons */
 }
 
@@ -63,7 +63,11 @@
   width: 100%;
   height: auto;
   min-height: 400px;
-  padding-bottom: 2rem;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: transparent;
 }
 
 .cardsWrapper {
@@ -86,8 +90,6 @@
   overflow: visible;
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  min-height: 200px;
   margin-bottom: 1rem;
 }
 
@@ -120,6 +122,7 @@
   line-height: 1.6;
   color: #666;
   margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .learnMore {
@@ -141,16 +144,15 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .card {
     width: calc((100% / 2) - 1rem);
+    /* Removed height: 100%; */
   }
-  
   .cardsWrapper {
     gap: 1.5rem;
+    /* Removed height: 100%; */
   }
-  
   .container {
     padding: 4rem 1.5rem;
   }
-  
   .mainHeading {
     font-size: 2rem;
   }
@@ -171,11 +173,11 @@
     flex-direction: row;
     align-items: stretch;
     width: 100%;
+    /* Removed height: 100%; */
   }
   .card {
     width: 100%;
-    max-width: 100%;
-    flex-shrink: 0;
+    /* Removed height: 100%; */
   }
   .carouselContainer {
     overflow: hidden;
