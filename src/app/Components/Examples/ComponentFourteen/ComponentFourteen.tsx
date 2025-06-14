@@ -83,7 +83,7 @@ const ComponentFourteen: React.FC = () => {
       <div className={styles.mainContentWrapper}>
         <div className={styles.leftColumn}>
           <div className={styles.leftTopContainer}>
-            <h2 className={styles.mainHeading}>{currentCompany.mainHeading}</h2>
+            <h2 className={styles.mainHeading}>ComponentFourteen: {currentCompany.mainHeading}</h2>
           </div>
           <div className={styles.leftBottomContainer}>
             <h3 className={styles.subContentHeading}>Challenge</h3>

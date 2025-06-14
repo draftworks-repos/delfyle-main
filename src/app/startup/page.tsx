@@ -18,6 +18,7 @@ import ComponentTwelve from "../Components/Examples/ComponentTwelve/ComponentTwe
 import ComponentThirteen from "../Components/Examples/ComponentThirteen/ComponentThirteen";
 import ComponentFourteen from "../Components/Examples/ComponentFourteen/ComponentFourteen";
 import ComponentFifteen from "../Components/Examples/ComponentFifteen/ComponentFifteen";
+import ComponentSixteen from "../Components/Examples/ComponentSixteen/ComponentSixteen";
 
 const StartupPage = () => {
   const companyLogos = [
@@ -74,6 +75,7 @@ const StartupPage = () => {
       <ComponentThirteen />
       <ComponentFourteen />
       <ComponentFifteen />
+      <ComponentSixteen />
     </main>
   );
 };

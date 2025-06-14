@@ -11,7 +11,7 @@ const ComponentTwelve: React.FC = () => {
       <div className={styles.mainContentWrapper}>
         <div className={styles.leftColumn}>
           <div className={styles.leftTopContainer}>
-            <h2 className={styles.mainHeading}>Snowflake partners with Stripe experts to launch marketplace in four months</h2>
+            <h2 className={styles.mainHeading}>ComponentTwelve: Snowflake partners with Stripe experts to launch marketplace in four months</h2>
           </div>
           <div className={styles.leftBottomContainer}>
             <h3 className={styles.subContentHeading}>Challenge</h3>

@@ -7,7 +7,7 @@ const ComponentThirteen = () => {
     <section className={styles.componentThirteenContainer}>
       <div className={styles.mainContentWrapper}>
         <div className={styles.leftColumn}>
-          <h2 className={styles.mainHeading}>Ready to work with professional services?</h2>
+          <h2 className={styles.mainHeading}>ComponentThirteen: Ready to work with professional services?</h2>
           <p className={styles.description}>Tell us more about what you're building so we can get started.</p>
           <button className={styles.contactButton}>
             Contact our team <span className={styles.arrowIcon}>&gt;</span>
