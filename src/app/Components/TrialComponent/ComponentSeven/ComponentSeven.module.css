@@ -1,6 +1,6 @@
 .container {
   background-color: #ffffff;
-  padding: 5rem 2rem;
+  padding: 5rem 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,23 +9,89 @@
   border-radius: .5rem;
 }
 
+/* Tablet view (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    align-items: flex-start;
+  }
+
+  .content {
+    min-width: 100%;
+    margin-right: 0;
+  }
+
+  .titleContainer {
+    min-width: unset;
+    width: 100%;
+    text-align: left;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .descriptionContainer {
+    text-align: left;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .features {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .featureColumn {
+    align-items: flex-start;
+  }
+
+  .featureItem {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile view (below 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 .content {
   max-width: 400px;
   margin-right: 80px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .titleContainer {
   min-width: 700px;
+  text-align: left;
 }
 
 .title {
   font-size: 36px;
   color: #1a1a1a;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .descriptionContainer {
-  /* No specific max-width requested for description, inheriting from .content or flowing naturally */
+  text-align: left;
+  width: 100%;
 }
 
 .description {
@@ -33,6 +99,7 @@
   color: #666;
   line-height: 1.5;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .button {
@@ -51,6 +118,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  align-self: flex-start;
 }
 
 .features {
