@@ -179,14 +179,14 @@ const ComponentFive: React.FC<ComponentFiveProps> = ({
       <div className={styles.headerContainer}>
         {showMainHeading && <h2 className={styles.mainHeading}>{mainHeading}</h2>}
         {showNavigation && (
-          <div className={styles.navigationButtons}>
+        <div className={styles.navigationButtons}>
             <button className={styles.navButton} onClick={handlePrevClick}>
               &lt;
             </button>
             <button className={styles.navButton} onClick={handleNextClick}>
               &gt;
             </button>
-          </div>
+        </div>
         )}
       </div>
       <div className={styles.carouselContainer}>
@@ -200,7 +200,7 @@ const ComponentFive: React.FC<ComponentFiveProps> = ({
               <div className={styles.cardHeader}></div>
               {card.title && <h3 className={styles.cardTitle}>{card.title}</h3>}
               {card.description && (
-                <p className={styles.cardDescription}>{card.description}</p>
+              <p className={styles.cardDescription}>{card.description}</p>
               )}
               {card.showLearnMore && (
                 <Button

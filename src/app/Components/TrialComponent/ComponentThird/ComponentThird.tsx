@@ -113,9 +113,9 @@ const ComponentThird: React.FC<ComponentThirdProps> = ({
               if (el) cardsRef.current[index] = el;
             }}
           >
-            <div className={styles.cardHeader}></div>
+          <div className={styles.cardHeader}></div>
             <h3 className={styles.cardTitle}>{card.title}</h3>
-            <p className={styles.cardDescription}>
+          <p className={styles.cardDescription}>
               {card.description}
             </p>
             <Button 
@@ -123,7 +123,7 @@ const ComponentThird: React.FC<ComponentThirdProps> = ({
               text="Learn more"
               onClick={() => window.location.href = card.learnMoreLink}
             />
-          </div>
+        </div>
         ))}
       </div>
     </section>
