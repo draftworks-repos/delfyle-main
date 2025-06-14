@@ -155,14 +155,27 @@
       max-width: none; /* Remove max-width override */
     }
     .headerContainer {
-      flex-direction: column;
+      /* flex-direction: column; Removed to ensure row layout for tablets */
       align-items: flex-start;
       padding-right: 0;
     }
+
+    .mainHeading{
+      justify-content: center;
+    }
+
     .navigationButtons {
       margin-top: 1rem;
       justify-content: flex-end;
+      margin: 0;
       width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) { /* New media query for very small mobile */
+    .headerContainer {
+      flex-direction: column; /* Stack vertically on very small mobile */
+      align-items: flex-start;
     }
   }
 
