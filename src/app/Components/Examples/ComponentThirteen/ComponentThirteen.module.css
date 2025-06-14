@@ -85,6 +85,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #c7c7ec; /* Light purple border */
+  padding-left: 1rem; /* Added padding-left for the icons */
 }
 
 .subHeading {

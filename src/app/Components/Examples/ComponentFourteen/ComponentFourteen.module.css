@@ -1,0 +1,313 @@
+/* src/app/Components/Examples/ComponentFourteen/ComponentFourteen.module.css */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+}
+
+.topAnchorContainer {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.topAnchorLink {
+  font-size: 0.9rem;
+  color: #614efc; /* Purple from the image */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.topAnchorLink:hover {
+  text-decoration: underline;
+}
+
+.mainContentWrapper {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  height: 800px; /* Fixed height */
+  overflow-y: auto; /* Add scrolling if content overflows */
+}
+
+.leftColumn {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-right: 2rem;
+  height: 100%; /* Take full height of parent */
+  overflow-y: auto; /* Add scrolling if content overflows */
+}
+
+.leftTopContainer {
+  /* Contains main heading */
+}
+
+.mainHeading {
+  font-size: 2.8rem; /* Adjusted font size */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem; /* Adjusted margin bottom */
+  line-height: 1.2;
+}
+
+.leftBottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subContentHeading {
+  font-size: 1rem; /* Adjusted font size */
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 1.5rem; /* Space for the vertical line */
+}
+
+.subContentHeading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px; /* Thinner line */
+  background-color: #333; /* Darker line color */
+}
+
+.paragraphContent {
+  font-size: 1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: .3rem;
+}
+
+.productsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.productsList li {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.checkIcon {
+  color: #007bff; /* Blue checkmark */
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.rightColumn {
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%; /* Take full height of parent */
+  overflow-y: auto; /* Add scrolling if content overflows */
+}
+
+.rightTopContainer {
+  background-color: #f8f9fa;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.introParagraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+.rightBottomContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, #614efc, #8b80ed);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  color: #fff;
+}
+
+.companyMainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.imageOverlayText {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 2;
+  color: #fff;
+  text-align: left;
+}
+
+.companyLogo {
+  margin-bottom: 1.5rem;
+  width: 150px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.bottomQuote {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.bottomAuthor {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.companyLogosSection {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.companyLogoWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
+  cursor: pointer; /* Add cursor pointer for clickability */
+}
+
+.companyLogoWrapper:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background-color: #e0e0e0; /* Light gray separator line */
+}
+
+.companyLogoWrapper img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.companyLogoWrapper img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .mainContentWrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .leftColumn, .rightColumn {
+    flex: 1;
+    padding-right: 0;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .companyLogosSection {
+    flex-direction: column;
+    gap: 2rem;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .companyLogoWrapper {
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .companyLogoWrapper:last-child {
+    border-bottom: none;
+  }
+
+  .companyLogoWrapper:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 4rem 1rem;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .subContentHeading {
+    font-size: 1rem;
+  }
+
+  .paragraphContent {
+    font-size: 0.9rem;
+  }
+
+  .rightTopContainer {
+    padding: 1.5rem;
+  }
+
+  .rightBottomContainer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .bottomQuote {
+    font-size: 1rem;
+  }
+} 
