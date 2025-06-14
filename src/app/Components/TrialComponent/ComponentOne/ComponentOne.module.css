@@ -92,6 +92,8 @@
   gap: 1rem;
   text-align: left;
   align-items: flex-start;
+  position: relative;
+  min-height: 300px;
 }
 
 .iconPlaceholder {
@@ -119,11 +121,18 @@
   margin-bottom: 1rem;
   text-align: left;
   width: 100%;
+  flex-grow: 1;
 }
 
 .cardDescription span {
   color: rgba(107, 0, 62, 1); /* Changed to SocialLinks primary color */
   text-decoration: underline;
+}
+
+/* Add styles for the button container */
+.card > button {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .learnMore {

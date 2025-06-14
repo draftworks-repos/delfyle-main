@@ -5,14 +5,16 @@ import Arrow from "../../../../public/images/arrow.svg";
 
 interface ButtonProps {
   text: string;
-  type: "whiteButtonNoBackground" | "whiteButtonWithBackground";
+  type: "whiteButtonNoBackground" | "whiteButtonWithBackground" | "smallWhatWeDoButton";
   onClick?: () => void;
 }
 
 const Button = ({ text, type, onClick }: ButtonProps) => {
   const buttonStyle = type === "whiteButtonNoBackground" 
     ? styles.whiteButtonNoBackground 
-    : styles.whiteButtonWithBackground;
+    : type === "whiteButtonWithBackground"
+    ? styles.whiteButtonWithBackground
+    : styles.smallWhatWeDoButton;
 
   return (
     <button 

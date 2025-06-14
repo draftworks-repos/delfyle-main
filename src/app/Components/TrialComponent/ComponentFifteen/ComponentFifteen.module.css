@@ -169,7 +169,7 @@
       height: 300px;
     }
   }
-  
+
   @media (max-width: 768px) {
     .container {
       padding: 3rem 1rem;
