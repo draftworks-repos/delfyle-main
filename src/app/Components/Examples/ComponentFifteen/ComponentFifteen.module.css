@@ -1,0 +1,187 @@
+/* src/app/Components/Examples/ComponentFifteen/ComponentFifteen.module.css */
+
+.container {
+    padding: 5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f6f8fa;
+    color: #1a202c;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+  }
+  
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .mainHeading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .navigationButtons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navButton {
+    background: #ebebeb;
+    color: #333333;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .navButton:hover {
+    background: #e0e0e0;
+    color: #1a1a1a;
+  }
+  
+  .carouselContainer {
+    overflow: hidden;
+    width: 100%;
+    height: auto; /* Allow content to define height */
+  }
+  
+  .cardsWrapper {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .card {
+    flex-shrink: 0;
+    width: calc(50% - 1rem);
+    aspect-ratio: 1; /* Keep the card square */
+    background-color: transparent;
+    border-radius: 0.5rem;
+    box-shadow: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    /* height: 200px; - Removed fixed height */
+    flex-grow: 3; /* Give more vertical space to the image block */
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .textContainer {
+    background-color: transparent;
+    box-shadow: none;
+    height: auto;
+    flex-grow: 1; /* Give less vertical space to the text block */
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: .8rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    position: relative; /* For the vertical line */
+    padding-left: 1rem; /* Space for the vertical line */
+  }
+  
+  .cardTitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25rem; /* Adjust position of the line */
+    height: 80%; /* Height of the line */
+    width: 3px; /* Thickness of the line */
+    background-color: #614efc; /* Purple color for the line */
+    border-radius: 2px; /* Slightly rounded ends for the line */
+  }
+  
+  .cardDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .mainHeading {
+      font-size: 1.75rem;
+    }
+    .cardsWrapper {
+      /* flex-direction: column; -- Removed to keep cards horizontal on tablets */
+      align-items: center;
+    }
+    .card {
+      width: calc(50% - 1rem); /* Keep two cards horizontal */
+      max-width: none; /* Remove max-width override */
+    }
+    .headerContainer {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0;
+    }
+    .navigationButtons {
+      margin-top: 1rem;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .cardsWrapper {
+      flex-direction: column; /* Stack vertically on small mobile */
+    }
+    .card {
+      width: 100%; /* Full width for single card */
+      max-width: 100%;
+    }
+    
+    .container {
+      padding: 4rem 1rem;
+    }
+    
+    .navButton {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
+  }
