@@ -1,13 +1,14 @@
 /* src/app/Components/Examples/ComponentFifteen/ComponentFifteen.module.css */
 
 .container {
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
     background-color: #f6f8fa;
     color: #1a202c;
     font-family: 'Inter', sans-serif;
     text-align: left;
+    overflow: hidden;
   }
   
   .headerContainer {
@@ -29,10 +30,11 @@
   .navigationButtons {
     display: flex;
     gap: 1rem;
+    margin-left: auto;
   }
   
   .navButton {
-    background: #ebebeb;
+    background: #f0f0f0;
     color: #333333;
     border: none;
     border-radius: 50%;
@@ -54,18 +56,18 @@
   .carouselContainer {
     overflow: hidden;
     width: 100%;
-    height: auto; /* Allow content to define height */
+    height: auto;
   }
   
   .cardsWrapper {
     display: flex;
     gap: 2rem;
+    transition: transform 0.5s ease-in-out;
   }
   
   .card {
     flex-shrink: 0;
-    width: calc(50% - 1rem);
-    aspect-ratio: 1; /* Keep the card square */
+    width: 100%;
     background-color: transparent;
     border-radius: 0.5rem;
     box-shadow: none;
@@ -80,8 +82,7 @@
   .imageContainer {
     position: relative;
     width: 100%;
-    /* height: 200px; - Removed fixed height */
-    flex-grow: 3; /* Give more vertical space to the image block */
+    height: 400px;
     background-color: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -102,14 +103,13 @@
     background-color: transparent;
     box-shadow: none;
     height: auto;
-    flex-grow: 1; /* Give less vertical space to the text block */
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     position: relative;
-    margin-top: .8rem;
+    margin-top: .4rem;
   }
   
   .cardTitle {
@@ -118,19 +118,19 @@
     color: #1a202c;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    position: relative; /* For the vertical line */
-    padding-left: 1rem; /* Space for the vertical line */
+    position: relative;
+    padding-left: 1rem;
   }
   
   .cardTitle::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.25rem; /* Adjust position of the line */
-    height: 80%; /* Height of the line */
-    width: 3px; /* Thickness of the line */
-    background-color: #614efc; /* Purple color for the line */
-    border-radius: 2px; /* Slightly rounded ends for the line */
+    top: 0.25rem;
+    height: 80%;
+    width: 3px;
+    background-color: #614efc;
+    border-radius: 2px;
   }
   
   .cardDescription {
@@ -149,67 +149,71 @@
       align-items: center;
     }
     .card {
-      width: calc(50% - 1rem); /* Keep two cards horizontal */
+      width: calc(50% - 1rem);
       max-width: none;
     }
     .headerContainer {
+      flex-direction: row;
+      justify-content: center;
       align-items: flex-start;
       padding-right: 0;
+      margin-bottom: 1.5rem;
     }
-
-    .mainHeading{
-      justify-content: center;
-    }
-
     .navigationButtons {
       margin-top: 1rem;
       justify-content: flex-end;
-      margin: 0;
+      margin-top: 0;
       width: 100%;
     }
+    .imageContainer {
+      height: 300px;
+    }
   }
-
+  
   @media (max-width: 768px) {
+    .container {
+      padding: 3rem 1rem;
+    }
     .headerContainer {
       flex-direction: column;
       align-items: flex-start;
+      padding-right: 0;
+      margin-bottom: 1rem;
     }
-
     .mainHeading {
       font-size: 2rem;
     }
-
-    .cardsWrapper {
-      flex-direction: row;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem; /* Explicitly define gap for mobile */
-    }
-
-    .card {
-      min-width: 100%; /* Full width for single card */
-      scroll-snap-align: start;
-      width: 100%; /* Full width for single card */
-      flex-shrink: 0;
-      /* Removed margin-right: 1rem; */
-    }
-    
-    .cardTitle {
-      font-size: 1.35rem;
-    }
-
     .cardDescription {
       font-size: 1rem;
     }
-
-    .container {
-      padding: 4rem 1rem;
+    .cardTitle {
+      font-size: 1.35rem;
     }
-    
+    .cardsWrapper {
+      flex-direction: row;
+      width: 100%;
+    }
+    .card {
+      width: 100%;
+      max-width: 100%;
+      flex-shrink: 0;
+    }
+    .carouselContainer {
+      overflow: hidden;
+      width: 100%;
+    }
     .navButton {
       width: 35px;
       height: 35px;
       font-size: 1.2rem;
+    }
+    .imageContainer {
+      height: 250px;
+    }
+    .navigationButtons {
+      margin-top: 2rem;
+      justify-content: flex-start;
+      width: 100%;
+      margin-left: 0;
     }
   }

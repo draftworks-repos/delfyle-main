@@ -2,31 +2,12 @@
 
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import styles from './ComponentSixteen.module.css';
+import styles from './ComponentSeventeen.module.css';
 
-const ComponentSixteen = () => {
+const ComponentSeventeen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
-  const [cardWidth, setCardWidth] = useState(0);
-  const [gap, setGap] = useState(32); // Default gap in pixels
-
-  // Calculate card width and gap on mount and window resize
-  React.useEffect(() => {
-    const calculateDimensions = () => {
-      if (cardsRef.current[0]) {
-        const computedStyle = window.getComputedStyle(cardsRef.current[0]);
-        const cardWidth = cardsRef.current[0].offsetWidth;
-        const gap = parseInt(computedStyle.marginRight) || 32;
-        setCardWidth(cardWidth);
-        setGap(gap);
-      }
-    };
-
-    calculateDimensions();
-    window.addEventListener('resize', calculateDimensions);
-    return () => window.removeEventListener('resize', calculateDimensions);
-  }, []);
 
   const cards = [
     {
@@ -59,34 +40,32 @@ const ComponentSixteen = () => {
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
       const newIndex = prevIndex + 1;
-      return newIndex >= cards.length ? 0 : newIndex;
+      const nextIndex = newIndex >= cards.length ? 0 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => {
       const newIndex = prevIndex - 1;
-      return newIndex < 0 ? cards.length - 1 : newIndex;
+      const nextIndex = newIndex < 0 ? cards.length - 1 : newIndex;
+      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      return nextIndex;
     });
   };
 
   return (
     <section className={styles.container}>
       <div className={styles.headerContainer}>
-        <h2 className={styles.mainHeading}>ComponentSixteen</h2>
+        <h2 className={styles.mainHeading}>ComponentSeventeen</h2>
         <div className={styles.navigationButtons}>
-          <button onClick={handlePrev} className={styles.navButton}>&lt;</button>
-          <button onClick={handleNext} className={styles.navButton}>&gt;</button>
+          <button onClick={handlePrev} className={styles.navButton}>&#8592;</button>
+          <button onClick={handleNext} className={styles.navButton}>&#8594;</button>
         </div>
       </div>
       <div className={styles.carouselContainer} ref={carouselRef}>
-        <div
-          className={styles.cardsWrapper}
-          style={{ 
-            transform: `translateX(${-currentIndex * (cardWidth + gap)}px)`,
-            transition: 'transform 0.5s ease-in-out'
-          }}
-        >
+        <div className={styles.cardsWrapper}>
           {cards.map((card, index) => (
             <div key={index} className={styles.card} ref={el => {
               if (el) cardsRef.current[index] = el;
@@ -100,7 +79,7 @@ const ComponentSixteen = () => {
                   className={styles.cardImage}
                 />
               </div>
-              <div className={`${styles.imageContainer} ${styles.textContainer}`}>
+              <div className={styles.textContainer}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
                 <p className={styles.cardDescription}>{card.description}</p>
               </div>
@@ -112,4 +91,4 @@ const ComponentSixteen = () => {
   );
 };
 
-export default ComponentSixteen; 
+export default ComponentSeventeen; 

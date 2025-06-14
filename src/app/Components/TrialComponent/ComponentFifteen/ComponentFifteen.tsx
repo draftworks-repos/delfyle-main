@@ -40,18 +40,24 @@ const ComponentFifteen = () => {
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
       const newIndex = prevIndex + 1;
-      const nextIndex = newIndex >= cards.length ? 0 : newIndex;
-      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      return nextIndex;
+      const lastPossibleIndex = cards.length - 1;
+
+      if (newIndex > lastPossibleIndex) {
+        return 0;
+      }
+      return newIndex;
     });
   };
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => {
       const newIndex = prevIndex - 1;
-      const nextIndex = newIndex < 0 ? cards.length - 1 : newIndex;
-      cardsRef.current[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      return nextIndex;
+      const lastPossibleIndex = cards.length - 1;
+
+      if (newIndex < 0) {
+        return lastPossibleIndex;
+      }
+      return newIndex;
     });
   };
 
@@ -60,13 +66,14 @@ const ComponentFifteen = () => {
       <div className={styles.headerContainer}>
         <h2 className={styles.mainHeading}>ComponentFifteen</h2>
         <div className={styles.navigationButtons}>
-          <button onClick={handlePrev} className={styles.navButton}>&#8592;</button>
-          <button onClick={handleNext} className={styles.navButton}>&#8594;</button>
+          <button onClick={handlePrev} className={styles.navButton}>&lt;</button>
+          <button onClick={handleNext} className={styles.navButton}>&gt;</button>
         </div>
       </div>
       <div className={styles.carouselContainer} ref={carouselRef}>
         <div
           className={styles.cardsWrapper}
+          style={{ transform: `translateX(${-currentIndex * (cardsRef.current[0]?.offsetWidth + 32 || 0)}px)` }}
         >
           {cards.map((card, index) => (
             <div key={index} className={styles.card} ref={el => {
