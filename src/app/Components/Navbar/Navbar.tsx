@@ -45,9 +45,9 @@ const Navbar = () => {
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-          <Link href="/startup" className={styles.a}>
+          <span className={styles.a}>
             Startup
-          </Link>
+          </span>
           <div
             ref={dropdownRef}
             className={styles.dropdownMenu}
