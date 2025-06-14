@@ -73,7 +73,7 @@ const ComponentSixteen = () => {
       <div className={styles.carouselContainer} ref={carouselRef}>
         <div
           className={styles.cardsWrapper}
-          style={{ transform: `translateX(${-currentIndex * (carouselRef.current?.offsetWidth || 0)}px)` }}
+          style={{ transform: `translateX(${-currentIndex * ((carouselRef.current?.offsetWidth || 0) + 32)}px)` }}
         >
           {cards.map((card, index) => (
             <div key={index} className={styles.card} ref={el => {
@@ -88,7 +88,7 @@ const ComponentSixteen = () => {
                   className={styles.cardImage}
                 />
               </div>
-              <div className={`${styles.imageContainer} ${styles.textContainer}`}>
+              <div className={styles.textContainer}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
                 <p className={styles.cardDescription}>{card.description}</p>
               </div>

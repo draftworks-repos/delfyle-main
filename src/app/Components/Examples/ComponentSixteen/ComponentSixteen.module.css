@@ -1,11 +1,12 @@
 .container {
-  padding: 5rem 2rem;
+  padding: 3rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   background-color: #f6f8fa;
   color: #1a202c;
   font-family: 'Inter', sans-serif;
   text-align: left;
+  overflow: hidden;
 }
 
 .headerContainer {
@@ -64,7 +65,6 @@
 .card {
   flex-shrink: 0;
   width: 100%;
-  aspect-ratio: 1;
   background-color: transparent;
   border-radius: 0.5rem;
   box-shadow: none;
@@ -100,7 +100,6 @@
   background-color: transparent;
   box-shadow: none;
   height: auto;
-  flex-grow: 1;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -147,13 +146,14 @@
     align-items: center;
   }
   .card {
-    width: 100%;
-    max-width: 100%;
+    width: calc(50% - 1rem);
+    max-width: none;
   }
   .headerContainer {
     flex-direction: column;
     align-items: flex-start;
     padding-right: 0;
+    margin-bottom: 1.5rem;
   }
   .navigationButtons {
     margin-top: 1rem;
@@ -172,7 +172,7 @@
   }
   
   .container {
-    padding: 4rem 1rem;
+    padding: 2rem 1rem;
   }
   
   .navButton {
