@@ -1,10 +1,12 @@
 import React from 'react';
+import TrademarkHero from './TrademarkHero';
 
 const Page = () => {
   return (
-    <div>
-      <h1>Trademark Page</h1>
-    </div>
+    <>
+      <TrademarkHero />
+      {/* Add other Trademark page content here if needed */}
+    </>
   );
 };
 

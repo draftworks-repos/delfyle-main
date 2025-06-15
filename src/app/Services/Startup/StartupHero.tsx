@@ -1,102 +1,57 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Observer } from "gsap/Observer";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./StartupHero.module.css";
 
-gsap.registerPlugin(ScrollTrigger, Observer);
-
-const words = ["enterprise", "vision", "future", "success"];
+const fullDescription = `Setting up a business in India often involves choosing a private limited company as a preferred option. This structure offers shareholders limited liability protection while placing specific ownership constraints. In contrast, in the case of an LLP, partners oversee the management. Private limited company registration allows for a clear distinction between directors and shareholders.`;
 
 const StartupHero = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLSpanElement>(null);
-  const animationInterval = useRef<NodeJS.Timeout | null>(null);
-  const isAnimating = useRef(false);
-  const currentWordIndex = useRef(0);
+  const [hovered, setHovered] = useState(false);
+  const [displayedWords, setDisplayedWords] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const descInnerRef = useRef<HTMLParagraphElement>(null);
+  const descWrapperRef = useRef<HTMLDivElement>(null);
 
-  const scrambleText = (element: HTMLElement, newText: string) => {
-    isAnimating.current = true;
-    if (animationInterval.current) {
-      clearInterval(animationInterval.current);
-    }
-    const chars = '!<>-_\\/[]{}—=+*^?#';
-    let iteration = 0;
-    
-    animationInterval.current = setInterval(() => {
-      element.innerText = newText
-        .split("")
-        .map((_letter, index) => {
-          if(index < iteration) {
-            return newText[index];
-          }
-          return chars[Math.floor(Math.random() * chars.length)];
-        })
-        .join("");
-
-      if(iteration >= newText.length){
-        if (animationInterval.current) clearInterval(animationInterval.current);
-        setTimeout(() => { isAnimating.current = false; }, 100);
-      }
-      
-      iteration += 1 / 3;
-    }, 40);
-  };
-
-  const goToSection = (index: number) => {
-    if (isAnimating.current) return;
-    currentWordIndex.current = index;
-    scrambleText(textRef.current!, words[index]);
-  };
+  const words = fullDescription.split(' ');
+  const half = Math.ceil(words.length / 2);
 
   useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const pin = ScrollTrigger.create({
-      trigger: hero,
-      pin: true,
-      start: "top top",
-      end: `+=${(words.length) * 100}`,
-      onLeave: () => {
-        // Optional: Do something when you scroll past the hero
-      },
-      onLeaveBack: () => {
-        // Optional: Do something when you scroll back into the hero
-      }
-    });
-
-    const observer = Observer.create({
-      target: window,
-      type: "wheel,touch",
-      onDown: () => {
-        if (currentWordIndex.current < words.length - 1) {
-          goToSection(currentWordIndex.current + 1);
-        }
-      },
-      onUp: () => {
-        if (currentWordIndex.current > 0) {
-          goToSection(currentWordIndex.current - 1);
-        }
-      },
-      tolerance: 10,
-      preventDefault: true,
-    });
-
+    if (hovered) {
+      intervalRef.current = setInterval(() => {
+        setDisplayedWords((prev) => {
+          if (prev < words.length) {
+            return prev + 1;
+          } else {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+            return prev;
+          }
+        });
+      }, 60);
+    } else {
+      setDisplayedWords(half);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
     return () => {
-      pin.kill();
-      observer.kill();
-      if (animationInterval.current) {
-        clearInterval(animationInterval.current);
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
+  }, [hovered]);
+
+  useEffect(() => {
+    setDisplayedWords(half);
   }, []);
+
+  useEffect(() => {
+    if (descWrapperRef.current && descInnerRef.current) {
+      const scrollHeight = descInnerRef.current.scrollHeight;
+      descWrapperRef.current.style.height = scrollHeight + 'px';
+    }
+  }, [displayedWords]);
+
+  const descText = words.slice(0, displayedWords).join(' ') + (displayedWords < words.length ? '...' : '');
 
   return (
     <div className={styles.heroWrapper}>
-      <section ref={heroRef} className={styles.heroSection}>
+      <section className={styles.heroSection}>
         <video
           className={styles.videoBg}
           src={"/Backgrounds/golden-lines.mp4"}
@@ -107,14 +62,37 @@ const StartupHero = () => {
         />
         <div className={styles.container}>
           <div className={styles.left}>
-            <h1 className={styles.heading}>
-              Build the next<br />
-              era of your <span ref={textRef} className={styles.colored}>enterprise</span>
-            </h1>
-            <p className={styles.description}>
-              Leading enterprises use Stripe to revolutionise their business – from Amazon's rapid expansion into global markets to BMW's re-imagination of the customer experience.
-            </p>
-            <button className={styles.cta}>Contact sales &nbsp; &gt;</button>
+            <div
+              className={styles.leftContentWrapper}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <h1 className={styles.heading}>
+                <span className={styles.coloredplc}>Private Limited Company</span><br />
+                <span className={styles.coloredreg}>Registration</span> in India <br /> with <span className={styles.colored}>Delfyle</span>
+              </h1>
+              <div
+                className={styles.descWrapper}
+                ref={descWrapperRef}
+                style={{
+                  overflow: 'hidden',
+                  transition: 'height 0.7s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                }}
+              >
+                <p
+                  className={styles.description}
+                  ref={descInnerRef}
+                  style={{
+                    opacity: hovered ? 1 : 0.8,
+                    transition: 'opacity 0.3s',
+                    margin: 0,
+                  }}
+                >
+                  {descText}
+                </p>
+              </div>
+              <button className={styles.cta}>Get Started &nbsp; &gt;</button>
+            </div>
           </div>
           <div className={styles.right}>
             <div className={styles.cardStack}>

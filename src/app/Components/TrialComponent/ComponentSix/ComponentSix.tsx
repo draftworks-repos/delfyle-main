@@ -13,6 +13,7 @@ interface ComponentSixProps {
   showRightContentPlaceholder?: boolean;
   showMainHeading?: boolean;
   showMainDescription?: boolean;
+  rightImageUrl?: string;
 }
 
 const defaultProps = {
@@ -35,6 +36,7 @@ const ComponentSix: React.FC<ComponentSixProps> = ({
   showRightContentPlaceholder = defaultProps.showRightContentPlaceholder,
   showMainHeading = defaultProps.showMainHeading,
   showMainDescription = defaultProps.showMainDescription,
+  rightImageUrl,
 }) => {
   return (
     <section className={styles.container}>
@@ -56,9 +58,13 @@ const ComponentSix: React.FC<ComponentSixProps> = ({
         </div>
         {showRightContentPlaceholder && (
           <div className={styles.rightContentPlaceholder}>
-            <div className={styles.blankDiffContainer}>
-              {/* Blank diff color container */}
-            </div>
+            {rightImageUrl ? (
+              <img src={rightImageUrl} alt="Right visual" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0.5rem'}} />
+            ) : (
+              <div className={styles.blankDiffContainer}>
+                {/* Blank diff color container */}
+              </div>
+            )}
           </div>
         )}
       </div>
