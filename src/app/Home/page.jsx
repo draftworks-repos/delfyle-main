@@ -8,22 +8,26 @@ import FeaturedServices from "../Components/FeaturedServices/FeaturedServices";
 import Testimonial from "../Components/Testimonial/Testimonial";
 import Footer from "../Components/Footer/Footer";
 import DragCards  from "../Components/DragCards/DragCards";
+import HorizontalScrollCarousel from "../Components/HorizontalScrollCarousel/HorizontalScrollCarousel";
+import  LogoOrigami from "../Components/LogoOrigami.tsx/LogoOrigami";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <div className="bg-white">
-        <DragCards/>
-        <WhatWeDo />
-        <ContactUs />
-        <TrustDelfyle />
-        <WhoWeWorkWith />
-        <CompanyLogos />
-        <Testimonial />
-        <FeaturedServices />
-        <Footer />
-      </div>
+      <LogoOrigami/>
+      {/* <Hero /> */}
+      {/* <div className="bg-white"> */}
+        {/* <DragCards/> */}
+        {/* <HorizontalScrollCarousel/> (does not work) */}
+        {/* <WhatWeDo /> */}
+        {/* <ContactUs /> */}
+        {/* <TrustDelfyle /> */}
+        {/* <WhoWeWorkWith /> */}
+        {/* <CompanyLogos /> */}
+        {/* <Testimonial /> */}
+        {/* <FeaturedServices /> */}
+        {/* <Footer /> */}
+      {/* </div> */}
     </main>
   );
 }
