@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import styles from "./contents.module.css";
@@ -9,15 +11,14 @@ const Contents = () => {
     <div className={styles.contents}>
       <div className={styles.description}>
         <p className={styles.p}>
-          Millions of companies of all sizes use Stripe online and in person to
-          accept payments, send payouts, automate financial processes, and
-          ultimately grow revenue.
+        From registration to regulation, Delfyle is your trusted partner for seamless business setup, accounting,  legal compliance, HR, and more.
+
         </p>
         <div className={styles.buttons}>
           <Button text="Start now" type="smallWhatWeDoButton"></Button>
         </div>
       </div>
-      <Image alt="hero image" className={styles.heroImage} src={HeroImage} />
+      <Image alt="hero image" className="max-w-none" src={HeroImage} />
     </div>
   );
 };

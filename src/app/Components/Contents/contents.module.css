@@ -1,11 +1,15 @@
 .contents {
-  padding: 0 0 0 15.8vw;
+  padding: 0 0 0 5.7vw;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 1fr;
   align-items: flex-end;
   position: relative;
   z-index: 2;
+}
+
+.description {
+  padding-bottom: 2vw;
 }
 
 .p {
