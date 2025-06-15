@@ -1,11 +1,14 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: var(--gap);
-  margin: 0 auto;
+  margin: auto 0;
   width: 100%;
   max-width: 100%;
   padding: 0;
+  height: 14vh;
 }
 
 .marqueeContainer {
@@ -13,8 +16,7 @@
   white-space: nowrap;
   box-sizing: border-box;
   text-align: center;
-  padding: 2rem 0;
-  height: 10vh;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
