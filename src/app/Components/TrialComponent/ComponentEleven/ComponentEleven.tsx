@@ -19,7 +19,7 @@ const ComponentEleven: React.FC = () => {
     const section = sectionRef.current;
     const leftColumn = leftColumnRef.current;
     const rightColumn = rightColumnRef.current;
-    const featureItems = featureItemsRef.current;
+    const featureItems = featureItemsRef.current.filter(Boolean); // Ensure no nulls
     const circleGraphic = circleGraphicRef.current;
 
     if (section && leftColumn && rightColumn && circleGraphic) {
@@ -66,7 +66,12 @@ const ComponentEleven: React.FC = () => {
         duration: 0.6,
         stagger: 0.15,
         ease: "power2.out",
-        delay: 0.4
+        delay: 0.4,
+        scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
       });
 
       const handleCircleHover = () => {
@@ -87,15 +92,30 @@ const ComponentEleven: React.FC = () => {
         });
       };
 
-      // Add event listeners
+      // Add event listeners for circle
       circleGraphic.addEventListener('mouseenter', handleCircleHover);
       circleGraphic.addEventListener('mouseleave', handleCircleLeave);
+      
+      // Add hover animations for each feature item
+      const itemListeners: { el: HTMLElement; enter: () => void; leave: () => void }[] = [];
+      featureItems.forEach(item => {
+        const onEnter = () => gsap.to(item, { y: -10, scale: 1.025, boxShadow: '0 15px 25px -10px rgba(0,0,0,0.1)', duration: 0.3, ease: 'power2.out' });
+        const onLeave = () => gsap.to(item, { y: 0, scale: 1, boxShadow: 'none', duration: 0.3, ease: 'power2.out' });
+        
+        item.addEventListener('mouseenter', onEnter);
+        item.addEventListener('mouseleave', onLeave);
+        itemListeners.push({ el: item, enter: onEnter, leave: onLeave });
+      });
 
       // Cleanup
       return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         circleGraphic.removeEventListener('mouseenter', handleCircleHover);
         circleGraphic.removeEventListener('mouseleave', handleCircleLeave);
+        itemListeners.forEach(({ el, enter, leave }) => {
+          el.removeEventListener('mouseenter', enter);
+          el.removeEventListener('mouseleave', leave);
+        });
       };
     }
   }, []);

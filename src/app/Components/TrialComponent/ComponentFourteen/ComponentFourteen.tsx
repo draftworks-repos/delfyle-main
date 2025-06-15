@@ -77,18 +77,30 @@ const ComponentFourteen: React.FC = () => {
   const mainContentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const logoSectionRef = useRef<HTMLDivElement>(null);
-  const leftBottomContentRef = useRef<(HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement)[]>([]);
+  const topAnchorRef = useRef<HTMLAnchorElement>(null);
+  const mainHeadingRef = useRef<HTMLHeadingElement>(null);
+  const leftBottomContainerRef = useRef<HTMLDivElement>(null);
   const rightTopContainerRef = useRef<HTMLDivElement>(null);
   const rightBottomContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialRender = useRef(true);
 
+  // Effect for entrance animation - runs only once
   useEffect(() => {
     const section = sectionRef.current;
     const logos = logoSectionRef.current?.children;
-    const mainContent = mainContentRef.current;
+    const topAnchor = topAnchorRef.current;
+    const mainHeading = mainHeadingRef.current;
+    const leftBottom = leftBottomContainerRef.current;
+    const rightTop = rightTopContainerRef.current;
+    const rightBottom = rightBottomContainerRef.current;
     
-    if (section && logos && mainContent) {
+    if (section && logos && topAnchor && mainHeading && leftBottom && rightTop && rightBottom) {
+      const leftContent = leftBottom.children;
+      const rightContent = [rightTop, rightBottom];
+
       gsap.set(logos, { opacity: 0, y: -30 });
-      gsap.set(mainContent, { opacity: 0, y: 30 });
+      gsap.set([topAnchor, mainHeading, ...Array.from(leftContent)], { opacity: 0, y: 30 });
+      gsap.set(rightContent, { opacity: 0, x: 30 });
       
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -99,11 +111,23 @@ const ComponentFourteen: React.FC = () => {
       });
 
       tl.to(logos, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power2.out' })
-        .to(mainContent, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3');
+        .to(topAnchor, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, "-=0.2")
+        .to(mainHeading, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, "-=0.3")
+        .to(leftContent, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power2.out' }, "-=0.3")
+        .to(rightContent, { opacity: 1, x: 0, stagger: 0.1, duration: 0.5, ease: 'power2.out' }, "-=0.3");
+    }
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  // Effect for hover animations and content switching
+  useEffect(() => {
+    // Skip the fade-in animation on the very first render
+    if (isInitialRender.current) {
+        isInitialRender.current = false;
+    } else if (mainContentRef.current) {
+        gsap.fromTo(mainContentRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.1 });
     }
 
-    // This effect handles hover animations and re-applies them when the component re-renders
-    const leftBottomContent = leftBottomContentRef.current.filter(Boolean);
+    const leftContainer = leftBottomContainerRef.current;
     const rightTop = rightTopContainerRef.current;
     const rightBottom = rightBottomContainerRef.current;
     const eventListeners: { el: HTMLElement, enter: () => void, leave: () => void }[] = [];
@@ -118,7 +142,7 @@ const ComponentFourteen: React.FC = () => {
     };
 
     const addPairHover = (pair: HTMLElement[]) => {
-      if (pair.length !== 2) return;
+      if (pair.some(el => !el)) return;
       const onEnter = () => gsap.to(pair, { scale: 1.03, duration: 0.3, ease: 'power2.out' });
       const onLeave = () => gsap.to(pair, { scale: 1, duration: 0.3, ease: 'power2.out' });
       pair.forEach(el => {
@@ -131,9 +155,14 @@ const ComponentFourteen: React.FC = () => {
     if (rightTop) addCardHover(rightTop);
     if (rightBottom) addCardHover(rightBottom);
     
-    addPairHover([leftBottomContent[0], leftBottomContent[1]]);
-    addPairHover([leftBottomContent[2], leftBottomContent[3]]);
-    addPairHover([leftBottomContent[4], leftBottomContent[5]]);
+    if (leftContainer) {
+        const leftContent = Array.from(leftContainer.children) as HTMLElement[];
+        if (leftContent.length >= 6) {
+            addPairHover([leftContent[0], leftContent[1]]);
+            addPairHover([leftContent[2], leftContent[3]]);
+            addPairHover([leftContent[4], leftContent[5]]);
+        }
+    }
     
     return () => {
       eventListeners.forEach(({ el, enter, leave }) => {
@@ -141,10 +170,10 @@ const ComponentFourteen: React.FC = () => {
         el.removeEventListener('mouseleave', leave);
       });
     };
-  }, [currentCompany]); // Rerun this effect when company changes to re-apply hover listeners
+  }, [currentCompany]);
 
   const handleLogoClick = (companyKey: keyof typeof companyData) => {
-    if (mainContentRef.current) {
+    if (mainContentRef.current && companyData[companyKey] !== currentCompany) {
       gsap.to(mainContentRef.current, {
         opacity: 0,
         y: 20,
@@ -152,8 +181,6 @@ const ComponentFourteen: React.FC = () => {
         ease: 'power2.in',
         onComplete: () => {
           setCurrentCompany(companyData[companyKey]);
-          leftBottomContentRef.current = []; // Clear refs before new content renders
-          gsap.fromTo(mainContentRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.1 });
         },
       });
     }
@@ -177,26 +204,26 @@ const ComponentFourteen: React.FC = () => {
       </div>
       <div ref={mainContentRef}>
         <div className={styles.topAnchorContainer}>
-          <a href="#" className={styles.topAnchorLink}>{currentCompany.topAnchor}</a>
+          <a href="#" ref={topAnchorRef} className={styles.topAnchorLink}>{currentCompany.topAnchor}</a>
         </div>
         <div className={styles.mainContentWrapper}>
           <div className={styles.leftColumn}>
             <div className={styles.leftTopContainer}>
-              <h2 className={styles.mainHeading}>ComponentFourteen: {currentCompany.mainHeading}</h2>
+              <h2 ref={mainHeadingRef} className={styles.mainHeading}>ComponentFourteen: {currentCompany.mainHeading}</h2>
             </div>
-            <div className={styles.leftBottomContainer}>
-              <h3 ref={el => { if(el) leftBottomContentRef.current[0] = el }} className={styles.subContentHeading}>Challenge</h3>
-              <p ref={el => { if(el) leftBottomContentRef.current[1] = el }} className={styles.paragraphContent}>
+            <div ref={leftBottomContainerRef} className={styles.leftBottomContainer}>
+              <h3 className={styles.subContentHeading}>Challenge</h3>
+              <p className={styles.paragraphContent}>
                 {currentCompany.challenge}
               </p>
 
-              <h3 ref={el => { if(el) leftBottomContentRef.current[2] = el }} className={styles.subContentHeading}>Solution</h3>
-              <p ref={el => { if(el) leftBottomContentRef.current[3] = el }} className={styles.paragraphContent}>
+              <h3 className={styles.subContentHeading}>Solution</h3>
+              <p className={styles.paragraphContent}>
                 {currentCompany.solution}
               </p>
 
-              <h3 ref={el => { if(el) leftBottomContentRef.current[4] = el }} className={styles.subContentHeading}>Products</h3>
-              <div ref={el => { if(el) leftBottomContentRef.current[5] = el }} className={styles.productsGrid}>
+              <h3 className={styles.subContentHeading}>Products</h3>
+              <div className={styles.productsGrid}>
                 <ul className={styles.productsList}>
                   {currentCompany.products.slice(0, Math.ceil(currentCompany.products.length / 2)).map((product, index) => (
                     <li key={index}><span className={styles.checkIcon}>{product.checked ? '✔' : ''}</span> {product.name}</li>

@@ -34,10 +34,8 @@ const ComponentTwelve: React.FC = () => {
         },
       });
 
-      gsap.set(
-        [topAnchor, mainHeading, ...leftBottomContent, ...rightColumnContent],
-        { opacity: 0, y: 30 }
-      );
+      gsap.set([topAnchor, mainHeading, ...leftBottomContent], { opacity: 0, y: 30 });
+      gsap.set(rightColumnContent, { opacity: 0, x: 50 });
 
       tl.to(topAnchor, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
         .to(mainHeading, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
@@ -50,7 +48,7 @@ const ComponentTwelve: React.FC = () => {
         }, '-=0.5')
         .to(rightColumnContent, {
           opacity: 1,
-          y: 0,
+          x: 0,
           duration: 0.7,
           stagger: 0.2,
           ease: 'power3.out',

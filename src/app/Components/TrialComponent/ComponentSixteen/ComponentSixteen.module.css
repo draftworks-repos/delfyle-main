@@ -30,13 +30,8 @@
 }
 
 .navButton {
-  background: linear-gradient(
-    135deg,
-    rgba(107, 0, 62, 1) 0%,
-    rgba(180, 0, 104, 1) 50%,
-    rgba(255, 0, 128, 1) 100%
-  );
-  color: #ffffff;
+  background: #f0f0f0;
+  color: #333333;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -46,16 +41,12 @@
   align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navButton:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(107, 0, 62, 0.9) 0%,
-    rgba(180, 0, 104, 0.9) 50%,
-    rgba(255, 0, 128, 0.9) 100%
-  );
+  background: #e0e0e0;
+  color: #1a1a1a;
 }
 
 .carouselContainer {

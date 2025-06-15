@@ -3,6 +3,9 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './ComponentSeven.module.css';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ComponentSevenProps {
   title?: string;
@@ -52,6 +55,7 @@ const ComponentSeven: React.FC<ComponentSevenProps> = ({
   showTitle = defaultProps.showTitle,
   showDescription = defaultProps.showDescription
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -60,68 +64,60 @@ const ComponentSeven: React.FC<ComponentSevenProps> = ({
   const featureTextRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline();
-
-        if (showTitle && titleRef.current) {
-          tl.from(titleRef.current, {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-          });
-        }
-
-        if (showDescription && descriptionRef.current) {
-          tl.from(descriptionRef.current, {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-          }, "-=0.4");
-        }
-
-        if (showButton && buttonRef.current) {
-          tl.from(buttonRef.current, {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out"
-          }, "-=0.4");
-        }
-
-        if (showFeatures) {
-          // Animate each feature item with its checkmark
-          featureTextRefs.current.forEach((text, index) => {
-            const checkmark = checkmarkRefs.current[index];
-            if (text && checkmark) {
-              tl.from([text, checkmark], {
-                y: 20,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "power2.out"
-              }, "-=0.3")
-              .to(checkmark, {
-                scale: 1.2,
-                duration: 0.2,
-                ease: "back.out(1.7)"
-              })
-              .to(checkmark, {
-                scale: 1,
-                duration: 0.2,
-                ease: "power2.out"
-              });
-            }
-          });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
         }
       });
 
-      return () => ctx.revert();
-    }, 100);
+      if (showTitle && titleRef.current) {
+        tl.from(titleRef.current, {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        });
+      }
 
-    return () => clearTimeout(timer);
+      if (showDescription && descriptionRef.current) {
+        tl.from(descriptionRef.current, {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.4");
+      }
+
+      if (showButton && buttonRef.current) {
+        tl.from(buttonRef.current, {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out"
+        }, "-=0.4");
+      }
+
+      if (showFeatures) {
+        const featureItems = featureTextRefs.current.map((text, index) => {
+          return text && checkmarkRefs.current[index] ? [text, checkmarkRefs.current[index]] : [];
+        }).flat().filter(Boolean);
+        
+        if (featureItems.length > 0) {
+          tl.from(featureItems, {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out"
+          }, "-=0.2");
+        }
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
   }, [showTitle, showDescription, showButton, showFeatures]);
 
   const addToRefs = (el: HTMLSpanElement | null) => {
@@ -137,7 +133,7 @@ const ComponentSeven: React.FC<ComponentSevenProps> = ({
   };
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
       <div className={styles.content}>
         {showTitle && (
           <div className={styles.titleContainer}>

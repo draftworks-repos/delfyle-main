@@ -74,6 +74,25 @@ const ComponentFifteen = () => {
         duration: 0.5,
         ease: 'power2.out',
       }, '-=0.3');
+
+      const eventListeners: { el: HTMLElement; enter: () => void; leave: () => void }[] = [];
+      
+      allCards.forEach(card => {
+        const onEnter = () => gsap.to(card, { y: -10, boxShadow: '0 10px 20px rgba(0,0,0,0.1)', duration: 0.3, ease: 'power2.out' });
+        const onLeave = () => gsap.to(card, { y: 0, boxShadow: 'none', duration: 0.3, ease: 'power2.out' });
+        
+        card.addEventListener('mouseenter', onEnter);
+        card.addEventListener('mouseleave', onLeave);
+        eventListeners.push({ el: card, enter: onEnter, leave: onLeave });
+      });
+
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        eventListeners.forEach(({ el, enter, leave }) => {
+          el.removeEventListener('mouseenter', enter);
+          el.removeEventListener('mouseleave', leave);
+        });
+      };
     }
   }, [cards.length]);
 
