@@ -1,7 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './ComponentNine.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface FeatureCard {
   icon?: string;
@@ -55,16 +57,79 @@ const ComponentNine: React.FC<ComponentNineProps> = ({
   showTitle = defaultProps.showTitle,
   showDescription = defaultProps.showDescription
 }) => {
+  const headerRef = useRef(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Header animation
+    gsap.from(headerRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "top 80%",
+      }
+    });
+
+    // Cards animation
+    cardsRef.current.forEach((card, index) => {
+      gsap.from(card, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+        }
+      });
+
+      // Hover animation
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -10,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+
+    // Cleanup
+    return () => {
+      cardsRef.current.forEach(card => {
+        card.removeEventListener('mouseenter', () => {});
+        card.removeEventListener('mouseleave', () => {});
+      });
+    };
+  }, []);
+
   return (
     <section className={styles.container}>
-      <div className={styles.header}>
+      <div ref={headerRef} className={styles.header}>
         {showTagline && <p className={styles.tagline}>{tagline}</p>}
         {showTitle && <h2 className={styles.mainHeading}>{title}</h2>}
         {showDescription && <p className={styles.mainDescription}>{description}</p>}
       </div>
       <div className={styles.grid}>
         {features.map((feature, index) => (
-          <div key={index} className={styles.featureCard}>
+          <div 
+            key={index} 
+            className={styles.featureCard}
+            ref={el => cardsRef.current[index] = el as HTMLDivElement}
+          >
             <div className={styles.icon}>
               {feature.icon && <img src={feature.icon} alt={feature.title} />}
             </div>
