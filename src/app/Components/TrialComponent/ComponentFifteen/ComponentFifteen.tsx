@@ -1,13 +1,20 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './ComponentFifteen.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ComponentFifteen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const cards = [
     {
@@ -37,6 +44,39 @@ const ComponentFifteen = () => {
     },
   ];
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const allCards = cardsRef.current.filter(Boolean);
+    const navButtons = header?.querySelector(`.${styles.navigationButtons}`);
+
+    if (section && header && allCards.length > 0 && navButtons) {
+      gsap.set(navButtons, { opacity: 0, y: 30 });
+      gsap.set(allCards, { opacity: 0, y: 50 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        }
+      });
+
+      tl.to(navButtons, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.out',
+      }).to(allCards, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.3');
+    }
+  }, [cards.length]);
+
   const handleNext = () => {
     setCurrentIndex(prevIndex => {
       const newIndex = prevIndex + 1;
@@ -62,8 +102,8 @@ const ComponentFifteen = () => {
   };
 
   return (
-    <section className={styles.container}>
-      <div className={styles.headerContainer}>
+    <section ref={sectionRef} className={styles.container}>
+      <div ref={headerRef} className={styles.headerContainer}>
         <h2 className={styles.mainHeading}>ComponentFifteen</h2>
         <div className={styles.navigationButtons}>
           <button onClick={handlePrev} className={styles.navButton}>&lt;</button>
