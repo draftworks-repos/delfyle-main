@@ -24,6 +24,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  padding: 1rem;
 }
 
 .rightColumn {
