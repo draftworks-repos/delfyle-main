@@ -1,8 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './ComponentFourteen.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const companyData = {
   dynMedia: {
@@ -70,14 +74,94 @@ const companyData = {
 
 const ComponentFourteen: React.FC = () => {
   const [currentCompany, setCurrentCompany] = useState(companyData.dynMedia);
+  const mainContentRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const logoSectionRef = useRef<HTMLDivElement>(null);
+  const leftBottomContentRef = useRef<(HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement)[]>([]);
+  const rightTopContainerRef = useRef<HTMLDivElement>(null);
+  const rightBottomContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const logos = logoSectionRef.current?.children;
+    const mainContent = mainContentRef.current;
+    
+    if (section && logos && mainContent) {
+      gsap.set(logos, { opacity: 0, y: -30 });
+      gsap.set(mainContent, { opacity: 0, y: 30 });
+      
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+
+      tl.to(logos, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power2.out' })
+        .to(mainContent, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3');
+    }
+
+    // This effect handles hover animations and re-applies them when the component re-renders
+    const leftBottomContent = leftBottomContentRef.current.filter(Boolean);
+    const rightTop = rightTopContainerRef.current;
+    const rightBottom = rightBottomContainerRef.current;
+    const eventListeners: { el: HTMLElement, enter: () => void, leave: () => void }[] = [];
+
+    const addCardHover = (element: HTMLElement) => {
+      if (!element) return;
+      const onEnter = () => gsap.to(element, { y: -10, boxShadow: '0 15px 25px -10px rgba(0,0,0,0.1)', duration: 0.3, ease: 'power2.out' });
+      const onLeave = () => gsap.to(element, { y: 0, boxShadow: '0 0 0 rgba(0,0,0,0)', duration: 0.3, ease: 'power2.out' });
+      element.addEventListener('mouseenter', onEnter);
+      element.addEventListener('mouseleave', onLeave);
+      eventListeners.push({ el: element, enter: onEnter, leave: onLeave });
+    };
+
+    const addPairHover = (pair: HTMLElement[]) => {
+      if (pair.length !== 2) return;
+      const onEnter = () => gsap.to(pair, { scale: 1.03, duration: 0.3, ease: 'power2.out' });
+      const onLeave = () => gsap.to(pair, { scale: 1, duration: 0.3, ease: 'power2.out' });
+      pair.forEach(el => {
+        el.addEventListener('mouseenter', onEnter);
+        el.addEventListener('mouseleave', onLeave);
+        eventListeners.push({ el, enter: onEnter, leave: onLeave });
+      });
+    };
+    
+    if (rightTop) addCardHover(rightTop);
+    if (rightBottom) addCardHover(rightBottom);
+    
+    addPairHover([leftBottomContent[0], leftBottomContent[1]]);
+    addPairHover([leftBottomContent[2], leftBottomContent[3]]);
+    addPairHover([leftBottomContent[4], leftBottomContent[5]]);
+    
+    return () => {
+      eventListeners.forEach(({ el, enter, leave }) => {
+        el.removeEventListener('mouseenter', enter);
+        el.removeEventListener('mouseleave', leave);
+      });
+    };
+  }, [currentCompany]); // Rerun this effect when company changes to re-apply hover listeners
 
   const handleLogoClick = (companyKey: keyof typeof companyData) => {
-    setCurrentCompany(companyData[companyKey]);
+    if (mainContentRef.current) {
+      gsap.to(mainContentRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          setCurrentCompany(companyData[companyKey]);
+          leftBottomContentRef.current = []; // Clear refs before new content renders
+          gsap.fromTo(mainContentRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.1 });
+        },
+      });
+    }
   };
 
   return (
-    <section className={styles.container}>
-      <div className={styles.companyLogosSectionTop}>
+    <section ref={sectionRef} className={styles.container}>
+      <div ref={logoSectionRef} className={styles.companyLogosSectionTop}>
         <div className={styles.companyLogoWrapper} onClick={() => handleLogoClick('snowflake')}>
           <Image src="/CompanyLogos/1.png" alt="Snowflake Logo" width={120} height={40} />
         </div>
@@ -91,60 +175,62 @@ const ComponentFourteen: React.FC = () => {
           <Image src="/CompanyLogos/4.png" alt="Dyn Media Logo" width={120} height={40} />
         </div>
       </div>
-      <div className={styles.topAnchorContainer}>
-        <a href="#" className={styles.topAnchorLink}>{currentCompany.topAnchor}</a>
-      </div>
-      <div className={styles.mainContentWrapper}>
-        <div className={styles.leftColumn}>
-          <div className={styles.leftTopContainer}>
-            <h2 className={styles.mainHeading}>ComponentFourteen: {currentCompany.mainHeading}</h2>
-          </div>
-          <div className={styles.leftBottomContainer}>
-            <h3 className={styles.subContentHeading}>Challenge</h3>
-            <p className={styles.paragraphContent}>
-              {currentCompany.challenge}
-            </p>
+      <div ref={mainContentRef}>
+        <div className={styles.topAnchorContainer}>
+          <a href="#" className={styles.topAnchorLink}>{currentCompany.topAnchor}</a>
+        </div>
+        <div className={styles.mainContentWrapper}>
+          <div className={styles.leftColumn}>
+            <div className={styles.leftTopContainer}>
+              <h2 className={styles.mainHeading}>ComponentFourteen: {currentCompany.mainHeading}</h2>
+            </div>
+            <div className={styles.leftBottomContainer}>
+              <h3 ref={el => { if(el) leftBottomContentRef.current[0] = el }} className={styles.subContentHeading}>Challenge</h3>
+              <p ref={el => { if(el) leftBottomContentRef.current[1] = el }} className={styles.paragraphContent}>
+                {currentCompany.challenge}
+              </p>
 
-            <h3 className={styles.subContentHeading}>Solution</h3>
-            <p className={styles.paragraphContent}>
-              {currentCompany.solution}
-            </p>
+              <h3 ref={el => { if(el) leftBottomContentRef.current[2] = el }} className={styles.subContentHeading}>Solution</h3>
+              <p ref={el => { if(el) leftBottomContentRef.current[3] = el }} className={styles.paragraphContent}>
+                {currentCompany.solution}
+              </p>
 
-            <h3 className={styles.subContentHeading}>Products</h3>
-            <div className={styles.productsGrid}>
-              <ul className={styles.productsList}>
-                {currentCompany.products.slice(0, Math.ceil(currentCompany.products.length / 2)).map((product, index) => (
-                  <li key={index}><span className={styles.checkIcon}>{product.checked ? '✔' : ''}</span> {product.name}</li>
-                ))}
-              </ul>
-              <ul className={styles.productsList}>
-                {currentCompany.products.slice(Math.ceil(currentCompany.products.length / 2)).map((product, index) => (
-                  <li key={index}><span className={styles.checkIcon}>{product.checked ? '✔' : ''}</span> {product.name}</li>
-                ))}
-              </ul>
+              <h3 ref={el => { if(el) leftBottomContentRef.current[4] = el }} className={styles.subContentHeading}>Products</h3>
+              <div ref={el => { if(el) leftBottomContentRef.current[5] = el }} className={styles.productsGrid}>
+                <ul className={styles.productsList}>
+                  {currentCompany.products.slice(0, Math.ceil(currentCompany.products.length / 2)).map((product, index) => (
+                    <li key={index}><span className={styles.checkIcon}>{product.checked ? '✔' : ''}</span> {product.name}</li>
+                  ))}
+                </ul>
+                <ul className={styles.productsList}>
+                  {currentCompany.products.slice(Math.ceil(currentCompany.products.length / 2)).map((product, index) => (
+                    <li key={index}><span className={styles.checkIcon}>{product.checked ? '✔' : ''}</span> {product.name}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.rightColumn}>
-          <div className={styles.rightTopContainer}>
-            <p className={styles.introParagraph}>
-              {currentCompany.introParagraph}
-            </p>
-          </div>
-          <div className={styles.rightBottomContainer}>
-            <Image 
-              src={currentCompany.cardImage} 
-              alt="Company Main Image" 
-              width={600} 
-              height={400} 
-              objectFit="cover"
-              className={styles.companyMainImage}
-            />
-            <div className={styles.imageOverlayText}>
-              <p className={styles.bottomQuote}>
-                {currentCompany.quote}
+          <div className={styles.rightColumn}>
+            <div ref={rightTopContainerRef} className={styles.rightTopContainer}>
+              <p className={styles.introParagraph}>
+                {currentCompany.introParagraph}
               </p>
-              <p className={styles.bottomAuthor}>{currentCompany.author}</p>
+            </div>
+            <div ref={rightBottomContainerRef} className={styles.rightBottomContainer}>
+              <Image 
+                src={currentCompany.cardImage} 
+                alt="Company Main Image" 
+                width={600} 
+                height={400} 
+                objectFit="cover"
+                className={styles.companyMainImage}
+              />
+              <div className={styles.imageOverlayText}>
+                <p className={styles.bottomQuote}>
+                  {currentCompany.quote}
+                </p>
+                <p className={styles.bottomAuthor}>{currentCompany.author}</p>
+              </div>
             </div>
           </div>
         </div>

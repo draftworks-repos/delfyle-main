@@ -15,6 +15,7 @@
 .topAnchorContainer {
   text-align: left;
   margin-bottom: 1.5rem;
+    padding-top: 2rem;
 }
 
 .topAnchorLink {
@@ -44,7 +45,7 @@
   gap: 3rem;
   padding-right: 2rem;
   height: 100%; /* Take full height of parent */
-  overflow-y: auto; /* Add scrolling if content overflows */
+  overflow: visible; /* Add scrolling if content overflows */
   text-align: left;
 }
 
@@ -271,17 +272,24 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .mainContentWrapper {
     flex-direction: column;
-    gap: 3rem;
+    height: auto;
   }
   .leftColumn {
+    width: 100%;
     padding-right: 0;
   }
   .rightColumn {
-    min-height: 400px;
+    width: 100%;
   }
+
+  .companyLogosSectionTop .companyLogoWrapper img {
+    width: 90px; /* 1.5x the original size */
+    height: 30px;  /* 1.5x the original size */
+  }
+
   .companyLogosSectionTop {
-    flex-wrap: wrap; /* Allow logos to wrap */
-    padding: 1.5rem 0; /* Adjust padding */
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .companyLogosSectionTop .companyLogoWrapper {
     flex-basis: 33%; /* 3 logos per row */
