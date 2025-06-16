@@ -34,6 +34,7 @@ import StripeNavigation from "../Components/StripeNavigation/StripeNavigation";
 import MegaMenu from "../Components/MegaMenu/Megamenu";
 import StickyFeatureReveal from "../Components/StickyFeatureReveal/StickyFeatureReveal";
 import ContactForm from "../Components/NewContactForm/ContactForm";
+import ModernContactForm from '../Components/NewContactForm/ModernContactForm';
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -203,6 +204,7 @@ export default function Home() {
         </Navbar>
       </div>
 
+      <ModernContactForm />
       <ContactForm/>
 
       <div className="mt-20">
