@@ -1,108 +1,110 @@
-'use client';
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import styles from './ContactForm.module.css';
+import gsap from 'gsap';
 
-import { useState } from 'react';
+const states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'];
+const services = ['Web Development', 'Mobile Development', 'UI/UX Design', 'SEO', 'Digital Marketing', 'Content Writing', 'Graphic Design', 'Video Editing', 'Social Media Management', 'Copywriting', 'Translation', 'Voiceover', 'Data Entry', 'Virtual Assistant', 'Social Media Marketing', 'Email Marketing', 'Search Engine Optimization', 'Social Media Optimization', 'Social Media Management', 'Social Media Marketing', 'Social Media Optimization', 'Social Media Management', 'Social Media Marketing', 'Social Media Optimization'];
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+const ContactForm = () => {
+  const [greetText, setGreetText] = useState('Fill out the form');
+  const greetRef = useRef<HTMLSpanElement>(null);
+
+  const animateTextChange = (newText: string) => {
+    const el = greetRef.current;
+    if (!el) return;
+
+    gsap.to(el, {
+      y: -10,
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.out',
+      onComplete: () => {
+        setGreetText(newText);
+        gsap.fromTo(
+          el,
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }
+        );
+      }
+    });
+  };
+
+  const handleClick = () => {
+    animateTextChange('Thank You');
+    setTimeout(() => animateTextChange('Fill out the form'), 1800);
+  };
 
   return (
-    <div className="max-w-[1400px] mx-auto flex justify-center items-center min-h-screen gap-8 px-4">
-      {/* Form View */}
-      {!submitted && (
-        <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Get in touch</h2>
-            <button className="text-2xl font-light">&times;</button>
+    <div className={styles.contentWrapper}>
+      <div className={styles.contentGrid}>
+        <div className={styles.formContainer}>
+          <div className={styles.header}>
+            <span className={styles.title}>Get in touch</span>
           </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
-            className="space-y-4"
-          >
-            <div>
-              <label className="block font-medium mb-1">Full Name</label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full p-3 rounded-md bg-gray-100 focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">Phone Number</label>
-              <input
-                type="tel"
-                placeholder="Enter your phone number"
-                className="w-full p-3 rounded-md bg-gray-100 focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">Email</label>
-              <input
-                type="email"
-                placeholder="you@company.com"
-                className="w-full p-3 rounded-md bg-gray-100 focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">State</label>
-              <select className="w-full p-3 rounded-md bg-gray-100 focus:outline-none">
-                <option>Select your state</option>
-                <option>Maharashtra</option>
-                <option>Gujarat</option>
-                <option>Karnataka</option>
-                <option>Delhi</option>
-                <option>Tamil Nadu</option>
-              </select>
-            </div>
-            <div>
-              <label className="block font-medium mb-1">
-                Choose Your Required Services
-              </label>
-              <select className="w-full p-3 rounded-md bg-gray-100 focus:outline-none">
-                <option>Select a service</option>
-                <option>Legal Advisory</option>
-                <option>Compliance Services</option>
-                <option>Startup Support</option>
-              </select>
-            </div>
-            <div className="flex justify-between items-center pt-4">
-              <button
-                type="submit"
-                className="text-blue-600 font-semibold tracking-wide flex items-center gap-2"
-              >
-                SEND
-                <span className="text-xl">✉️</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
 
-      {/* Thank You View */}
-      {submitted && (
-        <div className="bg-[#2F3DFF] text-white rounded-2xl shadow-xl p-6 w-full max-w-md flex flex-col justify-between min-h-[400px]">
-          <div className="flex justify-between items-start">
-            <h2 className="text-4xl font-bold leading-tight">Thank<br />You.</h2>
-            <button
-              className="text-white text-2xl"
-              onClick={() => setSubmitted(false)}
-            >
-              &times;
-            </button>
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Full Name</label>
+            <input type="text" className={styles.input} placeholder="Enter your full name" />
           </div>
-          <div className="mt-8 text-sm">
-            <p className="mb-2">We’ll be in touch.</p>
-            <p>Shortly!</p>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Phone Number</label>
+            <input type="tel" className={styles.input} placeholder="Enter your phone number" />
           </div>
-          <div className="flex justify-end mt-6">
-            <button className="text-white text-sm tracking-wide flex items-center gap-2">
-              NEXT <span className="text-lg">→</span>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Email</label>
+            <input type="email" className={styles.input} placeholder="Enter your email" />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>State</label>
+            <select className={styles.select}>
+              <option value="">Select your state</option>
+              {states.map((state, index) => (
+                <option key={index} value={state}>{state}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Choose Your Required Service</label>
+            <select className={styles.select}>
+              <option value="">Select a service</option>
+              {services.map((service, index) => (
+                <option key={index} value={service}>{service}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Message</label>
+            <textarea rows={1} className={styles.textarea} placeholder="Your message"></textarea>
+          </div>
+
+          <div className={styles.buttonRow}>
+            <button className={styles.sendButton} onClick={handleClick}>
+              <span className={styles.sendIcon}>✉</span>
             </button>
           </div>
         </div>
-      )}
+
+        <div className={styles.greetContainer}>
+          <div className={styles.header}>
+            <div className={styles.greetTitleWrapper}>
+              <span className={styles.greetTitle}>
+                <span ref={greetRef}>{greetText}</span>
+              </span>
+            </div>
+          </div>
+          <hr className={styles.greetHr} />
+          <span className={styles.greetsubHeading}>
+            We'll be in touch. <br /> Shortly!
+          </span>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default ContactForm;
