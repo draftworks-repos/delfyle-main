@@ -1,0 +1,143 @@
+.stickyFeatureSection {
+  display: flex;
+  flex-direction: column;
+  padding: 8rem 1rem 0rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .stickyFeatureSection {
+    flex-direction: row;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.leftCol {
+  flex: 1 1 60%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding-top: 5rem;
+  align-items: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .leftCol {
+    max-width: 100%;
+    flex-basis: 100%;
+    align-items: flex-start;
+  }
+}
+
+.featureBlock {
+  opacity: 1;
+  width: 600px;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.featureInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.featureLogo {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.featureTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.featureDesc {
+  color: #4b5563;
+  margin-top: 0;
+  text-align: left;
+}
+
+.featureBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.featureBtn:hover {
+  background: #1f2937; /* gray-800 */
+}
+
+.rightCol {
+  width: 100%;
+  max-width: 40rem;
+  align-self: flex-start;
+}
+@media (min-width: 1024px) {
+  .rightCol {
+    width: 33.3333%;
+  }
+}
+
+.pinnedBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 444px;
+    height: 250px;
+    margin: 0 auto;
+  background: #5f0024; /* bg-gray-100 */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.pinnedTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.pinnedDesc {
+  color: #374151; /* text-gray-700 */
+}
+
+.bgOverlay1, .bgOverlay2, .bgOverlay3, .bgOverlay4 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  z-index: 0;
+  transition: height 0.6s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.bgOverlay1 { background: #7c3aed; }
+.bgOverlay2 { background: #2563eb; }
+.bgOverlay3 { background: #059669; }
+.bgOverlay4 { background: #d97706; } 

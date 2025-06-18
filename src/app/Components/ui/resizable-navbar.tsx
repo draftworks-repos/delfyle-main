@@ -183,7 +183,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     <h3 className="mb-4 text-lg font-semibold text-neutral-900 dark:text-white">
                       {items[activeDropdown].dropdown.title}
                     </h3>
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-3 gap-4">
                       {items[activeDropdown].dropdown.items.map((dropdownItem, index) => (
                         <a
                           key={`dropdown-item-${index}`}

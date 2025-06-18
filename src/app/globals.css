@@ -10,8 +10,7 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -54,8 +53,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -95,6 +93,8 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 a {
@@ -124,4 +124,66 @@ p {
   font-weight: 300;
   line-height: 1.75rem; /* 155.556% */
   letter-spacing: 0.0125rem;
+}
+
+/* Add styles for the navigation */
+nav {
+  position: relative;
+  z-index: 50;
+}
+
+/* Ensure the mega menu appears above other content */
+.megaMenuContainer {
+  z-index: 1000;
+}
+
+/* --- Progressing Border Animation for FeaturesSection --- */
+@keyframes feature-border-top {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes feature-border-right {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+@keyframes feature-border-bottom {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes feature-border-left {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+.feature-card {
+  position: relative;
+  overflow: visible;
+}
+.feature-card .feature-border-anim {
+  position: absolute;
+  background: linear-gradient(90deg, #3b82f6, #a21caf, #ec4899);
+  z-index: 20;
+}
+.feature-card .feature-border-top {
+  top: 0; left: 0; height: 2px; width: 0; border-radius: 1rem 1rem 0 0;
+}
+.feature-card:hover .feature-border-top {
+  animation: feature-border-top 0.4s linear forwards;
+}
+.feature-card .feature-border-right {
+  top: 0; right: 0; width: 2px; height: 0; border-radius: 0 1rem 1rem 0;
+}
+.feature-card:hover .feature-border-right {
+  animation: feature-border-right 0.4s 0.4s linear forwards;
+}
+.feature-card .feature-border-bottom {
+  bottom: 0; right: 0; height: 2px; width: 0; border-radius: 0 0 1rem 1rem;
+}
+.feature-card:hover .feature-border-bottom {
+  animation: feature-border-bottom 0.4s 0.8s linear forwards;
+}
+.feature-card .feature-border-left {
+  bottom: 0; left: 0; width: 2px; height: 0; border-radius: 1rem 0 0 1rem;
+}
+.feature-card:hover .feature-border-left {
+  animation: feature-border-left 0.4s 1.2s linear forwards;
 }

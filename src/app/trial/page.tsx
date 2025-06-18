@@ -16,15 +16,18 @@ import ComponentThirteen from "../Components/TrialComponent/ComponentThirteen/Co
 import ComponentFourteen from "../Components/TrialComponent/ComponentFourteen/ComponentFourteen";
 import ComponentFifteen from "../Components/TrialComponent/ComponentFifteen/ComponentFifteen";
 import ComponentSixteen from "../Components/TrialComponent/ComponentSixteen/ComponentSixteen";
+import Navbar from '../Components/WorkingMegaMenu/Navbar';
 
 const TrialPage = () => {
   return (
+    <>
+    <Navbar />
     <div className={styles.container}>
       <h1>Trial Page</h1>
       <p>This is a test page.</p>
       <ComponentOne />
       <ComponentTwo />
-      <ComponentThird />
+      {/* <ComponentThird /> */}
       <ComponentFour />
       <ComponentFive />
       <ComponentSix />
@@ -39,6 +42,7 @@ const TrialPage = () => {
       <ComponentFifteen />
       <ComponentSixteen />
     </div>
+    </>
   );
 };
 

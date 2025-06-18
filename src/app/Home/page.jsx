@@ -45,18 +45,11 @@ export default function Home() {
       link: "#products",
       dropdown: {
         title: "Our Products",
-        items: [
-          {
-            name: "Software",
-            description: "Enterprise-grade solutions",
-            link: "#software"
-          },
-          {
-            name: "Tools",
-            description: "Powerful utilities for your workflow",
-            link: "#tools"
-          }
-        ]
+        items: Array.from({ length: 36 }, (_, i) => ({
+          name: `Product ${i + 1}`,
+          description: `Description for product ${i + 1}`,
+          link: `#product-${i + 1}`
+        }))
       }
     },
     { 
@@ -64,24 +57,28 @@ export default function Home() {
       link: "#solutions",
       dropdown: {
         title: "Solutions",
-        items: [
-          {
-            name: "Enterprise",
-            description: "Solutions for large organizations",
-            link: "#enterprise"
-          },
-          {
-            name: "Small Business",
-            description: "Tailored for growing companies",
-            link: "#small-business"
-          }
-        ]
+        items: Array.from({ length: 9 }, (_, i) => ({
+          name: `Solution ${i + 1}`,
+          description: `Description for solution ${i + 1}`,
+          link: `#solution-${i + 1}`
+        }))
+      }
+    },
+    { 
+      name: "Resources", 
+      link: "#resources",
+      dropdown: {
+        title: "Resources",
+        items: Array.from({ length: 100 }, (_, i) => ({
+          name: `Resource ${i + 1}`,
+          description: `Description for resource ${i + 1}`,
+          link: `#resource-${i + 1}`
+        }))
       }
     },
     { name: "Home", link: "#" },
     { name: "About", link: "#about" },
     { name: "Services", link: "#services" },
-    { name: "Resources", link: "#resources" },
     { name: "Pricing", link: "#pricing" },
     { name: "Contact", link: "#contact" }
   ];

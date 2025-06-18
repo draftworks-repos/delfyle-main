@@ -7,19 +7,21 @@ import WhoWeWorkWith from "./Components/WhoWeWorkWith/WhoWeWorkWith";
 import FeaturedServices from "./Components/FeaturedServices/FeaturedServices";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Footer from "./Components/Footer/Footer";
+import FeaturesSection from './Components/FeaturesSection/FeaturesSection';
+import ModernContactForm from "./Components/NewContactForm/ModernContactForm";
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen">
       <Hero />
       <div className="bg-white">
         <WhatWeDo />
-        <ContactUs />
-        <TrustDelfyle />
+        <ModernContactForm/>
         <WhoWeWorkWith />
         <CompanyLogos />
         <Testimonial />
         <FeaturedServices />
+        <FeaturesSection />
         <Footer />
       </div>
     </main>
