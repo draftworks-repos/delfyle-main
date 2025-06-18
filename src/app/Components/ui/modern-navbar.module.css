@@ -1,0 +1,405 @@
+/* Modern Navbar Container */
+.modernNavbar {
+  position: sticky;
+  inset: 0;
+  top: 5rem;
+  z-index: 40;
+  width: 100%;
+}
+
+/* Modern Navbar Body */
+.modernNavBody {
+  position: relative;
+  z-index: 60;
+  margin: 0 auto;
+  display: none;
+  width: 100%;
+  max-width: 1340px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: flex-start;
+  border-radius: 9999px;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .modernNavBody {
+    display: flex;
+  }
+}
+
+.modernNavBody.visible {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  .modernNavBody {
+    background-color: transparent;
+  }
+  
+  .modernNavBody.visible {
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+}
+
+/* Modern Nav Items */
+.modernNavItems {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  transition-duration: 200ms;
+}
+
+@media (min-width: 1024px) {
+  .modernNavItems {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.modernNavItems.visible {
+  color: rgb(82, 82, 91);
+}
+
+.modernNavItems:hover {
+  color: rgb(39, 39, 42);
+}
+
+.modernNavItems.visible:hover {
+  color: rgb(39, 39, 42);
+}
+
+/* Dropdown Background */
+.dropdownBackground {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: 2rem;
+  transform: translateX(-50%);
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  height: 400px;
+  z-index: 40;
+  min-width: 320px;
+  max-width: 480px;
+  width: fit-content;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropdownBackground {
+    background-color: rgb(23, 23, 23);
+  }
+}
+
+.dropdownContent {
+  padding: 1.5rem 2rem;
+}
+
+.dropdownTitle {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(23, 23, 23);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropdownTitle {
+    color: white;
+  }
+}
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: rgb(243, 244, 246);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropdownItem:hover {
+    background-color: rgb(38, 38, 38);
+  }
+}
+
+.dropdownItemName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(23, 23, 23);
+}
+
+.dropdownItem:hover .dropdownItemName {
+  color: rgb(37, 99, 235);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropdownItemName {
+    color: white;
+  }
+  
+  .dropdownItem:hover .dropdownItemName {
+    color: rgb(96, 165, 250);
+  }
+}
+
+.dropdownItemDescription {
+  font-size: 0.75rem;
+  color: rgb(115, 115, 115);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dropdownItemDescription {
+    color: rgb(163, 163, 163);
+  }
+}
+
+/* Navigation Items */
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.navLink.visible {
+  color: rgb(82, 82, 91);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navLink {
+    color: white;
+  }
+  
+  .navLink.visible {
+    color: rgb(212, 212, 212);
+  }
+}
+
+.navLinkHover {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: rgb(243, 244, 246);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navLinkHover {
+    background-color: rgb(38, 38, 38);
+  }
+}
+
+.navLinkText {
+  position: relative;
+  z-index: 20;
+}
+
+/* Mobile Navigation */
+.modernMobileNav {
+  position: relative;
+  z-index: 50;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: calc(100vw - 2rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .modernMobileNav {
+    display: none;
+  }
+}
+
+.modernMobileNav.visible {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  .modernMobileNav.visible {
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+}
+
+.modernMobileNavHeader {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modernMobileNavMenu {
+  position: absolute;
+  inset: 0;
+  top: 4rem;
+  z-index: 50;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modernMobileNavMenu {
+    background-color: rgb(10, 10, 10);
+  }
+}
+
+.mobileMenuItem {
+  width: 100%;
+}
+
+.mobileMenuLink {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: rgb(82, 82, 91);
+}
+
+@media (prefers-color-scheme: dark) {
+  .mobileMenuLink {
+    color: rgb(212, 212, 212);
+  }
+}
+
+/* Logo */
+.modernNavbarLogo {
+  position: relative;
+  z-index: 20;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.modernNavbarLogo.visible {
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modernNavbarLogo {
+    color: white;
+  }
+  
+  .modernNavbarLogo.visible {
+    color: white;
+  }
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  letter-spacing: -0.025em;
+}
+
+.logoText.visible {
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logoText {
+    color: white;
+  }
+  
+  .logoText.visible {
+    color: white;
+  }
+}
+
+/* Button */
+.modernNavbarButton {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  background-color: white;
+  color: black;
+  font-size: 0.875rem;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.modernNavbarButton:hover {
+  transform: translateY(-0.125rem);
+}
+
+.modernNavbarButton.primary {
+  box-shadow: 0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.modernNavbarButton.secondary {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modernNavbarButton.secondary {
+    color: white;
+  }
+}
+
+.modernNavbarButton.dark {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.modernNavbarButton.gradient {
+  background: linear-gradient(to bottom, rgb(59, 130, 246), rgb(29, 78, 216));
+  color: white;
+  box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.3) inset;
+}
+
+/* Mobile Toggle */
+.mobileToggle {
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mobileToggle {
+    color: white;
+  }
+} 

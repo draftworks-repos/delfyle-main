@@ -3,7 +3,7 @@ import styles from "./titleblend.module.css";
 
 const TitleBlend = () => {
   return (
-    <div className={styles.title}>
+    <div className={`${styles.title} title-blend`}>
       <div className={styles.titleBlend}>
         <h1 className={styles.welcomeTo}>Welcome to</h1>
         <h1 className={styles.titleDelfyle}>Delfyle</h1>

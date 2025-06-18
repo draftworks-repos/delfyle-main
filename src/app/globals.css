@@ -137,6 +137,22 @@ nav {
   z-index: 1000;
 }
 
+/* Ensure proper stacking context for blend effects */
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.spline-background {
+  position: absolute;
+  z-index: 1;
+}
+
+.title-blend {
+  position: relative;
+  z-index: 10;
+}
+
 /* --- Progressing Border Animation for FeaturesSection --- */
 @keyframes feature-border-top {
   0% { width: 0; }

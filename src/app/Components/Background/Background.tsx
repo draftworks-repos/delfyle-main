@@ -5,7 +5,7 @@ import Spline from "@splinetool/react-spline";
 
 const Background = () => {
   return (
-    <div className={styles.canvas}>
+    <div className={`${styles.canvas} spline-background`}>
       <Spline scene="https://prod.spline.design/TUFzW6NrUlVBSDUk/scene.splinecode" />
     </div>
   );

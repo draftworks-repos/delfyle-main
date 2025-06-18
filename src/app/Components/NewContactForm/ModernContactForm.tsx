@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './ModernContactForm.module.css';
 import { FaPaperPlane } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
-import CustomDropdown from './CustomDropdown';
 import gsap from 'gsap';
 
 const states = [
@@ -86,12 +85,8 @@ const ModernContactForm = () => {
     );
   }, [greetText]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleDropdownChange = (name: string, value: string) => {
-    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -155,22 +150,34 @@ const ModernContactForm = () => {
                 required
               />
             </label>
-            <CustomDropdown
-              label="State"
-              options={states}
-              value={form.state}
-              onChange={(value) => handleDropdownChange('state', value)}
-              name="state"
-              placeholder="Select your state"
-            />
-            <CustomDropdown
-              label="Choose Your Required Service"
-              options={services}
-              value={form.service}
-              onChange={(value) => handleDropdownChange('service', value)}
-              name="service"
-              placeholder="Select a service"
-            />
+            <label className={styles.label}>State
+              <select
+                className={styles.input}
+                name="state"
+                value={form.state}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select your state</option>
+                {states.map((state) => (
+                  <option key={state} value={state}>{state}</option>
+                ))}
+              </select>
+            </label>
+            <label className={styles.label}>Choose Your Required Service
+              <select
+                className={styles.input}
+                name="service"
+                value={form.service}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a service</option>
+                {services.map((service) => (
+                  <option key={service} value={service}>{service}</option>
+                ))}
+              </select>
+            </label>
             <label className={styles.label}>Message
               <textarea
                 className={styles.input}

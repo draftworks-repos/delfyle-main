@@ -1,26 +1,30 @@
 .title {
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   top: 10rem;
   left: 15vw;
   width: calc(100vw - 15vw);
-  mix-blend-mode: color-burn;
+  color: #1a1a1a;
 }
 
 .titleBlend {
   position: absolute;
-  z-index: 0;
+  z-index: 10;
 }
 
 .welcomeTo {
   font-size: 3.8rem;
   margin-left: 1rem;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .titleDelfyle {
   font-size: 13.7rem;
   margin-top: 1.2rem;
   margin-bottom: 2.5rem;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .subTitle {
@@ -28,6 +32,8 @@
   line-height: 1.1;
   font-size: 3.8rem;
   margin-left: 0.8rem;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 @media screen and (max-width: 1199px) {
