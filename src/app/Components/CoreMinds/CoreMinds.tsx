@@ -5,6 +5,7 @@ import styles from "./CoreMinds.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -156,6 +157,12 @@ const CoreMinds: React.FC = () => {
       <div className={styles.header}>
         <h2 className={styles.title}>Meet the Core Minds Behind Delfyle</h2>
         <h3 className={styles.subtitle}>Our Leadership & Legal Experts</h3>
+        <motion.div
+          className={styles.progressLine}
+          initial={{ width: 0 }}
+          animate={{ width: "50%" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        />
         <p className={styles.description}>
           At Delfyle, we take pride in being more than just a legal and compliance consultancy—we're your extended team. Backed by professionals with deep expertise in law, finance, and corporate governance, our core team leads with precision, vision, and a shared passion for enabling entrepreneurial growth across India.
         </p>

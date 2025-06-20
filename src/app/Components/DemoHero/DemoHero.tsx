@@ -70,7 +70,7 @@ const DemoHero: React.FC = () => {
       };
 
       // Set initial rotation
-      gsap.set(cards, { rotation: -8 });
+      gsap.set(cards, { rotation: 0 });
 
       // Create a timeline for smooth animation
       const tl = gsap.timeline({
@@ -127,10 +127,6 @@ const DemoHero: React.FC = () => {
   return (
     <section ref={sectionRef} className={styles.heroSection}>
       <div className={styles.waveOverlay} />
-      <div className={styles.radialSpot1} />
-      <div className={styles.radialSpot2} />
-      <div className={styles.radialSpot3} />
-      <div className={styles.radialSpot4} />
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.textColumn}>
           <div ref={firstTextRef} className={styles.textContentContainer}>

@@ -286,7 +286,7 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
             </div>
           </div>
         )}
-      </div>
+                          </div>
       {/* 5th Nav Item */}
       <div
         className={styles.navItem}
@@ -326,8 +326,8 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>Demat of Shares</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>Winding Up - LLP</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>Winding Up - Company</span></div>
-            </div>
-          </div>
+                    </div>
+                  </div>
         )}
       </div>
       {/* 6th Nav Item */}
@@ -364,7 +364,7 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
       </div>
       {/* 7th Nav Item */}
       <div
-        className={styles.navItem}
+          className={styles.navItem}
         onMouseEnter={() => { setOpenDropdown(6); setHovered(6); }}
         onMouseLeave={() => { setOpenDropdown(null); setHovered(null); }}
       >
@@ -401,18 +401,18 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
         className={styles.navItem}
         onMouseEnter={() => { setOpenDropdown(7); setHovered(7); }}
         onMouseLeave={() => { setOpenDropdown(null); setHovered(null); }}
-      >
-        <a
-          onClick={onItemClick}
-          className={cn(styles.navLink, visible && styles.visible)}
+        >
+          <a
+            onClick={onItemClick}
+            className={cn(styles.navLink, visible && styles.visible)}
           href="/about"
         >
           {hovered === 7 && (
             <motion.div layoutId="hovered" className={styles.navLinkHover} />
           )}
           <span className={styles.navLinkText}>About us</span>
-        </a>
-      </div>
+          </a>
+        </div>
     </motion.div>
   );
 };

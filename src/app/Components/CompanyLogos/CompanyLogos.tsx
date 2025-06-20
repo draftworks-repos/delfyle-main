@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./CompanyLogos.module.css";
 import LogoMarquee from "../LogoMarquee/LogoMarquee";
+import lottie from "lottie-web";
 
 const CompanyLogos: React.FC = () => {
   const headingRef = useRef<HTMLDivElement>(null);
@@ -68,10 +69,10 @@ const CompanyLogos: React.FC = () => {
             className={styles.progressLine}
             style={{ width: lineWidth }}
           />
+          
         </motion.div>
-        <LogoMarquee logos={[
-          "/CompanyLogos/1.png", "/CompanyLogos/2.png", "/CompanyLogos/3.png", "/CompanyLogos/4.png", "/CompanyLogos/5.png", "/CompanyLogos/6.png", "/CompanyLogos/7.png", "/CompanyLogos/8.png", "/CompanyLogos/9.png", "/CompanyLogos/10.png", "/CompanyLogos/11.png", "/CompanyLogos/12.png", "/CompanyLogos/13.png", "/CompanyLogos/14.png", "/CompanyLogos/15.png", "/CompanyLogos/16.png", "/CompanyLogos/17.png", "/CompanyLogos/18.png", "/CompanyLogos/19.png", "/CompanyLogos/20.png", "/CompanyLogos/21.png", "/CompanyLogos/22.png", "/CompanyLogos/23.png", "/CompanyLogos/24.png", "/CompanyLogos/25.png", "/CompanyLogos/26.png", "/CompanyLogos/27.png", "/CompanyLogos/28.png", "/CompanyLogos/29.png", "/CompanyLogos/30.png"
-        ]} />
+        {/* Animation injected below using lottie-web */}
+        <CompanyLogosAnimation />
         {/* <div className={styles.logosGrid}>
           {shuffledLogos.map((logo, index) => (
             <div key={index} className={styles.logoItem}>
@@ -88,5 +89,21 @@ const CompanyLogos: React.FC = () => {
     </section>
   );
 };
+
+function CompanyLogosAnimation() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const anim = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/animation/companylogos.json", // Adjust if your JSON file is named differently
+    });
+    return () => anim.destroy();
+  }, []);
+  return <div ref={containerRef} className={styles.companyLogosAnimation} />;
+}
 
 export default CompanyLogos;

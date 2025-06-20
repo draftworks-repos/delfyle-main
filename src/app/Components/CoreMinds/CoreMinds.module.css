@@ -14,7 +14,7 @@
 
 .header {
   text-align: center;
-  padding: 6rem 2rem 2rem;
+  padding: 2rem 2rem 2rem;
   position: relative;
   z-index: 10;
   max-width: 1200px;
@@ -33,7 +33,7 @@
 .subtitle {
   font-size: 1.8rem;
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: 500;
 }
 
@@ -372,4 +372,16 @@
   bottom: 0;
   background-color: #f8f9fa;
   z-index: -1;
+}
+
+.progressLine {
+  display: block;
+  margin: 15px auto 24px auto;
+  height: 3px;
+  width: 0;
+  max-width: 320px;
+  background: linear-gradient(90deg, rgba(107, 0, 62, 0.8) 0%, rgba(180, 0, 104, 0.8) 100%);
+  border-radius: 1.5px;
+  opacity: 0.8;
+  transition: width 0.3s ease;
 } 

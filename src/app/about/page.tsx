@@ -5,10 +5,7 @@ import DemoHero from "../Components/DemoHero/DemoHero";
 import VisionMission from "../Components/VisionMission/VisionMission";
 import Footer from "../Components/Footer/Footer";
 import CoreMinds from "../Components/CoreMinds/CoreMinds";
-import TeamMembers from "../Components/TeamMembers/TeamMembers";
-import SocialMedia from "../Components/SocialMedia/SocialMedia";
 import SocialLinks from "../Components/SocialLinks/SocialLinks";
-import IntegrationCards from "../Components/IntegrationCards/IntegrationCards";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -26,11 +23,8 @@ const AboutPage = () => {
     <main>
       <DemoHero />
       <VisionMission />
-      <IntegrationCards />
-      <TeamMembers />
       <CoreMinds />
       <SocialLinks />
-      <SocialMedia />
       <Footer />
     </main>
   );
