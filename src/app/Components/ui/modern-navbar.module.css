@@ -1,8 +1,8 @@
 /* Modern Navbar Container */
 .modernNavbar {
-  position: sticky;
+  position: relative;
   inset: 0;
-  top: 5rem;
+  /* top: 5rem; */
   z-index: 40;
   width: 100%;
 }
@@ -81,24 +81,48 @@
 }
 
 /* Dropdown Background */
+.dropdown,
+.dropdown1,
+.dropdown2,
+.dropdown3,
+.dropdown4,
+.dropdown5,
+.dropdown6,
+.dropdown7 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+  margin: 40px;
+  padding: 2rem; /* Remove padding that could create a gap */
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  border-radius: 16px;
+}
+
+.dropdown1 {
+  min-width: 40rem;
+  left: -6rem;
+}
+.dropdown2 {
+  min-width: 62rem;
+  left: -11.75rem;
+}
+
 .dropdownBackground {
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 100%;
-  margin-top: 2rem;
-  transform: translateX(-50%);
+  margin-top: 4rem;
+  /* transform: translateX(-50%); */
   background-color: white;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  height: 400px;
   z-index: 40;
-  min-width: 320px;
-  max-width: 480px;
-  width: fit-content;
 }
 
 @media (prefers-color-scheme: dark) {
   .dropdownBackground {
-    background-color: rgb(23, 23, 23);
+    background-color: rgb(255, 255, 255);
   }
 }
 
@@ -178,6 +202,7 @@
 /* Navigation Items */
 .navItem {
   position: relative;
+  /* Ensures dropdown is positioned relative to nav item and does not affect layout */
 }
 
 .navLink {
@@ -211,7 +236,7 @@
   height: 100%;
   width: 100%;
   border-radius: 9999px;
-  background-color: rgb(243, 244, 246);
+  background-color: rgb(214, 214, 214);
 }
 
 @media (prefers-color-scheme: dark) {
