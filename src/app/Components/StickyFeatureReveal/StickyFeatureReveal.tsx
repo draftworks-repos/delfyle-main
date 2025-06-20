@@ -74,7 +74,7 @@ const StickyFeatureReveal = () => {
                   width: '2.5rem',
                   height: '2.5rem',
                   borderRadius: '50%',
-                  background: '#635bff',
+                  background: 'rgba(180, 0, 104, 0.8)',
                 }} />
               </div>
               <div className={styles.featureContent}>

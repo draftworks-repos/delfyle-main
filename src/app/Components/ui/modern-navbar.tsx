@@ -228,7 +228,7 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
         </a>
         {openDropdown === 2 && (
           <div className={`${styles.dropdown} ${styles.dropdown3}`}>
-            <div className={styles.dropdownGrid} style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
+            <div className={styles.dropdownGrid} style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>StartUp Registration</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>Trade License</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>FSSAI Registration</span></div>
@@ -305,7 +305,7 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
         </a>
         {openDropdown === 4 && (
           <div className={`${styles.dropdown} ${styles.dropdown5}`}>
-            <div className={styles.dropdownGrid} style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className={styles.dropdownGrid} style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>Company Compliance</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>LLP Compliance</span></div>
               <div className={styles.dropdownItem}><span className={styles.dropdownIcon}>{PlaceholderIcon}</span><span className={styles.dropdownLabel}>OPC Compliance</span></div>
@@ -395,6 +395,23 @@ export const ModernNavItems = ({ className, onItemClick, visible }: NavItemsProp
             </div>
           </div>
         )}
+      </div>
+      {/* 8th Nav Item (no dropdown) */}
+      <div
+        className={styles.navItem}
+        onMouseEnter={() => { setOpenDropdown(7); setHovered(7); }}
+        onMouseLeave={() => { setOpenDropdown(null); setHovered(null); }}
+      >
+        <a
+          onClick={onItemClick}
+          className={cn(styles.navLink, visible && styles.visible)}
+          href="/about"
+        >
+          {hovered === 7 && (
+            <motion.div layoutId="hovered" className={styles.navLinkHover} />
+          )}
+          <span className={styles.navLinkText}>About us</span>
+        </a>
       </div>
     </motion.div>
   );

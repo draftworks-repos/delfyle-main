@@ -93,9 +93,13 @@
   left: 0;
   top: 100%;
   z-index: 1000;
-  margin: 40px;
-  padding: 2rem; /* Remove padding that could create a gap */
-  background: #fff;
+  padding-top: 2rem; /* Remove padding that could create a gap */
+  background: transparent;
+}
+
+.dropdownGrid {
+  background-color: #fff;
+  padding: 2rem;
   box-shadow: 0 10px 24px rgba(0,0,0,0.10);
   border-radius: 16px;
 }
@@ -106,18 +110,36 @@
 }
 .dropdown2 {
   min-width: 62rem;
+  left: -11.65rem;
+}
+.dropdown3 {
+  min-width: 67.6rem;
+  left: -20.5rem;
+}
+.dropdown4 {
+  min-width: 32rem;
   left: -11.75rem;
+}
+.dropdown5 {
+  min-width: 70rem;
+  left: -34rem;
+}
+.dropdown6 {
+  min-width: 40rem;
+  left: -20rem;
+}
+.dropdown7 {
+  min-width: 30rem;
+  left: -16rem;
 }
 
 .dropdownBackground {
   position: absolute;
-  left: 0;
-  top: 100%;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   /* transform: translateX(-50%); */
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  z-index: 40;
+  z-index: 9999;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,7 +173,7 @@
 
 .dropdownItem {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
   border-radius: 0.375rem;
   padding: 0.5rem;

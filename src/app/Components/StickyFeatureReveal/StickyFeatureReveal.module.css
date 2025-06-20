@@ -75,7 +75,14 @@
   margin-bottom: 0.5rem;
   text-align: left;
   background-clip: text;
-  color: #635bff;
+  color: #111827;
+  transition: color 0.3s ease-in-out;
+}
+.featureBlock:hover .featureTitle {
+  color: transparent;
+  background: linear-gradient(90deg, rgba(107, 0, 62, 0.8) 0%, rgba(180, 0, 104, 0.8) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .featureDesc {

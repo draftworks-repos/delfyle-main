@@ -33,7 +33,7 @@ import IntegrationCards from "../Components/IntegrationCards/IntegrationCards";
 import IntegrationTabs from "../Components/IntegrationTabs/IntegrationTabs";
 import LogoLines from "../Components/LogoLines/LogoLines";
 import LogoOrigami from "../Components/LogoOrigami.tsx/LogoOrigami";
-import Marquee from "../Components/Marquee/Marquee";
+// import Marquee from "../Components/Marquee/Marquee";
 import ScrollCarousel from "../Components/ScrollCarousel/ScrollCarousel";
 import SocialLinks from "../Components/SocialLinks/SocialLinks";
 import SocialMedia from "../Components/SocialMedia/SocialMedia";
@@ -141,7 +141,7 @@ const AllComponent: React.FC = () => {
         <IntegrationTabs />
         <LogoLines />
         <LogoOrigami />
-        <Marquee text="Sample Marquee Text" />
+        {/* <Marquee text="Sample Marquee Text" /> */}
         <ScrollCarousel />
         <SocialLinks />
         <SocialMedia />
