@@ -56,7 +56,11 @@ const SocialLinks = () => {
       <div className={styles.mainContainer}>
         <div className={styles.headerSection}>
           <div className={styles.headingContainer}>
-            <h1 className={styles.mainHeading}>Connect With Us</h1>
+            <h1
+              className={styles.mainHeading + (isHovered ? ' ' + styles.mainHeadingWhite : '')}
+            >
+              Connect With Us
+            </h1>
           </div>
           <p 
             className={styles.subtitle}

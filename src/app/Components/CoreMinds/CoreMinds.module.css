@@ -1,7 +1,7 @@
 .coreMindsSection {
   padding: 4rem 2rem;
-  background-color: #f8f9fa;
-  min-height: 300vh;
+  background-color: #ffffff;
+  min-height: 150vh;
   position: relative;
 }
 
@@ -49,7 +49,7 @@
   position: sticky;
   top: 50%;
   transform: translateY(-50%);
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,7 +146,7 @@
 }
 
 .wrapper {
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -370,7 +370,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   z-index: -1;
 }
 

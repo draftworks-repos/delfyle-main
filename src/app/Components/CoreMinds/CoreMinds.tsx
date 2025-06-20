@@ -5,7 +5,7 @@ import styles from "./CoreMinds.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,6 +85,13 @@ const CoreMinds: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // Add scroll-based progress bar logic
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+  const lineWidth = useTransform(scrollYProgress, [0, 1], ["0", "20%"]);
+
   useEffect(() => {
     const section = sectionRef.current;
     const wrapper = wrapperRef.current;
@@ -159,9 +166,7 @@ const CoreMinds: React.FC = () => {
         <h3 className={styles.subtitle}>Our Leadership & Legal Experts</h3>
         <motion.div
           className={styles.progressLine}
-          initial={{ width: 0 }}
-          animate={{ width: "50%" }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          style={{ width: lineWidth }}
         />
         <p className={styles.description}>
           At Delfyle, we take pride in being more than just a legal and compliance consultancy—we're your extended team. Backed by professionals with deep expertise in law, finance, and corporate governance, our core team leads with precision, vision, and a shared passion for enabling entrepreneurial growth across India.

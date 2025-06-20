@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./VisionMission.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import lottie from "lottie-web";
 
 // Register plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +15,7 @@ const VisionMission: React.FC = () => {
   const rightColumnRef = useRef<HTMLDivElement>(null);
   const blankCardRef = useRef<HTMLDivElement>(null);
   const thirdContainerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const lottieRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -52,21 +53,25 @@ const VisionMission: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (lottieRef.current) {
+      const anim = lottie.loadAnimation({
+        container: lottieRef.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/animation/mission.json",
+      });
+      return () => anim.destroy();
+    }
+  }, []);
+
   return (
     <section ref={sectionRef} className={styles.visionMissionSection}>
       <div className={styles.contentContainer}>
         <div ref={leftColumnRef} className={styles.leftColumn}>
           <div ref={blankCardRef} className={styles.blankCard}>
-            <video 
-              ref={videoRef}
-              className={styles.videoAnimation}
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/animation/endtoendservices_2_ALPHA_2.mp4" type="video/mp4" />
-            </video>
+            <div ref={lottieRef} className={styles.lottieAnimation} />
           </div>
         </div>
         <div ref={rightColumnRef} className={styles.rightColumn}>

@@ -37,9 +37,6 @@
   z-index: 2;
 }
 
-.section:hover .headingContainer {
-  background-color: #ffffff;
-}
 
 .mainHeading {
   font-size: 4rem;
@@ -58,6 +55,7 @@
   color: transparent;
   margin-bottom: 1rem;
   z-index: 2;
+  transition: color 0.4s, background 0.4s, -webkit-background-clip 0.4s;
 }
 
 .mainHeading::first-letter {
@@ -251,4 +249,12 @@
   .socialCard {
     padding: 1.25rem;
   }
+}
+
+.mainHeadingWhite {
+  color: #fff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  transition: color 0.4s, background 0.4s, -webkit-background-clip 0.4s;
 } 
