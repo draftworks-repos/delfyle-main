@@ -3,20 +3,26 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f7f7fa;
+  background: linear-gradient(to bottom, #fff, #f9fafb);
   position: relative;
   overflow: hidden;
+}
+
+.bgLeft,
+.bgRight,
+.bgCenter {
+  filter: blur(48px) brightness(1.1) contrast(1.1) drop-shadow(0 0 20px #a5b4fc80);
+  opacity: 0.85;
 }
 
 .bgLeft {
   position: absolute;
   z-index: 0;
-  top: 60px;
-  left: -80px;
+  top: 100px;
+  left: -180px;
   width: 340px;
   height: 340px;
   background: radial-gradient(circle at 30% 30%, #a5b4fc 0%, #e0e7ff 60%, #f7f7fa 100%);
-  opacity: 0.95;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -24,12 +30,11 @@
 .bgRight {
   position: absolute;
   z-index: 0;
-  bottom: 80px;
-  right: -60px;
+  bottom: 100px;
+  right: -160px;
   width: 280px;
   height: 280px;
   background: radial-gradient(circle at 70% 70%, #818cf8 0%, #c7d2fe 60%, #f7f7fa 100%);
-  opacity: 0.8;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -38,12 +43,11 @@
   content: '';
   position: absolute;
   z-index: 0;
-  top: 50%;
-  left: 60%;
+  top: 30%;
+  left: 70%;
   width: 200px;
   height: 200px;
   background: radial-gradient(circle at 50% 50%, #6366f1 0%, #a5b4fc 80%, transparent 100%);
-  opacity: 0.7;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;

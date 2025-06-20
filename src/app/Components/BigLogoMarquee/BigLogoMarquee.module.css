@@ -90,9 +90,9 @@
 .logoItem {
   display: grid;
   place-items: center;
-  width: var(--size);
+  width: 192px;
   aspect-ratio: 16/9;
-  padding: calc(var(--size) / 10);
+  padding: 19px;
   border-radius: 0.5rem;
   background: #fff;
 }

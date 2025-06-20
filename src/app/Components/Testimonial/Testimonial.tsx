@@ -25,7 +25,7 @@ const Testimonial: React.FC = () => {
     target: headerRef,
     offset: ["start end", "center center"],
   });
-  const lineWidth = useTransform(headingProgress, [0, 1], ["0%", "35%"]);
+  const lineWidth = useTransform(headingProgress, [0, 1], ["2%", "30%"]);
 
   const testimonials: Testimonial[] = [
     {

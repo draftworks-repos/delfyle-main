@@ -6,7 +6,6 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 import TrustDelfyle from "./Components/TrustDelfyle/TrustDelfyle";
 import WhoWeWorkWith from "./Components/WhoWeWorkWith/WhoWeWorkWith";
-import FeaturedServices from "./Components/FeaturedServices/FeaturedServices";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Footer from "./Components/Footer/Footer";
 import FeaturesSection from './Components/FeaturesSection/FeaturesSection';
@@ -23,10 +22,35 @@ import {
   ModernMobileNavMenu,
   ModernMobileNavToggle
 } from "./Components/ui/modern-navbar";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import BigLogoMarquee from "./Components/BigLogoMarquee/BigLogoMarquee";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const smootherRef = useRef<any>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    // Only create one smoother instance
+    if (!smootherRef.current) {
+      smootherRef.current = ScrollSmoother.create({
+        smooth: 1,
+        effects: true,
+        normalizeScroll: true,
+        wrapper: "main",
+        content: "#smooth-content",
+      });
+    }
+    return () => {
+      if (smootherRef.current) {
+        smootherRef.current.kill();
+        smootherRef.current = null;
+      }
+    };
+  }, []);
 
   const navItems = [
     { name: "Startup", link: "#startup" },
@@ -79,18 +103,21 @@ export default function Home() {
           </ModernMobileNav>
         </ModernNavbar>
       </div>
-
-      <Hero />
-      <div className="bg-white">
-        <WhatWeDo />
-        <ModernContactForm/>
-        <StickyFeatureReveal />
-        <WhoWeWorkWith />
-        <CompanyLogos />
-        <Testimonial />
-        <FeaturedServices />
-        <FeaturesSection />
-        <Footer />
+      <div id="smooth-content">
+        <Hero />
+        <BigLogoMarquee logos={[
+          "/CompanyLogos/1.png", "/CompanyLogos/2.png", "/CompanyLogos/3.png", "/CompanyLogos/4.png", "/CompanyLogos/5.png", "/CompanyLogos/6.png", "/CompanyLogos/7.png", "/CompanyLogos/8.png", "/CompanyLogos/9.png", "/CompanyLogos/10.png", "/CompanyLogos/11.png", "/CompanyLogos/12.png", "/CompanyLogos/13.png", "/CompanyLogos/14.png", "/CompanyLogos/15.png", "/CompanyLogos/16.png", "/CompanyLogos/17.png", "/CompanyLogos/18.png", "/CompanyLogos/19.png", "/CompanyLogos/20.png", "/CompanyLogos/21.png", "/CompanyLogos/22.png", "/CompanyLogos/23.png", "/CompanyLogos/24.png", "/CompanyLogos/25.png", "/CompanyLogos/26.png", "/CompanyLogos/27.png", "/CompanyLogos/28.png", "/CompanyLogos/29.png", "/CompanyLogos/30.png"
+        ]} speed="70s" direction="left" />
+        <div className="bg-white">
+          <WhatWeDo />
+          <FeaturesSection />
+          <ModernContactForm/>
+          <StickyFeatureReveal />
+          <WhoWeWorkWith />
+          <CompanyLogos />
+          <Testimonial />
+          <Footer />
+        </div>
       </div>
     </main>
   );

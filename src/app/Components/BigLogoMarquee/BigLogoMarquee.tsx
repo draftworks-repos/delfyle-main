@@ -25,14 +25,14 @@ const BigLogoMarquee: React.FC<BigLogoMarqueeProps> = ({
         <div className={styles.marquee__group}>
           {doubledLogos.map((logo, index) => (
             <div key={index} className={styles.logoItem}>
-              <Image src={logo} alt={`Company Logo ${index}`} width={192} height={120} objectFit="contain" />
+              <Image src={logo} alt={`Company Logo ${index}`} width={384} height={240} objectFit="contain" />
             </div>
           ))}
         </div>
-        <div aria-hidden="true" className={styles.marquee__group}>
+        <div aria-hidden="true" className={styles.marquee__group}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
           {doubledLogos.map((logo, index) => (
             <div key={index} className={styles.logoItem}>
-              <Image src={logo} alt={`Company Logo ${index}`} width={192} height={120} objectFit="contain" />
+              <Image src={logo} alt={`Company Logo ${index}`} width={384} height={240} objectFit="contain" />
             </div>
           ))}
         </div>

@@ -60,6 +60,7 @@
   transition-duration: 200ms;
 }
 
+
 @media (min-width: 1024px) {
   .modernNavItems {
     display: flex;
@@ -183,6 +184,11 @@
   position: relative;
   padding: 0.5rem 1rem;
   color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover {
+  color: rgb(39, 39, 42);
 }
 
 .navLink.visible {

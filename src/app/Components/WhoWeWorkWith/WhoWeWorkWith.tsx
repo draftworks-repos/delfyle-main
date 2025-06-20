@@ -15,7 +15,7 @@ const WhoWeWorkWith = () => {
     offset: ["start end", "center start"],
   });
 
-  const lineWidth = useTransform(headerProgress, [0, 1], ["0%", "50%"]);
+  const lineWidth = useTransform(headerProgress, [0, 1], ["2%", "50%"]);
 
   const categories = [
     {
@@ -107,6 +107,16 @@ const WhoWeWorkWith = () => {
               style={{ width: lineWidth }}
             />
           </h2>
+          <motion.div
+          className={styles.bottomText}
+          variants={bottomTextVariants}
+          initial="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-20%" }}
+        >
+          Whether you're launching, scaling, pivoting, or winding down, Delfyle
+          is built to help you move faster—without the paperwork drag.
+        </motion.div>
         </motion.div>
 
         <div className={styles.categoriesContainer}>
@@ -154,31 +164,6 @@ const WhoWeWorkWith = () => {
             );
           })}
         </div>
-
-        <motion.div
-          className={styles.bottomText}
-          variants={bottomTextVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20%" }}
-        >
-          <motion.div
-            className={styles.bottomTextLine}
-            variants={{
-              hidden: { width: 0 },
-              visible: {
-                width: "40px",
-                transition: {
-                  duration: 0.6,
-                  delay: 0.2,
-                  ease: [0.22, 1, 0.36, 1],
-                },
-              },
-            }}
-          />
-          Whether you're launching, scaling, pivoting, or winding down, Delfyle
-          is built to help you move faster—without the paperwork drag.
-        </motion.div>
       </div>
     </section>
   );

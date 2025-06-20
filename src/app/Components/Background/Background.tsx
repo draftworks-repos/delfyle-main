@@ -1,12 +1,18 @@
 "use client";
 import React from "react";
 import styles from "./background.module.css";
-import Spline from "@splinetool/react-spline";
 
 const Background = () => {
   return (
     <div className={`${styles.canvas} spline-background`}>
-      <Spline scene="https://prod.spline.design/TUFzW6NrUlVBSDUk/scene.splinecode" />
+      <video
+        src="/Backgrounds/Compress1.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
     </div>
   );
 };

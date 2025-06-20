@@ -12,6 +12,8 @@ import {
   IconClipboardCheck,
   IconCalculator,
 } from "@tabler/icons-react";
+import styles from "./FeaturesSection.module.css";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function FeaturesSection() {
   const features = [
@@ -57,25 +59,36 @@ export default function FeaturesSection() {
     },
   ];
 
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: headerRef,
+    offset: ["start end", "center center"],
+  });
+  const lineWidth = useTransform(scrollYProgress, [0, 1], ["2%", "30%"]);
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-white to-gray-50 py-20 overflow-hidden">
+    <div className={styles.featuresSection}>
+      {/* Header Section for FeaturesSection */}
+      <div ref={headerRef} className={styles.headerSection}>
+        <div className={styles.headingWrapper}>
+          <h2 className={styles.mainHeading}>Featured Services of Delfyle</h2>
+          <motion.div className={styles.progressLine} style={{ width: lineWidth }} />
+        </div>
+        <p className={styles.subHeading}>
+          Comprehensive business solutions to help you start, grow, and succeed
+        </p>
+      </div>
+
       {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 -right-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-20 left-20 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div className={styles.background}>
+        <div className={`${styles.blob} ${styles.blobBlue}`}></div>
+        <div className={`${styles.blob} ${styles.blobPurple}`}></div>
+        <div className={`${styles.blob} ${styles.blobPink}`}></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive business solutions to help you start, grow, and succeed
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className={styles.content}>
+        <div className={styles.grid}>
           {features.map((feature, index) => (
             <Feature 
               key={feature.title} 
@@ -167,19 +180,16 @@ const Feature = ({
   return (
     <div 
       ref={cardRef}
-      className={cn(
-        "group bg-white rounded-2xl p-8 shadow-lg transition-all duration-300",
-        "hover:shadow-2xl"
-      )}
+      className={styles.card}
     >
       <div ref={headerRef} className="relative z-10">
-        <div className="mb-6 text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
+        <div className={styles.icon}>
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+        <h3 className={styles.cardTitle}>
           {title}
         </h3>
-        <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+        <p className={styles.cardDesc}>
           {description}
         </p>
       </div>

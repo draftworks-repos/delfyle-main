@@ -41,21 +41,21 @@ const ModernContactForm = () => {
   useEffect(() => {
     if (leftRef.current && rightRef.current && centerRef.current) {
       gsap.to(leftRef.current, {
-        y: 30,
+        y: 60,
         duration: 4,
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
       });
       gsap.to(rightRef.current, {
-        y: -30,
+        y: -60,
         duration: 5,
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
       });
       gsap.to(centerRef.current, {
-        y: 20,
+        y: 40,
         duration: 6,
         repeat: -1,
         yoyo: true,
@@ -109,7 +109,7 @@ const ModernContactForm = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div id="modern-contact-form" className={styles.wrapper}>
       <div className={styles.bgLeft} ref={leftRef}></div>
       <div className={styles.bgRight} ref={rightRef}></div>
       <div className={styles.bgCenter} ref={centerRef}></div>
@@ -173,8 +173,8 @@ const ModernContactForm = () => {
                 required
               >
                 <option value="">Select a service</option>
-                {services.map((service) => (
-                  <option key={service} value={service}>{service}</option>
+                {services.map((service, idx) => (
+                  <option key={service + '-' + idx} value={service}>{service}</option>
                 ))}
               </select>
             </label>
@@ -202,10 +202,23 @@ const ModernContactForm = () => {
             <hr className={styles.hr} />
             <div className={styles.thankSub}>We'll be in touch.<br />Shortly!</div>
             <div className={styles.nextRow}>
-              <button className={styles.nextBtn}>
-                <span>NEXT</span>
-                <span className={styles.nextCircle}><FaArrowRight /></span>
-              </button>
+              {submitted && (
+                <span style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '50%',
+                  background: '#fff',
+                  color: '#3a4fff',
+                  fontSize: '2.2rem',
+                  fontWeight: 700,
+                  boxShadow: '0 4px 16px rgba(58,79,255,0.15)'
+                }}>
+                  &#10003;
+                </span>
+              )}
             </div>
           </div>
         </div>

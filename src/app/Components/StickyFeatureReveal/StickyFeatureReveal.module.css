@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .stickyFeatureSection {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,7 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  font-family: 'Inter', sans-serif !important;
 }
 
 @media (min-width: 1024px) {
@@ -23,6 +26,7 @@
   flex-direction: column;
   gap: 5rem;
   padding-top: 5rem;
+  padding-right: 3rem;
   align-items: flex-end;
 }
 
@@ -65,10 +69,13 @@
 }
 
 .featureTitle {
+  font-family: 'Inter' !important;
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-align: left;
+  background-clip: text;
+  color: #635bff;
 }
 
 .featureDesc {
@@ -111,7 +118,7 @@
     width: 444px;
     height: 250px;
     margin: 0 auto;
-  background: #5f0024; /* bg-gray-100 */
+  background: #635bff; /* bg-gray-100 */
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -140,4 +147,53 @@
 .bgOverlay1 { background: #7c3aed; }
 .bgOverlay2 { background: #2563eb; }
 .bgOverlay3 { background: #059669; }
-.bgOverlay4 { background: #d97706; } 
+.bgOverlay4 { background: #d97706; }
+
+.headerSection {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.headingWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(107, 0, 62, 1) 0%, rgba(180, 0, 104, 1) 50%, rgba(255, 0, 128, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mainHeading::first-letter {
+  font-size: 5.5rem;
+  line-height: 1;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: linear-gradient(90deg, rgba(107, 0, 62, 0.8) 0%, rgba(180, 0, 104, 0.8) 100%);
+  border-radius: 1.5px;
+  width: 0px;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+.subHeading {
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.8;
+} 

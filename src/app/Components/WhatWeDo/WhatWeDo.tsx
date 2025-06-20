@@ -7,10 +7,12 @@ import {
   useTransform,
   AnimatePresence,
   useInView,
+  easeInOut,
 } from "framer-motion";
 import styles from "./WhatWeDo.module.css";
 import "@iconscout/unicons/css/line.css";
 import Button from "../Button/Button";
+import { useRouter } from 'next/navigation';
 
 interface Category {
   title: string;
@@ -19,6 +21,7 @@ interface Category {
 }
 
 const WhatWeDo: React.FC = () => {
+  const router = useRouter();
   const headingRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const leftBlockRef = useRef<HTMLDivElement>(null);
@@ -145,7 +148,7 @@ const WhatWeDo: React.FC = () => {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: easeInOut,
       },
     },
   };
@@ -174,14 +177,28 @@ const WhatWeDo: React.FC = () => {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: {
+        duration: 0.4,
+        ease: easeInOut,
+      },
     },
     exit: {
       opacity: 0,
       scale: 0.9,
       y: 20,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: {
+        duration: 0.4,
+        ease: easeInOut,
+      },
     },
+  };
+
+  const handleSignUpClick = () => {
+    // Scroll to the modern form component
+    const formElement = document.getElementById('modern-contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const categories: Category[] = [
@@ -326,10 +343,14 @@ const WhatWeDo: React.FC = () => {
 
         {/* WhatsApp Button */}
         <div className={styles.buttonContainer}>
-          <Button text="Login with OTP" type="whatWeDoButton" />
+          <Button 
+            text="Get in touch"
+            type="smallWhatWeDoButton"
+            onClick={handleSignUpClick}
+          />
           <Button
-            text="Whatsapp us"
-            type="whatWeDoButton"
+            text="Chat with us"
+            type="smallWhatWeDoButton"
             onClick={handleWhatsappClick}
           />
         </div>
@@ -350,6 +371,25 @@ const WhatWeDo: React.FC = () => {
                 variants={modalContentVariants}
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* X close button in top right corner */}
+                <button
+                  className={styles.modalCloseX}
+                  onClick={closeWhatsappModal}
+                  aria-label="Close"
+                  style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'transparent',
+                    border: 'none',
+                    fontSize: '1.5rem',
+                    cursor: 'pointer',
+                    color: '#6b003e',
+                    zIndex: 10
+                  }}
+                >
+                  &times;
+                </button>
                 <h3>Contact Us</h3>
                 <div className={styles.modalNumbers}>
                   {whatsappNumbers.map((number, index) => (
@@ -366,12 +406,6 @@ const WhatWeDo: React.FC = () => {
                     </motion.a>
                   ))}
                 </div>
-                <button
-                  className={styles.closeButton}
-                  onClick={closeWhatsappModal}
-                >
-                  Close
-                </button>
               </motion.div>
             </motion.div>
           )}
