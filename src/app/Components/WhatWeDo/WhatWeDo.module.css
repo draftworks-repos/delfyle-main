@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: linear-gradient(to bottom,#fff, #f9fafb);
 }
 
 .container {
