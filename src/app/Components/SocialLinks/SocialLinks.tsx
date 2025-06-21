@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./SocialLinks.module.css";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const socialLinks = [
   {
@@ -12,10 +12,10 @@ const socialLinks = [
     color: "#0077B5"
   },
   {
-    name: "GitHub",
-    icon: FaGithub,
-    url: "https://github.com",
-    color: "#333"
+    name: "YouTube",
+    icon: FaYoutube,
+    url: "https://youtube.com",
+    color: "#FF0000"
   },
   {
     name: "Twitter",
@@ -28,6 +28,12 @@ const socialLinks = [
     icon: FaInstagram,
     url: "https://instagram.com",
     color: "#E4405F"
+  },
+  {
+    name: "Facebook",
+    icon: FaFacebook,
+    url: "https://facebook.com",
+    color: "#1877F2"
   }
 ];
 

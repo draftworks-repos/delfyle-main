@@ -186,7 +186,7 @@
 
 @media (prefers-color-scheme: dark) {
   .dropdownItem:hover {
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(255, 255, 255);
   }
 }
 

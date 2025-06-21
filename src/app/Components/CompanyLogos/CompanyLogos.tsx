@@ -71,20 +71,14 @@ const CompanyLogos: React.FC = () => {
           />
           
         </motion.div>
-        {/* Animation injected below using lottie-web */}
-        <CompanyLogosAnimation />
-        {/* <div className={styles.logosGrid}>
-          {shuffledLogos.map((logo, index) => (
-            <div key={index} className={styles.logoItem}>
-              <Image
-                src={logo.url}
-                alt={`${logo.name} Logo`}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          ))}
-        </div> */}
+        <video 
+          src="/animation/CompanyLogos.mp4" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className={styles.companyLogosVideo}
+        />
       </div>
     </section>
   );
