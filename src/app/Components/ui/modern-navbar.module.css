@@ -21,7 +21,7 @@
   align-self: flex-start;
   border-radius: 9999px;
   background-color: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -358,46 +358,27 @@
   margin-right: 1rem;
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.25rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: white;
+  padding: 0;
   text-decoration: none;
+  overflow: visible; /* Allow logo to overflow vertically */
+  padding-left: .5rem;
 }
 
-.modernNavbarLogo.visible {
-  color: black;
+.logoImage {
+  transition: transform 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  .modernNavbarLogo {
-    color: white;
-  }
-  
-  .modernNavbarLogo.visible {
-    color: white;
-  }
+.logoWrapper {
+  position: relative;
 }
 
-.logoText {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: white;
-  letter-spacing: -0.025em;
+.modernNavbarLogo:hover .logoImage {
+  transform: scale(1.1);
 }
 
-.logoText.visible {
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  .logoText {
-    color: white;
-  }
-  
-  .logoText.visible {
-    color: white;
-  }
+/* Remove old text styles */
+.logoText, .logoText.visible {
+  display: none;
 }
 
 /* Button */

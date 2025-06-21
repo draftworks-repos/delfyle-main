@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./modern-navbar.module.css";
 import { Dropdown, PlaceholderIcon } from "./Dropdown";
 
@@ -495,9 +496,25 @@ export const ModernMobileNavToggle = ({
 };
 
 export const ModernNavbarLogo = ({ visible }: { visible?: boolean }) => {
+  const aspectRatio = 16 / 9;
+  const height = visible ? 40.5 : 81; // 72 / 1.77
+  const width = height * aspectRatio;
+
   return (
-    <a href="#" className={cn(styles.modernNavbarLogo, visible && styles.visible)}>
-      <span className={cn(styles.logoText, visible && styles.visible)}>Delfyle</span>
+    <a href="/" className={cn(styles.modernNavbarLogo)}>
+      <motion.div
+        className={styles.logoWrapper}
+        animate={{ width: width, height: height }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      >
+        <Image 
+          src="/delfyle-logo/delfyle-logo.png" 
+          alt="Delfyle Logo" 
+          layout="fill"
+          objectFit="contain"
+          className={styles.logoImage}
+        />
+      </motion.div>
     </a>
   );
 };

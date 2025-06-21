@@ -7,7 +7,7 @@ import CompanyLogos from "./Components/CompanyLogos/CompanyLogos";
 import TrustDelfyle from "./Components/TrustDelfyle/TrustDelfyle";
 import WhoWeWorkWith from "./Components/WhoWeWorkWith/WhoWeWorkWith";
 import Testimonial from "./Components/Testimonial/Testimonial";
-import Footer from "./Components/Footer/Footer";
+import ModernFooter from "./Components/Footer/ModernFooter";
 import FeaturesSection from './Components/FeaturesSection/FeaturesSection';
 import ModernContactForm from "./Components/NewContactForm/ModernContactForm";
 import StickyFeatureReveal from "./Components/StickyFeatureReveal/StickyFeatureReveal";
@@ -116,7 +116,7 @@ export default function Home() {
           <WhoWeWorkWith />
           <CompanyLogos />
           <Testimonial />
-          <Footer />
+          <ModernFooter />
         </div>
       </div>
     </main>
