@@ -1,49 +1,49 @@
 "use client";
 
-import Hero from "../Components/Hero";
-import WhatWeDo from "../Components/WhatWeDo/WhatWeDo";
-import CompanyLogos from "../Components/CompanyLogos/CompanyLogos";
-import WhoWeWorkWith from "../Components/WhoWeWorkWith/WhoWeWorkWith";
-import FeaturedServices from "../Components/FeaturedServices/FeaturedServices";
-import Testimonial from "../Components/Testimonial/Testimonial";
-import Footer from "../Components/Footer/Footer";
-import FeaturesSection from '../Components/FeaturesSection/FeaturesSection';
-import ModernContactForm from "../Components/NewContactForm/ModernContactForm";
-import { 
-  ModernNavbar, 
-  ModernNavBody, 
-  ModernNavItems, 
-  ModernNavbarLogo, 
-  ModernNavbarButton,
-  ModernMobileNav,
-  ModernMobileNavHeader,
-  ModernMobileNavMenu,
-  ModernMobileNavToggle
-} from "../Components/ui/modern-navbar";
+// import Hero from "../Components/Hero";
+// import WhatWeDo from "../Components/WhatWeDo/WhatWeDo";
+// import CompanyLogos from "../Components/CompanyLogos/CompanyLogos";
+// import WhoWeWorkWith from "../Components/WhoWeWorkWith/WhoWeWorkWith";
+// import FeaturedServices from "../Components/FeaturedServices/FeaturedServices";
+// import Testimonial from "../Components/Testimonial/Testimonial";
+// import Footer from "../Components/Footer/Footer";
+// import FeaturesSection from '../Components/FeaturesSection/FeaturesSection';
+// import ModernContactForm from "../Components/NewContactForm/ModernContactForm";
+// import { 
+//   ModernNavbar, 
+//   ModernNavBody, 
+//   ModernNavItems, 
+//   ModernNavbarLogo, 
+//   ModernNavbarButton,
+//   ModernMobileNav,
+//   ModernMobileNavHeader,
+//   ModernMobileNavMenu,
+//   ModernMobileNavToggle
+// } from "../Components/ui/modern-navbar";
 import { useState } from "react";
 // Extra components
-import Button from "../Components/Button/Button";
-import ClientReviews from "../Components/ClientReviews/ClientReviews";
-import CoreMinds from "../Components/CoreMinds/CoreMinds";
-import DemoHero from "../Components/DemoHero/DemoHero";
-import DragCards from "../Components/DragCards/DragCards";
-import HorizontalScrollCarousel from "../Components/HorizontalScrollCarousel/HorizontalScrollCarousel";
-import HoverTiltCard from "../Components/HoverTiltCard/HoverTiltCard";
-import IntegrationCards from "../Components/IntegrationCards/IntegrationCards";
-import IntegrationTabs from "../Components/IntegrationTabs/IntegrationTabs";
-import LogoLines from "../Components/LogoLines/LogoLines";
-import LogoOrigami from "../Components/LogoOrigami.tsx/LogoOrigami";
-// import Marquee from "../Components/Marquee/Marquee";
-import ScrollCarousel from "../Components/ScrollCarousel/ScrollCarousel";
-import SocialLinks from "../Components/SocialLinks/SocialLinks";
-import SocialMedia from "../Components/SocialMedia/SocialMedia";
-import StickyFeatureReveal from "../Components/StickyFeatureReveal/StickyFeatureReveal";
-import StickyScroll from "../Components/StickyScroll/StickyScroll";
-import TeamMembers from "../Components/TeamMembers/TeamMembers";
-import TestimonialCards from "../Components/TestimonialCards/TestimonialCards";
-import VerticleAccordion from "../Components/VerticleAccordion/VerticleAccordion";
-import VisionMission from "../Components/VisionMission/VisionMission";
-import { TextParallaxContentExample } from "../Components/TextParallax/TextParallaxContentExample";
+// import Button from "../Components/Button/Button";
+// import ClientReviews from "../Components/ClientReviews/ClientReviews";
+// import CoreMinds from "../Components/CoreMinds/CoreMinds";
+// import DemoHero from "../Components/DemoHero/DemoHero";
+// import DragCards from "../Components/DragCards/DragCards";
+// import HorizontalScrollCarousel from "../Components/HorizontalScrollCarousel/HorizontalScrollCarousel";
+// import HoverTiltCard from "../Components/HoverTiltCard/HoverTiltCard";
+// import IntegrationCards from "../Components/IntegrationCards/IntegrationCards";
+// import IntegrationTabs from "../Components/IntegrationTabs/IntegrationTabs";
+// import LogoLines from "../Components/LogoLines/LogoLines";
+// import LogoOrigami from "../Components/LogoOrigami.tsx/LogoOrigami";
+// // import Marquee from "../Components/Marquee/Marquee";
+// import ScrollCarousel from "../Components/ScrollCarousel/ScrollCarousel";
+// import SocialLinks from "../Components/SocialLinks/SocialLinks";
+// import SocialMedia from "../Components/SocialMedia/SocialMedia";
+// import StickyFeatureReveal from "../Components/StickyFeatureReveal/StickyFeatureReveal";
+// import StickyScroll from "../Components/StickyScroll/StickyScroll";
+// import TeamMembers from "../Components/TeamMembers/TeamMembers";
+// import TestimonialCards from "../Components/TestimonialCards/TestimonialCards";
+// import VerticleAccordion from "../Components/VerticleAccordion/VerticleAccordion";
+// import VisionMission from "../Components/VisionMission/VisionMission";
+// import { TextParallaxContentExample } from "../Components/TextParallax/TextParallaxContentExample";
 // Trial Components
 import ComponentOne from "../Components/TrialComponent/ComponentOne/ComponentOne";
 import ComponentTwo from "../Components/TrialComponent/ComponentTwo/ComponentTwo";
@@ -79,7 +79,7 @@ const AllComponent: React.FC = () => {
   return (
     <main className="min-h-screen">
       <div className="fixed inset-x-0 top-0 z-50">
-        <ModernNavbar>
+        {/* <ModernNavbar>
           <ModernNavBody>
             <ModernNavbarLogo />
             <ModernNavItems items={navItems} />
@@ -114,12 +114,12 @@ const AllComponent: React.FC = () => {
               </ModernNavbarButton>
             </ModernMobileNavMenu>
           </ModernMobileNav>
-        </ModernNavbar>
+        </ModernNavbar> */}
       </div>
 
-      <Hero />
+      {/* <Hero /> */}
       <div className="bg-white">
-        <WhatWeDo />
+        {/* <WhatWeDo />
         <ModernContactForm/>
         <WhoWeWorkWith />
         <CompanyLogos />
@@ -128,9 +128,9 @@ const AllComponent: React.FC = () => {
         <FeaturesSection />
         <Footer />
         {/* Extra components below */}
-        <hr />
-        <h2>Extra Components</h2>
-        <Button text="Sample Button" type="whiteButtonNoBackground" />
+        {/* <hr />
+        <h2>Extra Components</h2> */}
+        {/* <Button text="Sample Button" type="whiteButtonNoBackground" />
         <ClientReviews />
         <CoreMinds />
         <DemoHero />
@@ -142,7 +142,7 @@ const AllComponent: React.FC = () => {
         <LogoLines />
         <LogoOrigami />
         {/* <Marquee text="Sample Marquee Text" /> */}
-        <ScrollCarousel />
+        {/* <ScrollCarousel />
         <SocialLinks />
         <SocialMedia />
         <StickyFeatureReveal />
@@ -151,7 +151,7 @@ const AllComponent: React.FC = () => {
         <TestimonialCards />
         <VerticleAccordion />
         <VisionMission />
-        <TextParallaxContentExample />
+        <TextParallaxContentExample /> */} 
         <ComponentOne />
         <ComponentTwo />
         <ComponentFour />

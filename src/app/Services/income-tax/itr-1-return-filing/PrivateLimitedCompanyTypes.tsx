@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
-import styles from './ComponentEleven.module.css';
+import styles from '../../../Components/TrialComponent/ComponentEleven/ComponentEleven.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const ComponentEleven: React.FC = () => {
+const PrivateLimitedCompanyTypes: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const rightColumnRef = useRef<HTMLDivElement>(null);
@@ -77,6 +77,7 @@ const ComponentEleven: React.FC = () => {
       const handleCircleHover = () => {
         gsap.to(circleGraphic, {
           y: -10,
+          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
           duration: 0.3,
           ease: "power2.out"
         });
@@ -123,45 +124,45 @@ const ComponentEleven: React.FC = () => {
     <section ref={sectionRef} className={styles.container}>
       <div className={styles.contentWrapper}>
         <div ref={leftColumnRef} className={styles.leftColumn}>
-          <p className={styles.subHeading}>Build for the future</p>
-          <h2 className={styles.mainHeading}>ComponentEleven</h2>
+          <p className={styles.subHeading}>Company Registration Guide</p>
+          <h2 className={styles.mainHeading}>Types of Private Limited Companies</h2>
           <p className={styles.description}>
-            Our strategy and transformation team provides thought leadership and business transformation expertise to create a vision and shared roadmap for enterprise-wide adoption of the Stripe platform.
+            Understanding the different types of private limited companies and their requirements is crucial for making the right choice for your business structure in India.
           </p>
 
           <div ref={el => { if (el) featureItemsRef.current[0] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>🏢</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Uncover insights</h3>
+              <h3 className={styles.featureHeading}>Company Limited by Shares</h3>
               <p className={styles.featureDescription}>
-                Explore opportunities through customer research, data analysis, customer interviews, and industry trends.
+                Shareholders' liability is limited to their shareholding. This is the most common type of private limited company structure.
               </p>
             </div>
           </div>
 
           <div ref={el => { if (el) featureItemsRef.current[1] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>🛡️</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Identify solutions</h3>
+              <h3 className={styles.featureHeading}>Company Limited by Guarantee</h3>
               <p className={styles.featureDescription}>
-                Workshop ideas and identify new solutions and improvements that align with your long-term goals.
+                Members provide a financial guarantee in case of winding up. Often used by non-profit organizations and professional associations.
               </p>
             </div>
           </div>
 
           <div ref={el => { if (el) featureItemsRef.current[2] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>⚖️</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Deliver outcomes</h3>
+              <h3 className={styles.featureHeading}>Unlimited Company</h3>
               <p className={styles.featureDescription}>
-                Define, align, and commit to actionable shared roadmaps with implementation plans that enable teams to execute.
+                No limit on members' liability, but the entity remains legally distinct. Rarely used due to unlimited liability exposure.
               </p>
             </div>
           </div>
         </div>
         <div ref={rightColumnRef} className={styles.rightColumn}>
           <div ref={circleGraphicRef} className={styles.circleGraphic}>
-            <p className={styles.circleText}>Build for the future</p>
+            <p className={styles.circleText}>Pvt. Ltd. Types</p>
           </div>
           {/* Placeholder for lines and other small icons */}
         </div>
@@ -170,4 +171,4 @@ const ComponentEleven: React.FC = () => {
   );
 };
 
-export default ComponentEleven; 
+export default PrivateLimitedCompanyTypes; 

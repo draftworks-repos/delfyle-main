@@ -37,6 +37,8 @@
   z-index: 1;
 }
 
+
+
 .left {
   flex: 1;
   color: #fff;
@@ -174,6 +176,7 @@
   z-index: 1;
 }
 
+
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
@@ -195,5 +198,6 @@
   }
   .cardWrapper {
     width: 260px;
+    height: 140px;
   }
 } 

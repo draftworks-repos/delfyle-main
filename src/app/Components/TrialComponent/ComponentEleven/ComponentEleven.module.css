@@ -1,5 +1,5 @@
 .container {
-  width: 100%;
+  max-width:1400px;
   min-height: 100vh;
   background-color: #fff; /* White background */
   display: flex;
@@ -8,14 +8,15 @@
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .contentWrapper {
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   display: flex;
-  gap: 4rem;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .leftColumn {

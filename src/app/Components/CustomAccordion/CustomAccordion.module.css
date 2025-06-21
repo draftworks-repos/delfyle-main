@@ -1,0 +1,338 @@
+.container {
+  border-radius: 0.5rem;
+  padding: 5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #1a202c;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Theme variations */
+.theme--light {
+  background-color: #ffffff;
+  color: #1a202c;
+}
+
+.theme--dark {
+  background-color: #1a202c;
+  color: #ffffff;
+}
+
+.theme--dark .mainHeading,
+.theme--dark .itemTitle {
+  color: #ffffff;
+}
+
+.theme--dark .description,
+.theme--dark .contentText {
+  color: #cbd5e0;
+}
+
+.theme--dark .accordionItem {
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+}
+
+.theme--dark .accordionHeader:hover {
+  background-color: #4a5568;
+}
+
+.header {
+  text-align: start;
+  margin-bottom: 4rem;
+}
+
+.subHeading {
+  font-size: 0.9rem;
+  color: #614efc;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.mainHeading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  text-align: left;
+  width: 100%;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.accordionItem {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem.open {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.accordionHeader:hover {
+  background-color: #f7fafc;
+}
+
+.accordionHeader:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(107, 0, 62, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.itemTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(107, 0, 62, 1) 0%, rgba(180, 0, 104, 1) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(107, 0, 62, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 1.25rem;
+}
+
+.chevron {
+  width: 24px;
+  height: 24px;
+  color: #666;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordionContent.expanded {
+  max-height: 500px;
+  padding-top: 1rem;
+}
+
+.contentInner {
+  padding: 0 2rem 1.5rem 2rem;
+}
+
+.contentText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 4rem 1.5rem;
+  }
+
+  .mainHeading {
+    font-size: 3rem;
+  }
+
+  .accordionContainer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .accordionHeader {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .headerContent {
+    gap: 0.75rem;
+  }
+
+  .itemTitle {
+    font-size: 1.125rem;
+  }
+
+  .stepNumber,
+  .iconWrapper {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .contentInner {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+
+  .contentText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .accordionHeader {
+    padding: 1rem 1.25rem;
+  }
+
+  .headerContent {
+    gap: 0.5rem;
+  }
+
+  .itemTitle {
+    font-size: 1rem;
+  }
+
+  .stepNumber,
+  .iconWrapper {
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+  }
+
+  .contentInner {
+    padding: 0 1.25rem 1rem 1.25rem;
+  }
+
+  .contentText {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for content expansion */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordionContent.expanded .contentInner {
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Focus states for accessibility */
+.accordionHeader:focus-visible {
+  outline: 2px solid rgba(107, 0, 62, 0.5);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .accordionItem {
+    border: 2px solid #000000;
+  }
+  
+  .accordionHeader:hover {
+    background-color: #e2e8f0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .accordionContent,
+  .chevron,
+  .accordionItem {
+    transition: none;
+  }
+  
+  /* .accordionContent.expanded .contentInner {
+    animation: none;
+  } */
+} 

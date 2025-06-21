@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
-import styles from './ComponentEleven.module.css';
+import styles from '../../../Components/TrialComponent/ComponentEleven/ComponentEleven.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const ComponentEleven: React.FC = () => {
+const PrivateLimitedCompanyBenefits: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const rightColumnRef = useRef<HTMLDivElement>(null);
@@ -19,11 +19,10 @@ const ComponentEleven: React.FC = () => {
     const section = sectionRef.current;
     const leftColumn = leftColumnRef.current;
     const rightColumn = rightColumnRef.current;
-    const featureItems = featureItemsRef.current.filter(Boolean); // Ensure no nulls
+    const featureItems = featureItemsRef.current.filter(Boolean);
     const circleGraphic = circleGraphicRef.current;
 
     if (section && leftColumn && rightColumn && circleGraphic) {
-      // Initial states
       gsap.set(leftColumn.children, {
         opacity: 0,
         y: 30
@@ -34,7 +33,6 @@ const ComponentEleven: React.FC = () => {
         scale: 0.8
       });
 
-      // Create timeline for entrance animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -44,7 +42,6 @@ const ComponentEleven: React.FC = () => {
         }
       });
 
-      // Animate left column content with stagger
       tl.to(leftColumn.children, {
         opacity: 1,
         y: 0,
@@ -59,7 +56,6 @@ const ComponentEleven: React.FC = () => {
         ease: "elastic.out(1, 0.5)"
       }, "-=0.4");
 
-      // Animate feature items with a slight delay
       gsap.to(featureItems, {
         opacity: 1,
         y: 0,
@@ -77,6 +73,7 @@ const ComponentEleven: React.FC = () => {
       const handleCircleHover = () => {
         gsap.to(circleGraphic, {
           y: -10,
+          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
           duration: 0.3,
           ease: "power2.out"
         });
@@ -91,11 +88,9 @@ const ComponentEleven: React.FC = () => {
         });
       };
 
-      // Add event listeners for circle
       circleGraphic.addEventListener('mouseenter', handleCircleHover);
       circleGraphic.addEventListener('mouseleave', handleCircleLeave);
       
-      // Add hover animations for each feature item
       const itemListeners: { el: HTMLElement; enter: () => void; leave: () => void }[] = [];
       featureItems.forEach(item => {
         const onEnter = () => gsap.to(item, { y: -10, scale: 1.025, duration: 0.3, ease: 'power2.out' });
@@ -106,7 +101,6 @@ const ComponentEleven: React.FC = () => {
         itemListeners.push({ el: item, enter: onEnter, leave: onLeave });
       });
 
-      // Cleanup
       return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         circleGraphic.removeEventListener('mouseenter', handleCircleHover);
@@ -123,51 +117,50 @@ const ComponentEleven: React.FC = () => {
     <section ref={sectionRef} className={styles.container}>
       <div className={styles.contentWrapper}>
         <div ref={leftColumnRef} className={styles.leftColumn}>
-          <p className={styles.subHeading}>Build for the future</p>
-          <h2 className={styles.mainHeading}>ComponentEleven</h2>
+          <p className={styles.subHeading}>Why Choose Private Limited?</p>
+          <h2 className={styles.mainHeading}>Benefits of a Private Limited Company</h2>
           <p className={styles.description}>
-            Our strategy and transformation team provides thought leadership and business transformation expertise to create a vision and shared roadmap for enterprise-wide adoption of the Stripe platform.
+            Private limited companies offer numerous advantages that make them the preferred choice for businesses looking to establish a strong foundation in India.
           </p>
 
           <div ref={el => { if (el) featureItemsRef.current[0] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>🛡️</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Uncover insights</h3>
+              <h3 className={styles.featureHeading}>Limited Liability</h3>
               <p className={styles.featureDescription}>
-                Explore opportunities through customer research, data analysis, customer interviews, and industry trends.
+                Protects personal assets from company debts. Shareholders are only liable to the extent of their shareholding.
               </p>
             </div>
           </div>
 
           <div ref={el => { if (el) featureItemsRef.current[1] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>🏛️</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Identify solutions</h3>
+              <h3 className={styles.featureHeading}>Separate Legal Entity</h3>
               <p className={styles.featureDescription}>
-                Workshop ideas and identify new solutions and improvements that align with your long-term goals.
+                Independent identity from its owners. The company can own property, enter contracts, and sue or be sued in its own name.
               </p>
             </div>
           </div>
 
           <div ref={el => { if (el) featureItemsRef.current[2] = el }} className={styles.featureItem}>
-            <div className={styles.featureIcon}></div>
+            <div className={styles.featureIcon}>💰</div>
             <div className={styles.featureTextContent}>
-              <h3 className={styles.featureHeading}>Deliver outcomes</h3>
+              <h3 className={styles.featureHeading}>Ease of Raising Funds</h3>
               <p className={styles.featureDescription}>
-                Define, align, and commit to actionable shared roadmaps with implementation plans that enable teams to execute.
+                Attracts investments from venture capitalists and angel investors. Better credibility for securing loans and funding.
               </p>
             </div>
           </div>
         </div>
         <div ref={rightColumnRef} className={styles.rightColumn}>
           <div ref={circleGraphicRef} className={styles.circleGraphic}>
-            <p className={styles.circleText}>Build for the future</p>
+            <p className={styles.circleText}>Benefits</p>
           </div>
-          {/* Placeholder for lines and other small icons */}
         </div>
       </div>
     </section>
   );
 };
 
-export default ComponentEleven; 
+export default PrivateLimitedCompanyBenefits; 
